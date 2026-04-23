@@ -1,0 +1,1 @@
+<?php include __DIR__ . '/table_manager/table_tacgia.php'; ?>
