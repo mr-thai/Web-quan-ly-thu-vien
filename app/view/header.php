@@ -7,19 +7,18 @@
                         <li><a href="javascript:void(0);"><i class="icon-envelope"></i><em>Liên Hệ</em></a></li>
                         <li><a href="javascript:void(0);"><i class="icon-question-circle"></i><em>Trợ Giúp</em></a></li>
                     </ul>
-                    <div class="dropdown tg-themedropdown tg-currencydropdown">
-                        <a href="javascript:void(0);" id="tg-currenty" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="icon-earth"></i><span>Tiền Tệ</span>
+                    <div class="tg-userlogin">
+                        <div class="dropdown tg-themedropdown tg-currencydropdown">
+                        <a href="javascript:void(0);" id="tg-userlogin" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <figure><img src="images/users/img-01.jpg" alt="hình ảnh" width="30" height="30"></figure>
+                            <span>Xin chào, John</span>
                         </a>
-                        <ul class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-currenty">
-                            <li><a href="javascript:void(0);"><i>£</i><span>Bảng Anh</span></a></li>
-                            <li><a href="javascript:void(0);"><i>$</i><span>Đô La Mỹ</span></a></li>
-                            <li><a href="javascript:void(0);"><i>€</i><span>Euro</span></a></li>
+                        <ul class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-userlogin">
+                            <li><a href="javascript:void(0);">Trang cá nhân</a></li>
+                            <li><a href="javascript:void(0);">Đơn hàng</a></li>
+                            <li><a href="javascript:void(0);">Đăng xuất</a></li>
                         </ul>
                     </div>
-                    <div class="tg-userlogin">
-                        <figure><a href="javascript:void(0);"><img src="images/users/img-01.jpg" alt="hình ảnh"></a></figure>
-                        <span>Xin chào, John</span>
                     </div>
                 </div>
             </div>
@@ -31,46 +30,52 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <strong class="tg-logo"><a href="index.php"><img src="images/logo.png" alt="logo công ty"></a></strong>
                     <div class="tg-wishlistandcart">
-                        <div class="dropdown tg-themedropdown tg-wishlistdropdown">
-                            <a href="javascript:void(0);" id="tg-wishlisst" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="tg-themebadge">3</span><i class="icon-heart"></i><span>Danh Sách Yêu Thích</span>
-                            </a>
-                            <div class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-wishlisst">
-                                <div class="tg-description"><p>Không có sản phẩm nào được thêm vào danh sách yêu thích!</p></div>
-                            </div>
-                        </div>
-                        <div class="dropdown tg-themedropdown tg-minicartdropdown">
-                            <a href="javascript:void(0);" id="tg-minicart" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="tg-themebadge">3</span><i class="icon-cart"></i><span>$123.00</span>
-                            </a>
-                            <div class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-minicart">
-                                <div class="tg-minicartbody">
+                    <?php
+                    $cart_count = 0;
+                    $cart_total = 0;
+                    if (isset($_SESSION['cart'])) {
+                        foreach ($_SESSION['cart'] as $item) {
+                            $cart_count += $item['qty'];
+                        }
+                    }
+                    ?>
+                    <div class="dropdown tg-themedropdown tg-minicartdropdown">
+                        <a href="javascript:void(0);" id="tg-minicart" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="tg-themebadge"><?= $cart_count ?></span>
+                            <i class="icon-cart"></i>
+                        </a>
+                        <div class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-minicart">
+                            <div class="tg-minicartbody">
+                                <?php if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0): ?>
+                                    <?php foreach($_SESSION['cart'] as $id => $item): ?>
+                                    <?php $cartImage = !empty($item['url_anh']) ? ltrim($item['url_anh'], '/') : 'images/products/img-01.jpg'; ?>
                                     <div class="tg-minicarproduct">
-                                        <figure><img src="images/products/img-01.jpg" alt="hình ảnh"></figure>
+                                        <figure><img src="<?= htmlspecialchars($cartImage) ?>" alt="hình ảnh" width="60"></figure>
                                         <div class="tg-minicarproductdata">
-                                            <h5><a href="javascript:void(0);">Đại Hội Bang Của Chúng Ta Là Một Chức Năng Tuyệt Vời</a></h5>
-                                            <h6><a href="javascript:void(0);">$ 12.15</a></h6>
+                                            <h5><a href="javascript:void(0);"><?= htmlspecialchars($item['ten_sach']) ?></a> * <?= (int)$item['qty'] ?></h5>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="tg-minicartfoot">
-                                    <a class="tg-btnemptycart" href="javascript:void(0);"><i class="fa fa-trash-o"></i><span>Xóa Giỏ Mượn</span></a>
-                                    <span class="tg-subtotal">Tổng: <strong>35.78</strong></span>
-                                    <div class="tg-btns">
-                                        <a class="tg-btn tg-active" href="javascript:void(0);">Xem Giỏ Mượn</a>
-                                        <a class="tg-btn" href="javascript:void(0);">Xác Nhận Mượn</a>
-                                    </div>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <p style="padding: 10px;">Giỏ hàng trống</p>
+                                <?php endif; ?>
+                            </div>
+                            <div class="tg-minicartfoot">
+                                <a class="tg-btnemptycart" href="javascript:void(0);"><i class="fa fa-trash-o"></i><span>Xóa Giỏ Hàng</span></a>
+                                <div class="tg-btns">
+                                    <a class="tg-btn tg-active" href="javascript:void(0);">Xem Giỏ Hàng</a>
+                                    <a class="tg-btn" href="app/controller/control_muon_sach.php?action=checkout">Mượn Sách</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
                     <div class="tg-searchbox">
                         <form class="tg-formtheme tg-formsearch">
                             <fieldset>
                                 <input type="text" name="search" class="typeahead form-control" placeholder="Tìm theo tiêu đề, tác giả, từ khóa, ISBN...">
                                 <button type="submit"><i class="icon-magnifier"></i></button>
                             </fieldset>
-                            <a href="javascript:void(0);">+ Tìm Kiếm Nâng Cao</a>
                         </form>
                     </div>
                 </div>
@@ -81,9 +86,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <nav id="tg-nav" class="tg-nav">
+                    <nav id="tg-nav" class="tg-nav ">
                         <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#tg-navigation" aria-expanded="false">
+                            <button type="button" class="navbar-toggle collapsed " data-toggle="collapse" data-target="#tg-navigation" aria-expanded="false">
                                 <span class="sr-only">Chuyển đổi điều hướng</span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
@@ -121,24 +126,15 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="menu-item-has-children">
-                                    <a href="javascript:void(0);">Trang Chủ</a>
-                                    <ul class="sub-menu">
-                                        <li class="current-menu-item"><a href="index.php">Trang Chủ V1</a></li>
-                                    </ul>
+                                <li>
+                                    <a href="authors.php">Tác Giả</a>
                                 </li>
+                                <li><a href="products.php">Bán Chạy</a></li>
+                                <li><a href="products.php">Giảm Giá Tuần</a></li>
                                 <li class="menu-item-has-children">
-                                    <a href="javascript:void(0);">Tác Giả</a>
+                                    <a href="javascript:void(0);">Tin Tức</a>
                                     <ul class="sub-menu">
-                                        <li><a href="authors.php">Tác Giả</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="products.php">Được Mượn Nhiều</a></li>
-                                <li><a href="products.php">Ưu Đãi Tuần</a></li>
-                                <li class="menu-item-has-children">
-                                    <a href="javascript:void(0);">Tin Tức Mới Nhất</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="newslist.php">Danh Sách Tin Tức</a></li>
+                                        <li><a href="newslist.php">Tin Tức Mới Nhất</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="contactus.php">Liên Hệ</a></li>

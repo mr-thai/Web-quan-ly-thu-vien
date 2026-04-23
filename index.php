@@ -22,6 +22,7 @@
 <body class="tg-home tg-homeone">
 <div id="tg-wrapper" class="tg-wrapper tg-haslayout">
 
+<?php require_once 'app/config.php'; ?>
 <?php include 'app/view/header.php'; ?>
 
 <main id="tg-main" class="tg-main tg-haslayout">

@@ -16,10 +16,6 @@
 														<span class="tg-bookwriter">By: <a href="javascript:void(0);">Farrah Whisenhunt</a></span>
 														<span class="tg-stars"><span></span></span>
 														<div class="tg-priceandbtn">
-															<span class="tg-bookprice">
-																<ins>$23.18</ins>
-																<del>$30.20</del>
-															</span>
 															<a class="tg-btn tg-btnstyletwo tg-active" href="javascript:void(0);">
 																<i class="fa fa-book"></i>
 																<em>Mượn sách</em>

@@ -66,7 +66,7 @@
 								<div id="tg-content" class="tg-content">
 									<div class="tg-products">
 										
-										<?php include 'app/view/banner-product.php'; ?>
+										<?php include 'app/view/products/banner-product.php'; ?>
 										
 										<?php include 'app/view/products/productgrid.php'; ?>
 
@@ -74,7 +74,7 @@
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pull-left">
-								<?php include 'app/view/aside-products.php'; ?>
+								<?php include 'app/view/products/aside-products.php'; ?>
 							</div>
 						</div>
 					</div>
