@@ -13,14 +13,10 @@ $products = getDanhSachSach($conn);
 					<a href="productdetail.php?id=<?php echo $row['ma_sach']; ?>" class="tg-frontcover"><img src="<?php echo $bookImage; ?>" alt="image description" style="width:200px;height:300px;object-fit:cover;display:block;"></a>
 					<div class="tg-backcover"><img src="<?php echo $bookImage; ?>" alt="image description" style="width:200px;height:300px;object-fit:cover;display:block;"></div>
 				</div>
-				<a class="tg-btnaddtowishlist" href="javascript:void(0);">
-					<i class="icon-heart"></i>
-					<span>add to wishlist</span>
-				</a>
 			</figure>
 			<div class="tg-postbookcontent">
 				<ul class="tg-bookscategories">
-					<li><a href="javascript:void(0);">Art &amp; Photography</a></li>
+					<li><a href="javascript:void(0);"><?php echo htmlspecialchars($row['ten_the_loai'], ENT_QUOTES, 'UTF-8'); ?></a></li>
 				</ul>
 				<div class="tg-booktitle">
 			<h3><a href="productdetail.php?id=<?php echo $row['ma_sach']; ?>"><?php echo htmlspecialchars($row['ten_sach'], ENT_QUOTES, 'UTF-8'); ?></a></h3>

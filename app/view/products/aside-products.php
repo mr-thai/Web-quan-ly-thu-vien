@@ -22,12 +22,12 @@ $danh_sach = getDanhSachSachProduct_aside($conn);
 			<ul>
 				<li>
 					<article class="tg-post">
-							<figure><a href="javascript:void(0);"><img src="<?php echo htmlspecialchars($bookImage, ENT_QUOTES, 'UTF-8'); ?>" alt="image description"></a></figure>
+							<figure><a href="productdetail.php?id=<?php echo intval($row['ma_sach']); ?>"><img src="<?php echo htmlspecialchars($bookImage, ENT_QUOTES, 'UTF-8'); ?>" alt="image description"></a></figure>
 						<div class="tg-postcontent">
 							<div class="tg-posttitle">
-								<h3><a href="javascript:void(0);"><?=$row['ten_sach'] ?></a></h3>
+								<h3><a href="productdetail.php?id=<?php echo intval($row['ma_sach']); ?>"><?php echo htmlspecialchars($row['ten_sach'], ENT_QUOTES, 'UTF-8'); ?></a></h3>
 							</div>
-							<span class="tg-bookwriter">By: <a href="javascript:void(0);"><?=$row['ten_tac_gia'] ?></a></span>
+							<span class="tg-bookwriter">By: <a href="productdetail.php?id=<?php echo intval($row['ma_sach']); ?>"><?php echo htmlspecialchars($row['ten_tac_gia'], ENT_QUOTES, 'UTF-8'); ?></a></span>
 						</div>
 					</article>
 				</li>
@@ -43,14 +43,17 @@ $danh_sach = getDanhSachSachProduct_aside($conn);
 		$danh_sach_tac_gia = getDanhSachSachAuthor_aside($conn);
 		while($row = $danh_sach_tac_gia->fetch_assoc() ): 
 		?>
+		<?php
+			$authorImage = !empty($row['avatar_url']) ? ltrim($row['avatar_url'], '/') : 'images/author/imag-24.jpg';
+		?>
 		<div class="tg-widgetcontent">
 			<ul>
 				<li>
 					<div class="tg-author">
-						<figure><a href="javascript:void(0);"><img src="images/author/imag-03.jpg" alt="image description"></a></figure>
+						<figure><a href="authordetail.php?id=<?php echo intval($row['ma_tac_gia']); ?>"><img src="<?php echo htmlspecialchars($authorImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($row['ten_tac_gia'], ENT_QUOTES, 'UTF-8'); ?>" style="width:100px;height:100px;"></a></figure>
 						<div class="tg-authorcontent">
-							<h2><a href="javascript:void(0);"><?=$row['ten_tac_gia'] ?></a></h2>
-							<span><?=$row['so_sach'] ?> Published Books</span>
+							<h2><a href="authordetail.php?id=<?php echo intval($row['ma_tac_gia']); ?>"><?php echo htmlspecialchars($row['ten_tac_gia'], ENT_QUOTES, 'UTF-8'); ?></a></h2>
+							<span><?php echo (int)$row['so_sach']; ?> Published Books</span>
 						</div>
 					</div>
 				</li>

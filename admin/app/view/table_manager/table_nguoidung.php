@@ -45,7 +45,7 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php if ($result && mysqli_num_rows($result) > 0): ?>
+                                        <?php if (isset($result) && $result && mysqli_num_rows($result) > 0): ?>
                                             <?php while ($user = mysqli_fetch_assoc($result)): ?>
                                                 <tr>
                                                     <td><?php echo $user['ma_nguoi_dung']; ?></td>

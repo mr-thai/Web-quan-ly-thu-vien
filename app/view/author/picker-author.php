@@ -29,7 +29,6 @@ $pickedBooks = getSachDuocChonBoiTacGia($conn, 5);
 									<strong class="tg-bookpage">Book Pages: <?php echo htmlspecialchars($book['so_trang'], ENT_QUOTES, 'UTF-8'); ?></strong>
 									<strong class="tg-bookcategory">Năm XB: <?php echo htmlspecialchars($book['nam_xuat_ban'], ENT_QUOTES, 'UTF-8'); ?></strong>
 									<strong class="tg-bookprice">Price: <?php echo number_format((float)$book['gia_sach'], 0, ',', '.'); ?> đ</strong>
-									<div class="tg-ratingbox"><span class="tg-stars"><span></span></span></div>
 								</div>
 							</figure>
 							<div class="tg-postbookcontent">

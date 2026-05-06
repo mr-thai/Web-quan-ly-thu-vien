@@ -17,7 +17,7 @@
                                 <ul class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-userlogin">
                                     <li><a href="sach-cua-toi.php">Sách đã mượn</a></li>
                                     <li><a href="cart-muon.php">Giỏ mượn</a></li>
-                                    <li><a href="logout.php">Đăng xuất</a></li>
+                                    <li><a href="../logout.php">Đăng xuất</a></li>
                                 </ul>
                             </div>
                         <?php else: ?>
@@ -112,43 +112,12 @@
                                 <span class="icon-bar"></span>
                             </button>
                         </div>
-                        <div id="tg-navigation" class="collapse navbar-collapse tg-navigation">
+                        <div id="tg-navigation" class="collapse navbar-collapse tg-navigation ">
                             <ul>
-                                <li class="menu-item-has-children menu-item-has-mega-menu">
-                                    <a href="javascript:void(0);">Tất Cả Thể Loại</a>
-                                    <div class="mega-menu">
-                                        <ul class="tg-themetabnav" role="tablist">
-                                            <li role="presentation" class="active"><a href="#artandphotography" aria-controls="artandphotography" role="tab" data-toggle="tab">Nghệ Thuật &amp; Nhiếp Ảnh</a></li>
-                                            <li role="presentation"><a href="#fiction" aria-controls="fiction" role="tab" data-toggle="tab">Tiểu Thuyết</a></li>
-                                        </ul>
-                                        <div class="tab-content tg-themetabcontent">
-                                            <div role="tabpanel" class="tab-pane active" id="artandphotography">
-                                                <ul>
-                                                    <li>
-                                                        <div class="tg-linkstitle"><h2>Kiến Trúc</h2></div>
-                                                        <ul><li><a href="products.php">Tough As Nails</a></li></ul>
-                                                        <a class="tg-btnviewall" href="products.php">Xem Tất Cả</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div role="tabpanel" class="tab-pane" id="fiction">
-                                                <ul>
-                                                    <li>
-                                                        <div class="tg-linkstitle"><h2>Tiểu Thuyết</h2></div>
-                                                        <ul><li><a href="products.php">Consectetur adipisicing</a></li></ul>
-                                                        <a class="tg-btnviewall" href="products.php">Xem Tất Cả</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
                                 <li><a href="index.php">Home</a></li>
                                 <li><a href="products.php">sản phẩm</a></li>
-                                <li><a href="productdetail.php">chi tiết sản phẩm</a></li>
                                 <li><a href="contactus.php">góp ý</a></li>
                                 <li><a href="authors.php">tác giả</a></li>
-                                <li><a href="authordetail.php">chi tiết tác giả</a></li>
                                 <li><a href="aboutus.php">giới thiệu</a></li>
                                 <li><a href="404error.php">lỗi 404</a></li>
                                

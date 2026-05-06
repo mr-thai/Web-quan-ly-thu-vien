@@ -1,5 +1,6 @@
 <div class="container-fluid">
 
+                    <?php $result = isset($result) ? $result : null; ?>
                     <?php if (!empty($message)): ?>
                         <div class="alert alert-info alert-dismissible fade show" role="alert">
                             <?php echo htmlspecialchars($message); ?>
@@ -95,8 +96,8 @@
                                                                             <input type="text" name="isbn" class="form-control" required value="<?php echo htmlspecialchars($sach['isbn']); ?>">
                                                                         </div>
                                                                         <div class="form-group col-md-4">
-                                                                            <label>Mã thể loại</label>
-                                                                            <input type="number" name="ten_the_loai" class="form-control" value="<?php echo (int)$sach['ten_the_loai']; ?>">
+                                                                            <label>Tên thể loại</label>
+                                                                            <input type="text" name="ten_the_loai" class="form-control" value="<?php echo htmlspecialchars($sach['ten_the_loai']); ?>">
                                                                         </div>
                                                                     </div>
 
@@ -104,7 +105,7 @@
                                                                         <div class="form-group col-md-6">
                                                                             <label>Tác giả</label>
                                                                             <select name="ma_tacgia" class="form-control" required>
-                                                                                <?php foreach ($tac_gia_list as $tac_gia): ?>
+                                                                                <?php foreach ((isset($tac_gia_list) ? $tac_gia_list : []) as $tac_gia): ?>
                                                                                     <option value="<?php echo (int)$tac_gia['ma_tac_gia']; ?>" <?php echo (int)$tac_gia['ma_tac_gia'] === (int)$sach['ma_tacgia'] ? 'selected' : ''; ?>>
                                                                                         <?php echo htmlspecialchars($tac_gia['ho_ten']); ?>
                                                                                     </option>
@@ -204,8 +205,8 @@
                                                 <input type="text" name="isbn" class="form-control" required>
                                             </div>
                                             <div class="form-group col-md-4">
-                                                <label>Mã thể loại</label>
-                                                <input type="number" name="ten_the_loai" class="form-control" value="1">
+                                                <label>Tên thể loại</label>
+                                                <input type="text" name="ten_the_loai" class="form-control" value="Văn học">
                                             </div>
                                         </div>
 
@@ -213,7 +214,7 @@
                                             <div class="form-group col-md-6">
                                                 <label>Tác giả</label>
                                                 <select name="ma_tacgia" class="form-control" required>
-                                                    <?php foreach ($tac_gia_list as $tac_gia): ?>
+                                                    <?php foreach ((isset($tac_gia_list) ? $tac_gia_list : []) as $tac_gia): ?>
                                                         <option value="<?php echo (int)$tac_gia['ma_tac_gia']; ?>"><?php echo htmlspecialchars($tac_gia['ho_ten']); ?></option>
                                                     <?php endforeach; ?>
                                                 </select>

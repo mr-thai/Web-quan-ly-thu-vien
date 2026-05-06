@@ -1,4 +1,8 @@
                 <div class="container-fluid">
+                    <?php
+                        $message = $message ?? '';
+                        $result = $result ?? null;
+                    ?>
 
                     <?php if (!empty($message)): ?>
                         <div class="alert alert-info alert-dismissible fade show" role="alert">
@@ -24,6 +28,7 @@
                                     <thead>
                                         <tr>
                                             <th>Mã tác giả</th>
+                                            <th>Ảnh tác giả</th>
                                             <th>Họ tên</th>
                                             <th>Bút danh</th>
                                             <th>Ngày sinh</th>
@@ -35,8 +40,25 @@
                                     <tbody>
                                         <?php if ($result && mysqli_num_rows($result) > 0): ?>
                                             <?php while ($tacgia = mysqli_fetch_assoc($result)): ?>
+                                                <?php
+                                                    if (!empty($tacgia['avatar_url'])) {
+                                                        $avatarUrl = $tacgia['avatar_url'];
+                                                        if ($avatarUrl[0] === '/') {
+                                                            $avatarUrl = '/Quan_ly_thu_vien' . $avatarUrl;
+                                                        } else {
+                                                            $avatarUrl = '../' . ltrim($avatarUrl, '/');
+                                                        }
+                                                    } else {
+                                                        $avatarUrl = '/Quan_ly_thu_vien/images/author/imag-24.jpg';
+                                                    }
+                                                ?>
                                                 <tr>
                                                     <td><?php echo (int)$tacgia['ma_tac_gia']; ?></td>
+                                                    <td>
+                                                        <img src="<?php echo htmlspecialchars($avatarUrl, ENT_QUOTES, 'UTF-8'); ?>"
+                                                             alt="Ảnh tác giả"
+                                                             style="width: 60px; height: 60px; ">
+                                                    </td>
                                                     <td><?php echo htmlspecialchars($tacgia['ho_ten']); ?></td>
                                                     <td><?php echo htmlspecialchars($tacgia['but_danh']); ?></td>
                                                     <td><?php echo !empty($tacgia['ngay_sinh']) ? date('d/m/Y', strtotime($tacgia['ngay_sinh'])) : '--'; ?></td>
@@ -93,6 +115,11 @@
                                                                     </div>
 
                                                                     <div class="form-group">
+                                                                        <label>Đường dẫn ảnh tác giả</label>
+                                                                        <input type="text" name="avatar_url" class="form-control" value="<?php echo htmlspecialchars($tacgia['avatar_url'] ?? ''); ?>" placeholder="Ví dụ: images/author/abc.jpg">
+                                                                    </div>
+
+                                                                    <div class="form-group">
                                                                         <label>Tiểu sử</label>
                                                                         <textarea name="tieu_su" class="form-control" rows="3"><?php echo htmlspecialchars($tacgia['tieu_su']); ?></textarea>
                                                                     </div>
@@ -112,7 +139,7 @@
                                             <?php endwhile; ?>
                                         <?php else: ?>
                                             <tr>
-                                                <td colspan="7" class="text-center">Không có tác giả nào.</td>
+                                                <td colspan="8" class="text-center">Không có tác giả nào.</td>
                                             </tr>
                                         <?php endif; ?>
                                     </tbody>
@@ -158,6 +185,11 @@
                                                 <label>Quốc tịch</label>
                                                 <input type="text" name="quoc_tich" class="form-control">
                                             </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Đường dẫn ảnh tác giả</label>
+                                            <input type="text" name="avatar_url" class="form-control" placeholder="Ví dụ: images/author/abc.jpg">
                                         </div>
 
                                         <div class="form-group">

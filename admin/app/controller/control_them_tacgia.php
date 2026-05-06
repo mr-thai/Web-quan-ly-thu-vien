@@ -5,6 +5,7 @@ $ok = tg_add($conn, array(
     'ngay_sinh' => trim($_POST['ngay_sinh']),
     'ngay_mat' => trim($_POST['ngay_mat']),
     'quoc_tich' => trim($_POST['quoc_tich']),
+    'avatar_url' => trim($_POST['avatar_url']),
     'tieu_su' => trim($_POST['tieu_su']),
     'ghi_chu' => trim($_POST['ghi_chu'])
 ));

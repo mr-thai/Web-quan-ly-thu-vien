@@ -16,17 +16,17 @@ $sach_moi_phat_hanh = getSachChonBoiTacGia($conn);
                 <div class="item">
                         <div class="tg-postbook">
                             <figure class="tg-featureimg">
-                                <div class="tg-bookimg"><div class="tg-frontcover"><img src="<?= htmlspecialchars($bookImage) ?>" alt="hình ảnh" style="width:200px;height:300px;object-fit:cover;display:block;"></div></div>
+                                <div class="tg-bookimg"><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>" class="tg-frontcover"><img src="<?= htmlspecialchars($bookImage) ?>" alt="hình ảnh" style="width:200px;height:300px;object-fit:cover;display:block;"></a></div>
                                 <div class="tg-hovercontent">
                                     <div class="tg-description"><p>Mô tả sách.</p></div>
                                     <strong class="tg-bookpage">Trang Sách: 206</strong>
-                                    <strong class="tg-bookcategory">Thể Loại: <?= $row['ten_the_loai'] ?></strong>
+                                    <strong class="tg-bookcategory">Thể Loại: <?= htmlspecialchars($row['ten_the_loai'], ENT_QUOTES, 'UTF-8') ?></strong>
                                     <div class="tg-ratingbox"><span class="tg-stars"><span></span></span></div>
                                 </div>
                             </figure>
                             <div class="tg-postbookcontent">
-                                <div class="tg-booktitle"><h3><a href="javascript:void(0);"><?= $row['ten_sach'] ?></a></h3></div>
-                                <span class="tg-bookwriter">Bởi: <a href="javascript:void(0);"><?= $row['ten_tac_gia'] ?></a></span>
+                                <div class="tg-booktitle"><h3><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_sach'], ENT_QUOTES, 'UTF-8') ?></a></h3></div>
+                                <span class="tg-bookwriter">Bởi: <a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_tac_gia'], ENT_QUOTES, 'UTF-8') ?></a></span>
                                 <a class="tg-btn tg-btnstyletwo" href="app/controller/control_muon_sach.php?action=add&id=<?php echo $row['ma_sach']; ?>"><i class="fa fa-book"></i><em>Mượn sách</em></a>
                             </div>
                         </div>

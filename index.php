@@ -27,7 +27,7 @@
 
 <main id="tg-main" class="tg-main tg-haslayout">
 
-    <?php include 'app/view/index/sachbanchay.php'; ?>
+    <?php include 'app/view/index/sachmuonnhieu.php'; ?>
 
     <?php include 'app/view/index/sachnoibat.php'; ?>
 

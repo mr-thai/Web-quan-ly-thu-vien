@@ -23,14 +23,13 @@ $bookImage = !empty($row['url_anh']) ? ltrim($row['url_anh'], '/') : 'images/pro
                                     <div class="tg-postbook">
                                         <figure class="tg-featureimg">
                                             <div class="tg-bookimg">
-                                                <div class="tg-frontcover"><img src="<?= htmlspecialchars($bookImage) ?>" alt="hình ảnh"></div>
+                                                <a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>" class="tg-frontcover"><img src="<?= htmlspecialchars($bookImage) ?>" alt="hình ảnh"></a>
                                             </div>
-                                            <a class="tg-btnaddtowishlist" href="app/controller/control_muon_sach.php?action=add&id=<?php echo $sach['ma_sach']; ?>"><i class="icon-heart"></i><span>Mượn sách</span></a>
                                         </figure>
                                         <div class="tg-postbookcontent">
-                                            <ul class="tg-bookscategories"><li><a href="javascript:void(0);"><?= $row['ten_the_loai'] ?></a></li></ul>
-                                            <div class="tg-booktitle"><h3><a href="javascript:void(0);"><?= $row['ten_sach'] ?></a></h3></div>
-                                            <span class="tg-bookwriter">Bởi: <a href="javascript:void(0);"><?= $row['ten_tac_gia'] ?></a></span>
+                                            <ul class="tg-bookscategories"><li><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_the_loai'], ENT_QUOTES, 'UTF-8') ?></a></li></ul>
+                                            <div class="tg-booktitle"><h3><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_sach'], ENT_QUOTES, 'UTF-8') ?></a></h3></div>
+                                            <span class="tg-bookwriter">Bởi: <a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_tac_gia'], ENT_QUOTES, 'UTF-8') ?></a></span>
                                             <span class="tg-stars"><span></span></span>
                                         </div>
                                     </div>

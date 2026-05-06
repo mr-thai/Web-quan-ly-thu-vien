@@ -58,7 +58,7 @@ CREATE TABLE `sach` (
   `isbn` VARCHAR(20) NOT NULL,
   `ten_sach` VARCHAR(255) NOT NULL,
   `nha_xuat_ban` VARCHAR(255) NOT NULL,
-  `ten_the_loai` INT NOT NULL,
+  `ten_the_loai` VARCHAR(100) NOT NULL,
   `nam_xuat_ban` INT NOT NULL,
   `so_trang` INT NOT NULL,
   `gia_sach` DECIMAL(10,2) NOT NULL,
@@ -193,30 +193,29 @@ INSERT INTO `nguoi_dung` (`ma_nguoi_dung`, `ten_dang_nhap`, `mat_khau`, `ho_ten`
 (10, 'doanvanl', 'e10adc3949ba59abbe56e057f20f883e', 'Đoàn Văn Long', 'long.doan@email.com', '0990000111', 1);
 
 -- 2. Dữ liệu bảng `tac_gia`
-INSERT INTO `tac_gia` (`ma_tac_gia`, `ho_ten`, `but_danh`, `ngay_sinh`, `ngay_mat`, `quoc_tich`, `tieu_su`, `ghi_chu`) VALUES
-(1, 'Nguyễn Nhật Ánh', 'Nguyễn Nhật Ánh', '1955-05-07', NULL, 'Việt Nam', 'Nhà văn chuyên viết cho tuổi thơ, tuổi trẻ.', 'Nổi tiếng thập niên 90 đến nay'),
-(2, 'Trần Hữu Tri', 'Nam Cao', '1915-10-29', '1951-11-28', 'Việt Nam', 'Nhà văn hiện thực xuất sắc trước Cách mạng tháng Tám.', 'Đại diện tiêu biểu văn học hiện thực'),
-(3, 'Vũ Trọng Phụng', 'Vũ Trọng Phụng', '1912-10-20', '1939-10-13', 'Việt Nam', 'Ông vua phóng sự đất Bắc.', 'Tác phẩm mang tính trào phúng cao'),
-(4, 'Nguyễn Sen', 'Tô Hoài', '1920-09-27', '2014-07-06', 'Việt Nam', 'Nhà văn lớn của nền văn học hiện đại Việt Nam.', 'Viết nhiều cho thiếu nhi'),
-(5, 'Joanne Rowling', 'J.K. Rowling', '1965-07-31', NULL, 'Anh', 'Tiểu thuyết gia người Anh, tác giả fantasy.', 'Tác giả tỷ phú đầu tiên'),
-(6, 'Haruki Murakami', 'Haruki Murakami', '1949-01-12', NULL, 'Nhật Bản', 'Tiểu thuyết gia đương đại nổi tiếng.', 'Thường viết về sự cô đơn'),
-(7, 'Arthur Conan Doyle', 'Conan Doyle', '1859-05-22', '1930-07-07', 'Anh', 'Nhà văn người Scotland nổi tiếng với tiểu thuyết trinh thám.', 'Cha đẻ tiểu thuyết trinh thám hiện đại'),
-(8, 'Nguyễn Tường Lân', 'Thạch Lam', '1910-07-07', '1942-06-27', 'Việt Nam', 'Nhà văn thuộc nhóm Tự Lực văn đoàn.', 'Văn phong nhẹ nhàng, tinh tế'),
-(9, 'Nguyễn Du', 'Tố Như', '1765-01-01', '1820-09-16', 'Việt Nam', 'Đại thi hào dân tộc, danh nhân văn hóa thế giới.', 'Sử dụng chữ Nôm điêu luyện'),
-(10, 'Dale Carnegie', 'Dale Carnegie', '1888-11-24', '1955-11-01', 'Mỹ', 'Nhà văn và nhà phát triển nghệ thuật diễn thuyết.', 'Tiên phong mảng self-help');
-
+INSERT INTO `tac_gia` (`ma_tac_gia`, `ho_ten`, `but_danh`, `ngay_sinh`, `ngay_mat`, `quoc_tich`, `avatar_url`, `tieu_su`, `ghi_chu`) VALUES
+(1, 'Nguyễn Nhật Ánh', 'Nguyễn Nhật Ánh', '1955-05-07', NULL, 'Việt Nam', '/uploads/author/nguyen-nhat-anh.jpg', 'Nhà văn chuyên viết cho tuổi thơ, tuổi trẻ.', 'Nổi tiếng thập niên 90 đến nay'),
+(2, 'Trần Hữu Tri', 'Nam Cao', '1915-10-29', '1951-11-28', 'Việt Nam', '/uploads/author/nam-cao.jpg', 'Nhà văn hiện thực xuất sắc trước Cách mạng tháng Tám.', 'Đại diện tiêu biểu văn học hiện thực'),
+(3, 'Vũ Trọng Phụng', 'Vũ Trọng Phụng', '1912-10-20', '1939-10-13', 'Việt Nam', '/uploads/author/vu-trong-phung.jpg', 'Ông vua phóng sự đất Bắc.', 'Tác phẩm mang tính trào phúng cao'),
+(4, 'Nguyễn Sen', 'Tô Hoài', '1920-09-27', '2014-07-06', 'Việt Nam', '/uploads/author/to-hoai.jpg', 'Nhà văn lớn của nền văn học hiện đại Việt Nam.', 'Viết nhiều cho thiếu nhi'),
+(5, 'Joanne Rowling', 'J.K. Rowling', '1965-07-31', NULL, 'Anh', '/uploads/author/jk-rowling.jpg', 'Tiểu thuyết gia người Anh, tác giả fantasy.', 'Tác giả tỷ phú đầu tiên'),
+(6, 'Haruki Murakami', 'Haruki Murakami', '1949-01-12', NULL, 'Nhật Bản', '/uploads/author/haruki-murakami.jpg', 'Tiểu thuyết gia đương đại nổi tiếng.', 'Thường viết về sự cô đơn'),
+(7, 'Arthur Conan Doyle', 'Conan Doyle', '1859-05-22', '1930-07-07', 'Anh', '/uploads/author/arthur-conan-doyles.jpg', 'Nhà văn người Scotland nổi tiếng với tiểu thuyết trinh thám.', 'Cha đẻ tiểu thuyết trinh thám hiện đại'),
+(8, 'Nguyễn Tường Lân', 'Thạch Lam', '1910-07-07', '1942-06-27', 'Việt Nam', '/uploads/author/thach-lam.jpg', 'Nhà văn thuộc nhóm Tự Lực văn đoàn.', 'Văn phong nhẹ nhàng, tinh tế'),
+(9, 'Nguyễn Du', 'Tố Như', '1765-01-01', '1820-09-16', 'Việt Nam', '/uploads/author/nguyen-du.jpg', 'Đại thi hào dân tộc, danh nhân văn hóa thế giới.', 'Sử dụng chữ Nôm điêu luyện'),
+(10, 'Dale Carnegie', 'Dale Carnegie', '1888-11-24', '1955-11-01', 'Mỹ', '/uploads/author/dale-carnegie.jpg', 'Nhà văn và nhà phát triển nghệ thuật diễn thuyết.', 'Tiên phong mảng self-help');
 -- 3. Dữ liệu bảng `sach`
 INSERT INTO `sach` (`ma_sach`, `ma_tacgia`, `isbn`, `ten_sach`, `nha_xuat_ban`, `ten_the_loai`, `nam_xuat_ban`, `so_trang`, `gia_sach`, `so_luong`, `so_luong_con`, `vi_tri_ke`, `mo_ta`, `trang_thai`) VALUES
-(1, 1, '9786041093150', 'Mắt Biếc', 'NXB Trẻ', 1, 1990, 300, 110000.00, 20, 15, 'Kệ A1-Tầng 1', 'Truyện dài về tình yêu tuổi học trò.', 'con'),
-(2, 2, '9786042084614', 'Chí Phèo', 'NXB Văn Học', 1, 1941, 120, 45000.00, 30, 30, 'Kệ A2-Tầng 1', 'Tuyển tập truyện ngắn hiện thực phê phán.', 'con'),
-(3, 3, '9786046985444', 'Số Đỏ', 'NXB Hội Nhà Văn', 1, 1936, 250, 75000.00, 15, 10, 'Kệ A3-Tầng 1', 'Tiểu thuyết trào phúng xuất sắc.', 'con'),
-(4, 4, '9786042129032', 'Dế Mèn Phiêu Lưu Ký', 'NXB Kim Đồng', 2, 1941, 196, 60000.00, 50, 45, 'Kệ B1-Tầng 2', 'Truyện đồng thoại kinh điển của Việt Nam.', 'con'),
-(5, 5, '9786041159931', 'Harry Potter và Hòn Đá Phù Thủy', 'NXB Trẻ', 3, 1997, 350, 180000.00, 10, 0, 'Kệ C1-Tầng 3', 'Tập 1 của series Harry Potter.', 'het'),
-(6, 6, '9786046985451', 'Rừng Na Uy', 'NXB Hội Nhà Văn', 1, 1987, 540, 150000.00, 25, 20, 'Kệ C2-Tầng 3', 'Tiểu thuyết lãng mạn đương đại Nhật Bản.', 'con'),
-(7, 7, '9786042084621', 'Sherlock Holmes - Toàn tập', 'NXB Văn Học', 4, 1892, 1200, 350000.00, 5, 2, 'Kệ D1-Tầng 4', 'Tuyển tập các vụ án của thám tử Sherlock Holmes.', 'con'),
-(8, 8, '9786041093167', 'Gió Lạnh Đầu Mùa', 'NXB Trẻ', 1, 1937, 210, 65000.00, 15, 12, 'Kệ A4-Tầng 1', 'Tập truyện ngắn nhẹ nhàng, sâu lắng.', 'con'),
-(9, 9, '9786042129049', 'Truyện Kiều', 'NXB Giáo Dục', 5, 1820, 320, 85000.00, 40, 35, 'Kệ E1-Tầng 2', 'Tuyệt tác thơ Nôm của văn học Việt Nam.', 'con'),
-(10, 10, '9786046860001', 'Đắc Nhân Tâm', 'NXB Tổng Hợp TP.HCM', 6, 1936, 320, 95000.00, 100, 80, 'Kệ F1-Tầng 1', 'Nghệ thuật thu phục lòng người.', 'con');
+(1, 1, '9786041093150', 'Mắt Biếc', 'NXB Trẻ', 'Văn học', 1990, 300, 110000.00, 20, 15, 'Kệ A1-Tầng 1', 'Truyện dài về tình yêu tuổi học trò.', 'con'),
+(2, 2, '9786042084614', 'Chí Phèo', 'NXB Văn Học', 'Văn học', 1941, 120, 45000.00, 30, 30, 'Kệ A2-Tầng 1', 'Tuyển tập truyện ngắn hiện thực phê phán.', 'con'),
+(3, 3, '9786046985444', 'Số Đỏ', 'NXB Hội Nhà Văn', 'Văn học', 1936, 250, 75000.00, 15, 10, 'Kệ A3-Tầng 1', 'Tiểu thuyết trào phúng xuất sắc.', 'con'),
+(4, 4, '9786042129032', 'Dế Mèn Phiêu Lưu Ký', 'NXB Kim Đồng', 'Truyện thiếu nhi', 1941, 196, 60000.00, 50, 45, 'Kệ B1-Tầng 2', 'Truyện đồng thoại kinh điển của Việt Nam.', 'con'),
+(5, 5, '9786041159931', 'Harry Potter và Hòn Đá Phù Thủy', 'NXB Trẻ', 'Fantasy', 1997, 350, 180000.00, 10, 0, 'Kệ C1-Tầng 3', 'Tập 1 của series Harry Potter.', 'het'),
+(6, 6, '9786046985451', 'Rừng Na Uy', 'NXB Hội Nhà Văn', 'Văn học', 1987, 540, 150000.00, 25, 20, 'Kệ C2-Tầng 3', 'Tiểu thuyết lãng mạn đương đại Nhật Bản.', 'con'),
+(7, 7, '9786042084621', 'Sherlock Holmes - Toàn tập', 'NXB Văn Học', 'Tiểu thuyết trinh thám', 1892, 1200, 350000.00, 5, 2, 'Kệ D1-Tầng 4', 'Tuyển tập các vụ án của thám tử Sherlock Holmes.', 'con'),
+(8, 8, '9786041093167', 'Gió Lạnh Đầu Mùa', 'NXB Trẻ', 'Văn học', 1937, 210, 65000.00, 15, 12, 'Kệ A4-Tầng 1', 'Tập truyện ngắn nhẹ nhàng, sâu lắng.', 'con'),
+(9, 9, '9786042129049', 'Truyện Kiều', 'NXB Giáo Dục', 'Thơ', 1820, 320, 85000.00, 40, 35, 'Kệ E1-Tầng 2', 'Tuyệt tác thơ Nôm của văn học Việt Nam.', 'con'),
+(10, 10, '9786046860001', 'Đắc Nhân Tâm', 'NXB Tổng Hợp TP.HCM', 'Self-help', 1936, 320, 95000.00, 100, 80, 'Kệ F1-Tầng 1', 'Nghệ thuật thu phục lòng người.', 'con');
 
 -- 4. Dữ liệu bảng `anh_sach`
 INSERT INTO `anh_sach` (`ma_anh`, `ma_sach`, `url_anh`, `anh_chinh`, `ghi_chu`) VALUES

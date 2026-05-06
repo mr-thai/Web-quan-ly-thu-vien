@@ -24,19 +24,19 @@ if (!empty($book['ma_tacgia'])) {
 						<div class="tg-postbook">
 							<figure class="tg-featureimg">
 								<div class="tg-bookimg">
-									<div class="tg-frontcover"><img src="<?php echo $otherBooks; ?>" alt="image description"></div>
-									<div class="tg-backcover"><img src="<?php echo $otherBooks; ?>" alt="image description"></div>
+									<a href="productdetail.php?id=<?php echo intval($row['ma_sach']); ?>" class="tg-frontcover"><img src="<?php echo $otherBooks; ?>" alt="image description"></a>
+									<a href="productdetail.php?id=<?php echo intval($row['ma_sach']); ?>" class="tg-backcover"><img src="<?php echo $otherBooks; ?>" alt="image description"></a>
 								</div>
 							</figure>
 							<div class="tg-postbookcontent">
 								<ul class="tg-bookscategories">
-									<li><a href="javascript:void(0);"><?php echo htmlspecialchars($row['ten_the_loai'], ENT_QUOTES, 'UTF-8'); ?></a></li>
+									<li><a href="productdetail.php?id=<?php echo intval($row['ma_sach']); ?>"><?php echo htmlspecialchars($row['ten_the_loai'], ENT_QUOTES, 'UTF-8'); ?></a></li>
 								</ul>
 								<div class="tg-themetagbox"><span class="tg-themetag">sale</span></div>
 								<div class="tg-booktitle">
-									<h3><a href="javascript:void(0);"><?php echo htmlspecialchars($row['ten_sach'], ENT_QUOTES, 'UTF-8'); ?></a></h3>
+									<h3><a href="productdetail.php?id=<?php echo intval($row['ma_sach']); ?>"><?php echo htmlspecialchars($row['ten_sach'], ENT_QUOTES, 'UTF-8'); ?></a></h3>
 								</div>
-								<span class="tg-bookwriter">By: <a href="javascript:void(0);"><?php echo htmlspecialchars($row['ten_tac_gia'], ENT_QUOTES, 'UTF-8'); ?></a></span>
+								<span class="tg-bookwriter">By: <a href="productdetail.php?id=<?php echo intval($row['ma_sach']); ?>"><?php echo htmlspecialchars($row['ten_tac_gia'], ENT_QUOTES, 'UTF-8'); ?></a></span>
 								<span class="tg-stars"><span></span></span>
 								<a class="tg-btn tg-btnstyletwo" href="app/controller/control_muon_sach.php?action=add&id=<?php echo intval($row['ma_sach']); ?>">
 									<i class="fa fa-book"></i>

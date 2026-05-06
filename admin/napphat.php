@@ -1,6 +1,6 @@
 <?php 
     require_once __DIR__ . "/app/config.php";
-    require_once __DIR__ . "/app/controller/xulynguoidung.php";
+    require_once __DIR__ . "/app/controller/control_napphat.php";
 ?>
 
 
@@ -54,143 +54,11 @@
                         <h1 class="h3 mb-0 text-gray-800">Nạp phạt</h1>
                     </div>
 
-                    <div class="card shadow mb-4">
-                        <div class="card-body">
-                            <form class="form-inline">
-                                <div class="form-group mb-2 mr-2 flex-grow-1">
-                                    <label for="phoneSearch" class="sr-only">Số điện thoại</label>
-                                    <input type="text" class="form-control w-100" id="phoneSearch" placeholder="Nhập số điện thoại người dùng">
-                                </div>
-                                <button type="button" class="btn btn-primary mb-2">
-                                    <i class="fas fa-search mr-1"></i>Tìm kiếm
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                    <?php include "app/view/muon-phat/search.php"; ?>
 
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Thông tin người mượn</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <div>
-                                    <h2 class="text-gray-900 font-weight-bold">Nguyễn Văn An</h2>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 mb-2">
-                                    <div class="text-xs font-weight-bold text-uppercase text-muted">Số điện thoại</div>
-                                    <div class="text-gray-800">0901111222</div>
-                                </div>
-                                <div class="col-6 mb-2">
-                                    <div class="text-xs font-weight-bold text-uppercase text-muted">Email</div>
-                                    <div class="text-gray-800">an.nguyen@email.com</div>
-                                </div>
-                                <div class="col-6 mb-2">
-                                    <div class="text-xs font-weight-bold text-uppercase text-muted">Trạng thái</div>
-                                    <span class="badge badge-success">Đang hoạt động</span>
-                                </div>
-                                <div class="col-6 mb-2">
-                                    <div class="text-xs font-weight-bold text-uppercase text-muted">Ngày tạo</div>
-                                    <div class="text-gray-800">01/10/2023</div>
-                                </div>
-                                <div class="col-12 mb-0">
-                                    <div class="text-xs font-weight-bold text-uppercase text-muted">Địa chỉ</div>
-                                    <div class="text-gray-800">Quận 1, TP.HCM</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php include "app/view/muon-phat/info-user.php"; ?>
 
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3 d-flex align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Danh sách vi phạm</h6>
-                            <button class="btn btn-outline-success btn-sm" type="button" id="confirmSelectedBtn">
-                                <i class="fas fa-check-circle mr-1"></i>Quyết toán các dòng đã chọn
-                            </button>
-                        </div>
-                        <div class="card-body">
-                            <div id="fineAlert" class="alert alert-warning d-none" role="alert">
-                                Vui lòng chọn ít nhất một dòng để quyết toán.
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-sm" width="100%" cellspacing="0">
-                                    <thead class="bg-light">
-                                        <tr>
-                                            <th style="width: 40px;">
-                                                <input type="checkbox" id="selectAllFines">
-                                            </th>
-                                            <th>Tên sách</th>
-                                            <th>Loại vi phạm</th>
-                                            <th>Giá gốc (VNĐ)</th>
-                                            <th>Số tiền phạt</th>
-                                            <th>Ngày tạo</th>
-                                            <th>Thao tác</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><input type="checkbox" class="fine-select"></td>
-                                            <td>Số Đỏ</td>
-                                            <td><span class="badge badge-danger">Trễ hạn</span></td>
-                                            <td>75,000</td>
-                                            <td style="min-width: 150px;">
-                                                <input type="text" class="form-control form-control-sm fine-input" value="5,000">
-                                            </td>
-                                            <td>25/10/2023</td>
-                                            <td>
-                                                <button class="btn btn-success btn-sm" type="button">Xác nhận</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><input type="checkbox" class="fine-select"></td>
-                                            <td>Chí Phèo</td>
-                                            <td><span class="badge badge-warning">Hư hỏng</span></td>
-                                            <td>45,000</td>
-                                            <td style="min-width: 150px;">
-                                                <input type="text" class="form-control form-control-sm fine-input" value="4,500">
-                                            </td>
-                                            <td>20/12/2023</td>
-                                            <td>
-                                                <button class="btn btn-success btn-sm" type="button">Xác nhận</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><input type="checkbox" class="fine-select"></td>
-                                            <td>Harry Potter và Hòn Đá Phù Thủy</td>
-                                            <td><span class="badge badge-danger">Mất sách</span></td>
-                                            <td>180,000</td>
-                                            <td style="min-width: 150px;">
-                                                <input type="text" class="form-control form-control-sm fine-input" value="180,000">
-                                            </td>
-                                            <td>18/11/2023</td>
-                                            <td>
-                                                <button class="btn btn-success btn-sm" type="button">Xác nhận</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Tổng kết</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div>
-                                    <div class="text-xs font-weight-bold text-uppercase text-muted">Tổng tiền cần đóng</div>
-                                    <div class="h4 mb-0 font-weight-bold text-gray-800" id="totalFine">0 VNĐ</div>
-                                </div>
-                                <button class="btn btn-success" type="button" id="confirmAllBtn">
-                                    <i class="fas fa-check mr-1"></i>Xác nhận đã nạp phạt
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <?php include "app/view/muon-phat/vipham.php"; ?>
                 </div>
                 <!-- /.container-fluid -->
                 
@@ -253,8 +121,9 @@
             var totalFine = document.getElementById('totalFine');
             var selectAll = document.getElementById('selectAllFines');
             var fineCheckboxes = document.querySelectorAll('.fine-select');
-            var confirmSelectedBtn = document.getElementById('confirmSelectedBtn');
+            var confirmAllBtn = document.getElementById('confirmAllBtn');
             var alertBox = document.getElementById('fineAlert');
+            var selectedFinesData = document.getElementById('selectedFinesData');
 
             function parseMoney(value) {
                 if (!value) {
@@ -269,12 +138,44 @@
 
             function updateTotal() {
                 var total = 0;
-                fineInputs.forEach(function (input) {
-                    total += parseMoney(input.value);
+                fineCheckboxes.forEach(function (checkbox) {
+                    if (checkbox.checked) {
+                        var dataId = checkbox.getAttribute('data-id');
+                        var input = document.querySelector('.fine-input[data-id="' + dataId + '"]');
+                        if (input) {
+                            total += parseMoney(input.value);
+                        }
+                    }
                 });
                 if (totalFine) {
                     totalFine.textContent = formatMoney(total);
                 }
+                updateSelectedFinesData();
+            }
+
+            function updateSelectedFinesData() {
+                if (!selectedFinesData) return;
+                selectedFinesData.innerHTML = '';
+                
+                fineCheckboxes.forEach(function (checkbox) {
+                    if (checkbox.checked) {
+                        var dataId = checkbox.getAttribute('data-id');
+                        var input = document.querySelector('.fine-input[data-id="' + dataId + '"]');
+                        if (input) {
+                            var hidden = document.createElement('input');
+                            hidden.type = 'hidden';
+                            hidden.name = 'ma_phat[]';
+                            hidden.value = dataId;
+                            selectedFinesData.appendChild(hidden);
+                            
+                            var hiddenAmount = document.createElement('input');
+                            hiddenAmount.type = 'hidden';
+                            hiddenAmount.name = 'so_tien_phat_' + dataId;
+                            hiddenAmount.value = parseMoney(input.value);
+                            selectedFinesData.appendChild(hiddenAmount);
+                        }
+                    }
+                });
             }
 
             function updateSelectAllState() {
@@ -298,6 +199,7 @@
                     if (alertBox) {
                         alertBox.classList.add('d-none');
                     }
+                    updateTotal();
                 });
             }
 
@@ -307,11 +209,12 @@
                     if (alertBox) {
                         alertBox.classList.add('d-none');
                     }
+                    updateTotal();
                 });
             });
 
-            if (confirmSelectedBtn) {
-                confirmSelectedBtn.addEventListener('click', function () {
+            if (confirmAllBtn) {
+                confirmAllBtn.addEventListener('click', function () {
                     var anyChecked = false;
                     fineCheckboxes.forEach(function (box) {
                         if (box.checked) {
@@ -320,6 +223,12 @@
                     });
                     if (!anyChecked && alertBox) {
                         alertBox.classList.remove('d-none');
+                    } else if (anyChecked) {
+                        // Submit the form
+                        var form = document.querySelector('form');
+                        if (form) {
+                            form.submit();
+                        }
                     }
                 });
             }

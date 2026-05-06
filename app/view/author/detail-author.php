@@ -14,7 +14,8 @@ $authorBooks = $authorBooks ?? false;
 										$authorImage = !empty($author['avatar_url']) ? ltrim($author['avatar_url'], '/') : 'images/author/imag-' . str_pad((($author['ma_tac_gia'] % 26) ?: 1), 2, '0', STR_PAD_LEFT) . '.jpg';
 									?>
 									<figure class="tg-authorimg">
-										<img src="<?php echo htmlspecialchars($authorImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($author['ho_ten'] ?? 'Author', ENT_QUOTES, 'UTF-8'); ?>">
+
+									<img src="<?php echo htmlspecialchars($authorImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($author['ho_ten'] ?? 'Author', ENT_QUOTES, 'UTF-8'); ?>">
 									</figure>
 									<div class="tg-authorcontentdetail">
 										<div class="tg-sectionhead">

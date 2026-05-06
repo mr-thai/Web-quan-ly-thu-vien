@@ -66,9 +66,6 @@
 							<div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 pull-right">
 								<div id="tg-content" class="tg-content">
 									<div class="tg-products">
-										
-										<?php include 'app/view/products/banner-product.php'; ?>
-										
 										<?php include 'app/view/products/productgrid.php'; ?>
 
 									</div>

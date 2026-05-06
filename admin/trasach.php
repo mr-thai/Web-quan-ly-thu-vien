@@ -1,6 +1,6 @@
 <?php 
     require_once __DIR__ . "/app/config.php";
-    require_once __DIR__ . "/app/controller/xulynguoidung.php";
+    require_once __DIR__ . "/app/controller/control_trasach.php";
 ?>
 
 
@@ -54,117 +54,12 @@
                         <h1 class="h3 mb-0 text-gray-800">Trả sách</h1>
                     </div>
 
-                    <div class="card shadow mb-4">
-                        <div class="card-body">
-                            <form class="form-inline">
-                                <div class="form-group mb-2 mr-2 flex-grow-1">
-                                    <label for="phoneSearch" class="sr-only">Số điện thoại</label>
-                                    <input type="text" class="form-control w-100" id="phoneSearch" placeholder="Nhập số điện thoại người mượn">
-                                </div>
-                                <button type="button" class="btn btn-primary mb-2">
-                                    <i class="fas fa-search mr-1"></i>Tìm kiếm
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                    <?php include "app/view/muon-phat/search.php"; ?>
 
                    
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Thông tin người mượn</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="mr-3">
-                                    <div class="icon-circle bg-primary text-white">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="text-gray-900 font-weight-bold">Nguyễn Văn An</div>
-                                    <div class="text-muted small">@nguyenvana</div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6 mb-2">
-                                    <div class="text-xs font-weight-bold text-uppercase text-muted">Số điện thoại</div>
-                                    <div class="text-gray-800">0901111222</div>
-                                </div>
-                                <div class="col-6 mb-2">
-                                    <div class="text-xs font-weight-bold text-uppercase text-muted">Email</div>
-                                    <div class="text-gray-800">an.nguyen@email.com</div>
-                                </div>
-                                <div class="col-6 mb-2">
-                                    <div class="text-xs font-weight-bold text-uppercase text-muted">Trạng thái</div>
-                                    <span class="badge badge-success">Đang hoạt động</span>
-                                </div>
-                                <div class="col-6 mb-2">
-                                    <div class="text-xs font-weight-bold text-uppercase text-muted">Ngày tạo</div>
-                                    <div class="text-gray-800">01/10/2023</div>
-                                </div>
-                                <div class="col-12 mb-0">
-                                    <div class="text-xs font-weight-bold text-uppercase text-muted">Địa chỉ</div>
-                                    <div class="text-gray-800">Quận 1, TP.HCM</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php include "app/view/muon-phat/info-user.php"; ?>
                 
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3 d-flex align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Sách đang mượn</h6>
-                            <button type="button" class="btn btn-success btn-sm" id="processReturnBtn">
-                                <i class="fas fa-undo mr-1"></i>Xử lý trả
-                            </button>
-                        </div>
-                        <div class="card-body">
-                            <div id="returnAlert" class="alert alert-warning d-none" role="alert">
-                                Vui lòng chọn ít nhất một cuốn sách để xử lý.
-                            </div>
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-sm" width="100%" cellspacing="0">
-                                    <thead class="bg-light">
-                                        <tr>
-                                            <th style="width: 40px;">
-                                                <input type="checkbox" id="selectAllBooks">
-                                            </th>
-                                            <th>Mã sách</th>
-                                            <th>Tên sách</th>
-                                            <th>Ngày mượn</th>
-                                            <th>Ngày hẹn trả</th>
-                                            <th>Trạng thái</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><input type="checkbox" class="book-select"></td>
-                                            <td>#S001</td>
-                                            <td>Mắt Biếc</td>
-                                            <td>01/10/2023</td>
-                                            <td>15/10/2023</td>
-                                            <td><span class="badge badge-success">Đang mượn</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><input type="checkbox" class="book-select"></td>
-                                            <td>#S005</td>
-                                            <td>Harry Potter và Hòn Đá Phù Thủy</td>
-                                            <td>01/10/2023</td>
-                                            <td>10/10/2023</td>
-                                            <td><span class="badge badge-danger">Trễ hạn</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><input type="checkbox" class="book-select"></td>
-                                            <td>#S004</td>
-                                            <td>Dế Mèn Phiêu Lưu Ký</td>
-                                            <td>05/10/2023</td>
-                                            <td>20/10/2023</td>
-                                            <td><span class="badge badge-success">Đang mượn</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                    <?php include "app/view/muon-phat/dangmuon.php"; ?>
                         
                 </div>
                 <!-- /.container-fluid -->
@@ -208,83 +103,7 @@
     </div>
 
     <!-- Return Processing Modal -->
-    <div class="modal fade" id="returnProcessModal" tabindex="-1" role="dialog" aria-labelledby="returnProcessLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="returnProcessLabel">Xử lý trả sách</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <div class="text-gray-900 font-weight-bold">Nguyễn Văn An</div>
-                        <div class="text-muted">Số điện thoại: 0901111222</div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="font-weight-bold">Tình trạng sách</label>
-                        <div class="custom-control custom-radio">
-                            <input type="radio" id="statusNormal" name="returnStatus" class="custom-control-input" checked>
-                            <label class="custom-control-label" for="statusNormal">Trả bình thường</label>
-                        </div>
-                        <div class="custom-control custom-radio">
-                            <input type="radio" id="statusDamaged" name="returnStatus" class="custom-control-input">
-                            <label class="custom-control-label" for="statusDamaged">Hư hỏng</label>
-                        </div>
-                        <div class="custom-control custom-radio">
-                            <input type="radio" id="statusLost" name="returnStatus" class="custom-control-input">
-                            <label class="custom-control-label" for="statusLost">Mất sách</label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="damageNote" class="font-weight-bold">Ghi chú</label>
-                        <textarea id="damageNote" class="form-control" rows="3" placeholder="Mô tả chi tiết hư hỏng, mất sách (nếu có)"></textarea>
-                    </div>
-
-                    <div class="form-group mb-0">
-                        <label class="font-weight-bold">Danh sách sách xử lý</label>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-sm mb-0">
-                                <thead class="bg-light">
-                                    <tr>
-                                        <th>Mã sách</th>
-                                        <th>Tên sách</th>
-                                        <th>Ngày mượn</th>
-                                        <th>Ngày hẹn trả</th>
-                                        <th>Trạng thái</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>#S001</td>
-                                        <td>Mắt Biếc</td>
-                                        <td>01/10/2023</td>
-                                        <td>15/10/2023</td>
-                                        <td><span class="badge badge-success">Đang mượn</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>#S005</td>
-                                        <td>Harry Potter và Hòn Đá Phù Thủy</td>
-                                        <td>01/10/2023</td>
-                                        <td>10/10/2023</td>
-                                        <td><span class="badge badge-danger">Trễ hạn</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
-                    <button class="btn btn-success" type="button">Xác nhận cập nhật</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -307,6 +126,8 @@
             var alertBox = document.getElementById('returnAlert');
             var selectAll = document.getElementById('selectAllBooks');
             var checkboxes = document.querySelectorAll('.book-select');
+            var selectedBooksList = document.getElementById('selectedBooksList');
+            var hiddenBookData = document.getElementById('hiddenBookData');
 
             function updateSelectAllState() {
                 var checkedCount = 0;
@@ -344,9 +165,23 @@
             if (processBtn) {
                 processBtn.addEventListener('click', function () {
                     var anyChecked = false;
+                    var selectedBooks = [];
+                    
                     checkboxes.forEach(function (box) {
                         if (box.checked) {
                             anyChecked = true;
+                            var row = box.closest('tr');
+                            if (row) {
+                                var cells = row.querySelectorAll('td');
+                                selectedBooks.push({
+                                    ma_chi_tiet: box.getAttribute('data-id'),
+                                    ma_sach: cells[1].textContent.replace('#S', ''),
+                                    ten_sach: cells[2].textContent,
+                                    ngay_muon: cells[3].textContent,
+                                    ngay_hen_tra: cells[4].textContent,
+                                    gia_goc: cells[5] ? cells[5].getAttribute('data-price') : '0'
+                                });
+                            }
                         }
                     });
 
@@ -356,6 +191,29 @@
                             alertBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }
                         return;
+                    }
+
+                    // Populate modal with selected books
+                    if (selectedBooksList && selectedBooks.length > 0) {
+                        selectedBooksList.innerHTML = '';
+                        hiddenBookData.innerHTML = '';
+                        
+                        selectedBooks.forEach(function (book) {
+                            var row = document.createElement('tr');
+                            row.innerHTML = '<td>#S' + book.ma_sach.padStart(3, '0') + '</td>' +
+                                          '<td>' + book.ten_sach + '</td>' +
+                                          '<td>' + book.ngay_muon + '</td>' +
+                                          '<td>' + book.ngay_hen_tra + '</td>' +
+                                          '<td>' + (book.gia_goc || '--') + '</td>';
+                            selectedBooksList.appendChild(row);
+                            
+                            // Add hidden inputs for each selected book
+                            var hidden = document.createElement('input');
+                            hidden.type = 'hidden';
+                            hidden.name = 'ma_chi_tiet_phieu';
+                            hidden.value = book.ma_chi_tiet;
+                            hiddenBookData.appendChild(hidden);
+                        });
                     }
 
                     $('#returnProcessModal').modal('show');

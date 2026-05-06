@@ -42,7 +42,7 @@ $phieuMuon = layPhieuMuonTatCa($conn, $ma_nguoi_dung);
     <div class="container" style="margin-top: 30px; margin-bottom: 50px;">
         <div class="row">
             <div class="col-md-12">
-                <h2>📚 Lịch sử mượn sách</h2>
+                <h2>Lịch sử mượn sách</h2>
                 <p class="text-muted">Người mượn: <strong><?php echo htmlspecialchars($_SESSION['nguoi_dung']['ho_ten']); ?></strong></p>
 
                 <?php if ($phieuMuon->num_rows > 0): ?>

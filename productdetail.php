@@ -8,7 +8,6 @@ if (isset($_GET['id'])) {
 	}
 }
 if (!$book) {
-	// If not found or invalid id, redirect back to products
 	header('Location: products.php');
 	exit;
 }
@@ -53,11 +52,11 @@ if (!$book) {
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="tg-innerbannercontent">
-                            	<h1>Tất cả sách</h1>
+	                            	<h1><?php echo htmlspecialchars($book['ten_sach'], ENT_QUOTES, 'UTF-8'); ?></h1>
                             	<ol class="tg-breadcrumb">
                             		<li><a href="index.php">home</a></li>
                             		<li><a href="products.php">Products</a></li>
-                            		<li class="tg-active"><?php echo htmlspecialchars($book['ten_sach'], ENT_QUOTES, 'UTF-8'); ?></li>
+	                            		<li class="tg-active"><?php echo htmlspecialchars($book['ten_sach'], ENT_QUOTES, 'UTF-8'); ?></li>
                             	</ol>
                             </div>
 					</div>
@@ -81,7 +80,6 @@ if (!$book) {
 							<div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 pull-right">
 								<div id="tg-content" class="tg-content">
 									
-									<?php include 'app/view/products/banner-product.php'; ?>
 
 									<?php include 'app/view/products/detail-product.php'; ?>
 

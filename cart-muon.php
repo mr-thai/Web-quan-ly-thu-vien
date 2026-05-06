@@ -27,12 +27,10 @@ $totalBooks = count($cart);
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/color.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
+    <!-- Removed duplicate stylesheet includes to avoid conflicts -->
     <style>
-        .cart-container { max-width: 900px; margin: 40px auto; }
-        .cart-section { background: #fff; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .cart-container { max-width: 900px; margin: 20px auto; }
+        .cart-section { background: transparent; padding: 30px; margin-bottom: 20px; border-radius: 0; box-shadow: none; }
         .cart-header { border-bottom: 2px solid #f0f0f0; padding-bottom: 20px; margin-bottom: 20px; }
         .cart-header h2 { margin: 0; color: #333; }
         .cart-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
@@ -82,31 +80,6 @@ $totalBooks = count($cart);
         .btn-primary:hover { background: #0056b3; }
         .btn-secondary { background: #6c757d; color: white; }
         .btn-secondary:hover { background: #5a6268; }
-        .success-message { 
-            background: #d4edda; 
-            color: #155724; 
-            padding: 15px; 
-            border-radius: 6px; 
-            margin-bottom: 20px; 
-            border: 1px solid #c3e6cb;
-        }
-        .error-message { 
-            background: #f8d7da; 
-            color: #721c24; 
-            padding: 15px; 
-            border-radius: 6px; 
-            margin-bottom: 20px; 
-            border: 1px solid #f5c6cb;
-        }
-        .login-prompt {
-            background: #fff3cd;
-            color: #856404;
-            padding: 20px;
-            border-radius: 6px;
-            border: 1px solid #ffeeba;
-            margin-bottom: 20px;
-        }
-        .login-prompt a { color: #0056b3; font-weight: 600; text-decoration: none; }
         .user-info { color: #28a745; font-size: 14px; font-weight: 600; margin-bottom: 15px; }
     </style>
 </head>
@@ -114,24 +87,6 @@ $totalBooks = count($cart);
     <?php include 'app/view/header.php'; ?>
 
     <div class="cart-container">
-        <?php if (isset($_SESSION['error'])): ?>
-            <div class="error-message">
-                <?php echo htmlspecialchars($_SESSION['error']); unset($_SESSION['error']); ?>
-            </div>
-        <?php endif; ?>
-
-        <?php if (isset($_SESSION['success'])): ?>
-            <div class="success-message">
-                <?php echo htmlspecialchars($_SESSION['success']); unset($_SESSION['success']); ?>
-            </div>
-        <?php endif; ?>
-
-        <?php if (!$isLoggedIn): ?>
-            <div class="login-prompt">
-                <strong>Bạn chưa đăng nhập!</strong> Vui lòng <a href="login.php?next=cart-muon.php">đăng nhập</a> hoặc <a href="register.php?next=cart-muon.php">đăng ký</a> để mượn sách.
-            </div>
-        <?php endif; ?>
-
         <div class="cart-section">
             <div class="cart-header">
                 <h2>Giỏ mượn sách của bạn</h2>

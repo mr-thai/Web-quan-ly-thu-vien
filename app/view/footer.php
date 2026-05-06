@@ -2,14 +2,7 @@
     <div class="tg-footerarea">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <ul class="tg-clientservices">
-                        <li class="tg-devlivery"><span class="tg-clientserviceicon"><i class="icon-rocket"></i></span><div class="tg-titlesubtitle"><h3>Giao Hàng Nhanh</h3><p>Giao Hàng Toàn Thế Giới</p></div></li>
-                        <li class="tg-discount"><span class="tg-clientserviceicon"><i class="icon-tag"></i></span><div class="tg-titlesubtitle"><h3>Giảm Giá Mở</h3><p>Cung Cấp Giảm Giá Mở</p></div></li>
-                        <li class="tg-quality"><span class="tg-clientserviceicon"><i class="icon-leaf"></i></span><div class="tg-titlesubtitle"><h3>Chú Trọng Chất Lượng</h3><p>Xuất Bản Công Việc Chất Lượng</p></div></li>
-                        <li class="tg-support"><span class="tg-clientserviceicon"><i class="icon-heart"></i></span><div class="tg-titlesubtitle"><h3>Hỗ Trợ 24/7</h3><p>Phục Vụ Mọi Khoảnh Khắc</p></div></li>
-                    </ul>
-                </div>
+               
                 <div class="tg-threecolumns">
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                         <div class="tg-footercol">

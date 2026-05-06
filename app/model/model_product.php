@@ -8,7 +8,7 @@
         return $conn->query($sql);
     }
     function getDanhSachSachAuthor_aside($conn) {
-        $sql = "SELECT tg.ma_tac_gia, tg.ho_ten as ten_tac_gia, COUNT(s.ma_sach) as so_sach 
+        $sql = "SELECT tg.ma_tac_gia, tg.ho_ten as ten_tac_gia, tg.avatar_url, COUNT(s.ma_sach) as so_sach 
                 FROM tac_gia tg 
                 JOIN sach s ON tg.ma_tac_gia = s.ma_tacgia 
                 GROUP BY tg.ma_tac_gia 
@@ -17,7 +17,7 @@
         return $conn->query($sql);
     }
     function getDanhSachSach($conn) {
-        $sql = "SELECT s.ma_sach, s.ten_sach, tg.ho_ten as ten_tac_gia, a.url_anh 
+        $sql = "SELECT s.ma_sach, s.ten_sach, s.ten_the_loai, tg.ho_ten as ten_tac_gia, a.url_anh 
                 FROM sach s 
                 JOIN tac_gia tg ON s.ma_tacgia = tg.ma_tac_gia 
                 LEFT JOIN anh_sach a ON s.ma_sach = a.ma_sach AND a.anh_chinh = 1 
@@ -35,7 +35,7 @@
     function getSachChiTiet($conn, $ma_sach) {
         $ma_sach = intval($ma_sach);
         if ($ma_sach <= 0) return false;
-        $sql = "SELECT s.*, tg.ho_ten as ten_tac_gia, a.url_anh 
+        $sql = "SELECT s.*, tg.ho_ten as ten_tac_gia, tg.avatar_url as tac_gia_avatar, a.url_anh 
                 FROM sach s 
                 JOIN tac_gia tg ON s.ma_tacgia = tg.ma_tac_gia 
                 LEFT JOIN anh_sach a ON s.ma_sach = a.ma_sach AND a.anh_chinh = 1 
