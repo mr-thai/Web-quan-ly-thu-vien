@@ -133,18 +133,4 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <form class="form-inline" method="GET" action="nguoidung.php">
-                                <div class="input-group">
-                                    <input type="text" name="keyword" class="form-control bg-light border-0 small" placeholder="Tìm theo tài khoản, tên, email, SĐT" value="<?php echo htmlspecialchars($keyword); ?>">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>                        
-                    </div>
                 </div>

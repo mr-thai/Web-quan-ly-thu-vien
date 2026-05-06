@@ -8,17 +8,30 @@
                         <li><a href="javascript:void(0);"><i class="icon-question-circle"></i><em>Trợ Giúp</em></a></li>
                     </ul>
                     <div class="tg-userlogin">
-                        <div class="dropdown tg-themedropdown tg-currencydropdown">
-                        <a href="javascript:void(0);" id="tg-userlogin" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <figure><img src="images/users/img-01.jpg" alt="hình ảnh" width="30" height="30"></figure>
-                            <span>Xin chào, John</span>
-                        </a>
-                        <ul class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-userlogin">
-                            <li><a href="javascript:void(0);">Trang cá nhân</a></li>
-                            <li><a href="javascript:void(0);">Đơn hàng</a></li>
-                            <li><a href="javascript:void(0);">Đăng xuất</a></li>
-                        </ul>
-                    </div>
+                        <?php if (isset($_SESSION['nguoi_dung'])): ?>
+                            <div class="dropdown tg-themedropdown tg-currencydropdown">
+                                <a href="javascript:void(0);" id="tg-userlogin" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   
+                                    <span>Xin chào, <?php echo htmlspecialchars($_SESSION['nguoi_dung']['ho_ten'] ?? $_SESSION['nguoi_dung']['ten_dang_nhap']); ?></span>
+                                </a>
+                                <ul class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-userlogin">
+                                    <li><a href="sach-cua-toi.php">Sách đã mượn</a></li>
+                                    <li><a href="cart-muon.php">Giỏ mượn</a></li>
+                                    <li><a href="logout.php">Đăng xuất</a></li>
+                                </ul>
+                            </div>
+                        <?php else: ?>
+                            <div class="dropdown tg-themedropdown tg-currencydropdown">
+                                <a href="javascript:void(0);" id="tg-userlogin" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  
+                                    <span>Tài khoản</span>
+                                </a>
+                                <ul class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-userlogin">
+                                    <li><a href="login.php">Đăng nhập</a></li>
+                                    <li><a href="register.php">Đăng ký</a></li>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -60,18 +73,22 @@
                                     <p style="padding: 10px;">Giỏ hàng trống</p>
                                 <?php endif; ?>
                             </div>
-                            <div class="tg-minicartfoot">
-                                <a class="tg-btnemptycart" href="javascript:void(0);"><i class="fa fa-trash-o"></i><span>Xóa Giỏ Hàng</span></a>
+                    <div class="tg-minicartfoot">
+                                <a class="tg-btnemptycart" href="app/controller/control_muon_sach.php?action=clear" onclick="return confirm('Xác nhận xóa toàn bộ giỏ mượn?');"><i class="fa fa-trash-o"></i><span>Xóa Giỏ</span></a>
                                 <div class="tg-btns">
-                                    <a class="tg-btn tg-active" href="javascript:void(0);">Xem Giỏ Hàng</a>
-                                    <a class="tg-btn" href="app/controller/control_muon_sach.php?action=checkout">Mượn Sách</a>
+                                    <a class="tg-btn tg-active" href="cart-muon.php">Xem Giỏ</a>
+                                    <?php if (isset($_SESSION['nguoi_dung'])): ?>
+                                        <a class="tg-btn" href="cart-muon.php">Mượn</a>
+                                    <?php else: ?>
+                                        <a class="tg-btn" href="login.php?next=cart-muon.php">Đăng nhập</a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                     <div class="tg-searchbox">
-                        <form class="tg-formtheme tg-formsearch">
+                        <form class="tg-formtheme tg-formsearch" method="get" action="<?php echo htmlspecialchars($search_form_action ?? 'app/controller/control_search.php', ENT_QUOTES, 'UTF-8'); ?>">
                             <fieldset>
                                 <input type="text" name="search" class="typeahead form-control" placeholder="Tìm theo tiêu đề, tác giả, từ khóa, ISBN...">
                                 <button type="submit"><i class="icon-magnifier"></i></button>
@@ -126,18 +143,15 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <a href="authors.php">Tác Giả</a>
-                                </li>
-                                <li><a href="products.php">Bán Chạy</a></li>
-                                <li><a href="products.php">Giảm Giá Tuần</a></li>
-                                <li class="menu-item-has-children">
-                                    <a href="javascript:void(0);">Tin Tức</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="newslist.php">Tin Tức Mới Nhất</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contactus.php">Liên Hệ</a></li>
+                                <li><a href="index.php">Home</a></li>
+                                <li><a href="products.php">sản phẩm</a></li>
+                                <li><a href="productdetail.php">chi tiết sản phẩm</a></li>
+                                <li><a href="contactus.php">góp ý</a></li>
+                                <li><a href="authors.php">tác giả</a></li>
+                                <li><a href="authordetail.php">chi tiết tác giả</a></li>
+                                <li><a href="aboutus.php">giới thiệu</a></li>
+                                <li><a href="404error.php">lỗi 404</a></li>
+                               
                             </ul>
                         </div>
                     </nav>

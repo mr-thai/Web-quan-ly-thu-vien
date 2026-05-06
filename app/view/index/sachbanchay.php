@@ -1,5 +1,5 @@
 <?php 
-require_once 'app/model/model_index_noibat.php'; 
+require_once 'app/model/model_index.php'; 
 $danh_sach = getDanhSachSach($conn);
 ?>
 <section class="tg-sectionspace tg-haslayout">
@@ -22,19 +22,18 @@ $danh_sach = getDanhSachSach($conn);
                         <div class="tg-postbook">
                             <figure class="tg-featureimg">
                                 <div class="tg-bookimg">
-                                    <div class="tg-frontcover"><img src="<?= htmlspecialchars($bookImage) ?>" alt="bia sach"></div>
-                                    <div class="tg-backcover"><img src="<?= htmlspecialchars($bookImage) ?>" alt="bia sach"></div>
+                                    <div class="tg-frontcover"><img src="<?= htmlspecialchars($bookImage) ?>" alt="bia sach" style="width:200px;height:300px;object-fit:cover;display:block;"></div>
+                                    <div class="tg-backcover"><img src="<?= htmlspecialchars($bookImage) ?>" alt="bia sach" style="width:200px;height:300px;object-fit:cover;display:block; "></div>
                                 </div>
-                                <a class="tg-btnaddtowishlist" href="javascript:void(0);"><i class="icon-heart"></i><span>thêm vào yêu thích</span></a>
                             </figure>
                             <div class="tg-postbookcontent">
-                                <ul class="tg-bookscategories"><li><a href="javascript:void(0);">Nổi bật</a></li></ul>
+                                <ul class="tg-bookscategories"><li><a href="javascript:void(0);"><?= $row['ten_the_loai'] ?></a></li></ul>
                                 <div class="tg-themetagbox"><span class="tg-themetag">mới</span></div>
                                 <div class="tg-booktitle"><h3><a href="javascript:void(0);"><?= $row['ten_sach'] ?></a></h3></div>
                                 <span class="tg-bookwriter">Bởi: <a href="javascript:void(0);"><?= $row['ten_tac_gia'] ?></a></span>
                                 <span class="tg-stars"><span></span></span>
                                 <a class="tg-btn tg-btnstyletwo" href="app/controller/control_muon_sach.php?action=add&id=<?= $row['ma_sach'] ?>">
-                                    <i class="fa fa-book"></i><em>Thêm vào giỏ</em>
+                                    <i class="fa fa-book"></i><em>Mượn sách</em>
                                 </a>
                             </div>
                         </div>

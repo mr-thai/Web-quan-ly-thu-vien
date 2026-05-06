@@ -1,4 +1,9 @@
-
+<?php
+require_once 'app/model/model_index.php';
+$sach_moi_phat_hanh = getSachMoiPhatHanh($conn);
+$row = $sach_moi_phat_hanh->fetch_assoc();
+$bookImage = !empty($row['url_anh']) ? ltrim($row['url_anh'], '/') : 'images/products/img-01.jpg';
+?>  
     <section class="tg-sectionspace tg-haslayout">
         <div class="container">
             <div class="row">
@@ -18,14 +23,14 @@
                                     <div class="tg-postbook">
                                         <figure class="tg-featureimg">
                                             <div class="tg-bookimg">
-                                                <div class="tg-frontcover"><img src="images/books/img-07.jpg" alt="hình ảnh"></div>
+                                                <div class="tg-frontcover"><img src="<?= htmlspecialchars($bookImage) ?>" alt="hình ảnh"></div>
                                             </div>
-                                            <a class="tg-btnaddtowishlist" href="javascript:void(0);"><i class="icon-heart"></i><span>thêm vào yêu thích</span></a>
+                                            <a class="tg-btnaddtowishlist" href="app/controller/control_muon_sach.php?action=add&id=<?php echo $sach['ma_sach']; ?>"><i class="icon-heart"></i><span>Mượn sách</span></a>
                                         </figure>
                                         <div class="tg-postbookcontent">
-                                            <ul class="tg-bookscategories"><li><a href="javascript:void(0);">Phiêu Lưu</a></li></ul>
-                                            <div class="tg-booktitle"><h3><a href="javascript:void(0);">Giúp Tôi Tìm Dạ Dày Của Tôi</a></h3></div>
-                                            <span class="tg-bookwriter">Bởi: <a href="javascript:void(0);">Kathrine Culbertson</a></span>
+                                            <ul class="tg-bookscategories"><li><a href="javascript:void(0);"><?= $row['ten_the_loai'] ?></a></li></ul>
+                                            <div class="tg-booktitle"><h3><a href="javascript:void(0);"><?= $row['ten_sach'] ?></a></h3></div>
+                                            <span class="tg-bookwriter">Bởi: <a href="javascript:void(0);"><?= $row['ten_tac_gia'] ?></a></span>
                                             <span class="tg-stars"><span></span></span>
                                         </div>
                                     </div>

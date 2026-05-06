@@ -1,28 +1,37 @@
+<?php require_once 'app/config.php'; 
+require_once 'app/model/model_product.php';
+?>
+
+<?php
+$featuredBook = getSachBanChay($conn);
+if ($featuredBook && $row = $featuredBook->fetch_assoc())
+    $bookImage = !empty($row['url_anh']) ? ltrim($row['url_anh'], '/') : 'images/products/img-01.jpg';
+?>
 <div class="tg-featurebook alert" role="alert">
-										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-										<div class="tg-featureditm">
-											<div class="row">
-												<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-sm hidden-xs">
-													<figure><img src="images/img-04.png" alt="image description"></figure>
-												</div>
-												<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-													<div class="tg-featureditmcontent">
-														<div class="tg-themetagbox"><span class="tg-themetag">featured</span></div>
-														<div class="tg-booktitle">
-															<h3><a href="javascript:void(0);">Things To Know About Green Flat Design</a></h3>
-														</div>
-														<span class="tg-bookwriter">By: <a href="javascript:void(0);">Farrah Whisenhunt</a></span>
-														<span class="tg-stars"><span></span></span>
-														<div class="tg-priceandbtn">
-															<a class="tg-btn tg-btnstyletwo tg-active" href="javascript:void(0);">
-																<i class="fa fa-book"></i>
-																<em>Mượn sách</em>
-															</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<div class="tg-featureditm">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-sm hidden-xs">
+				<figure><img src="<?php echo $bookImage; ?>" alt="image description" style="width:250px;height:300px;object-fit:cover;display:block;"></figure>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+				<div class="tg-featureditmcontent">
+					<div class="tg-themetagbox"><span class="tg-themetag">featured</span></div>
+					<div class="tg-booktitle">
+						<h3><a href="javascript:void(0);"><?php echo $row['ten_sach']; ?></a></h3>
+					</div>
+					<span class="tg-bookwriter">By: <a href="javascript:void(0);"><?php echo $row['ten_tac_gia']; ?></a></span>
+					<span class="tg-stars"><span></span></span>
+					<div class="tg-priceandbtn">
+						<a class="tg-btn tg-btnstyletwo tg-active" href="app/controller/control_muon_sach.php?action=add&id=<?php echo $row['ma_sach']; ?>">
+							<i class="fa fa-book"></i>
+							<em>Mượn sách</em>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

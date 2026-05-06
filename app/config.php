@@ -12,4 +12,26 @@ if ($conn->connect_error) {
 }
 
 $conn->set_charset("utf8mb4");
+
+/**
+ * Normalize URL ảnh từ database để đảm bảo hiển thị chính xác
+ */
+function getImageUrl($imageUrl = '') {
+    if (empty($imageUrl)) {
+        return '/Quan_ly_thu_vien/images/books/default.jpg';
+    }
+    
+    // Nếu đã là URL đầy đủ (http/https), trả về ngay
+    if (preg_match('~^(?:f|ht)tps?://~i', $imageUrl)) {
+        return $imageUrl;
+    }
+    
+    // Nếu bắt đầu bằng /, thêm domain prefix
+    if (strpos($imageUrl, '/') === 0) {
+        return '/Quan_ly_thu_vien' . $imageUrl;
+    }
+    
+    // Nếu là đường dẫn tương đối, thêm /Quan_ly_thu_vien/
+    return '/Quan_ly_thu_vien/' . ltrim($imageUrl, '/');
+}
 ?>

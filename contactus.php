@@ -1,3 +1,4 @@
+<?php require_once 'app/config.php'; ?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -40,7 +41,7 @@
 						<div class="tg-innerbannercontent">
 							<h1>Contact Us</h1>
 							<ol class="tg-breadcrumb">
-								<li><a href="javascript:void(0);">home</a></li>
+								<li><a href="index.php">home</a></li>
 								<li class="tg-active">Contact Us</li>
 							</ol>
 						</div>
@@ -56,86 +57,97 @@
 		*************************************-->
 		<main id="tg-main" class="tg-main tg-haslayout">
 			<!--************************************
-					Contact Us Start
+					Quick Feedback Section Start
+			*************************************-->
+			<div class="tg-sectionspace tg-haslayout" style="padding: 60px 0; background: #f9f9f9; border-bottom: 1px solid #e0e0e0;">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="tg-sectionhead" style="text-align: center; margin-bottom: 50px;">
+								<h3 style="margin: 0; font-size: 32px; color: #333; font-weight: bold;">Góp ý</h3>
+								<p style="margin: 12px 0 0 0; color: #666; font-size: 16px;">Chia sẻ ý kiến của bạn với chúng tôi</p>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+							<form class="tg-formtheme" method="post" action="app/controller/contact_submit.php">
+								<fieldset>
+									<div class="form-group" style="margin-bottom: 20px;">
+										<input type="text" name="fullname" class="form-control" placeholder="Họ và tên" style="padding: 12px 15px; font-size: 15px;" required>
+									</div>
+									<div class="form-group" style="margin-bottom: 20px;">
+										<input type="email" name="email" class="form-control" placeholder="Email" style="padding: 12px 15px; font-size: 15px;" required>
+									</div>
+									<div class="form-group" style="margin-bottom: 20px;">
+										<textarea name="message" class="form-control" placeholder="Nội dung góp ý..." style="padding: 12px 15px; font-size: 15px; height: 120px; resize: vertical;"></textarea>
+									</div>
+									<div class="form-group" style="text-align: center;">
+										<button type="submit" class="tg-btn tg-active" style="padding: 12px 50px; font-size: 15px; font-weight: bold;">Gửi</button>
+									</div>
+								</fieldset>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--************************************
+					Quick Feedback Section End
+			*************************************-->
+
+			<!--************************************
+					Detailed Contact Section Start
 			*************************************-->
 			<div class="tg-sectionspace tg-haslayout">
 				<div class="container">
 					<div class="row">
-						<div class="tg-contactus">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div class="tg-sectionhead">
-									<h2><span>Say Hello!</span>Get In Touch With Us</h2>
-								</div>
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="tg-sectionhead" style="text-align: center; margin-bottom: 60px;">
+								<h2 style="margin: 0; font-size: 36px; font-weight: bold;">Thông tin liên hệ</h2>
+								<p style="margin: 15px 0 0 0; color: #666; font-size: 16px;">Liên hệ trực tiếp với thư viện để được hỗ trợ</p>
 							</div>
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-								<div id="tg-locationmap" class="tg-locationmap tg-map"></div>
+						</div>
+					</div>
+					<div class="row">
+						<!-- Contact Info Column -->
+						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+							<div style="padding: 30px; background: #f5f5f5; border-radius: 8px; margin-bottom: 30px;">
+								<h4 style="margin: 0 0 15px 0; color: #333; font-size: 18px; font-weight: bold;"><i class="icon-apartment" style="margin-right: 12px; color: #007bff;"></i>Địa chỉ</h4>
+								<p style="margin: 0; color: #666; font-size: 15px; line-height: 1.7;">
+									Phòng Quản lý Thư viện<br>
+									Tầng 2, Tòa nhà A<br>
+									123 Đường Thư Viện<br>
+									Quận Hòa Bình, TP. Hồ Chí Minh
+								</p>
 							</div>
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-								<form class="tg-formtheme tg-formcontactus">
-									<fieldset>
-										<div class="form-group">
-											<input type="text" name="first-name" class="form-control" placeholder="First Name*">
-										</div>
-										<div class="form-group">
-											<input type="text" name="last-name" class="form-control" placeholder="Last Name*">
-										</div>
-										<div class="form-group">
-											<input type="email" name="email" class="form-control" placeholder="Last Name*">
-										</div>
-										<div class="form-group">
-											<input type="text" name="subject" class="form-control" placeholder="Subject (optional)">
-										</div>
-										<div class="form-group tg-hastextarea">
-											<textarea placeholder="Comment"></textarea>
-										</div>
-										<div class="form-group">
-											<button type="submit" class="tg-btn tg-active">Submit</button>
-										</div>
-									</fieldset>
-								</form>
-								<div class="tg-contactdetail">
-									<div class="tg-sectionhead">
-										<h2>Get In Touch With Us</h2>
-									</div>
-									<ul class="tg-contactinfo">
-										<li>
-											<i class="icon-apartment"></i>
-											<address>Suit # 07, Rose world Building, Street # 02, AT246T Manchester</address>
-										</li>
-										<li>
-											<i class="icon-phone-handset"></i>
-											<span>
-												<em>0800 12345 - 678 - 89</em>
-												<em>+4 1234 - 4567 - 67</em>
-											</span>
-										</li>
-										<li>
-											<i class="icon-clock"></i>
-											<span>Serving 7 Days A Week From 9am - 5pm</span>
-										</li>
-										<li>
-											<i class="icon-envelope"></i>
-											<span>
-												<em><a href="mailto:support@domain.com">support@domain.com</a></em>
-												<em><a href="mailto:info@domain.com">info@domain.com</a></em>
-											</span>
-										</li>
-									</ul>
-									<ul class="tg-socialicons">
-										<li class="tg-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
-										<li class="tg-twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
-										<li class="tg-linkedin"><a href="javascript:void(0);"><i class="fa fa-linkedin"></i></a></li>
-										<li class="tg-googleplus"><a href="javascript:void(0);"><i class="fa fa-google-plus"></i></a></li>
-										<li class="tg-rss"><a href="javascript:void(0);"><i class="fa fa-rss"></i></a></li>
-									</ul>
-								</div>
+						</div>
+
+						<!-- Phone Column -->
+						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+							<div style="padding: 30px; background: #f5f5f5; border-radius: 8px; margin-bottom: 30px;">
+								<h4 style="margin: 0 0 15px 0; color: #333; font-size: 18px; font-weight: bold;"><i class="icon-phone-handset" style="margin-right: 12px; color: #28a745;"></i>Liên lạc</h4>
+								<p style="margin: 0; color: #666; font-size: 15px; line-height: 2;">
+									<strong style="color: #333;">Hotline:</strong> <span style="color: #007bff; font-weight: bold;">(028) 1234 5678</span><br>
+									<strong style="color: #333;">Mobile:</strong> <span style="color: #007bff; font-weight: bold;">0909 123 456</span><br>
+									<strong style="color: #333;">Email:</strong> <a href="mailto:thuvien@domain.local" style="color: #007bff; text-decoration: none; font-weight: bold;">thuvien@domain.local</a>
+								</p>
+							</div>
+						</div>
+
+						<!-- Hours Column -->
+						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+							<div style="padding: 30px; background: #f5f5f5; border-radius: 8px; margin-bottom: 30px;">
+								<h4 style="margin: 0 0 15px 0; color: #333; font-size: 18px; font-weight: bold;"><i class="icon-clock" style="margin-right: 12px; color: #ffc107;"></i>Giờ làm việc</h4>
+								<p style="margin: 0; color: #666; font-size: 15px; line-height: 2;">
+									<strong style="color: #333;">Thứ 2 - Thứ 6:</strong><br>08:00 - 12:00 | 13:00 - 17:00<br>
+									<strong style="color: #333;">Thứ 7:</strong> 08:00 - 12:00<br>
+									<strong style="color: #333;">Chủ nhật:</strong> Đóng cửa
+								</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!--************************************
-					Contact Us End
+					Detailed Contact Section End
 			*************************************-->
 		</main>
 		<!--************************************

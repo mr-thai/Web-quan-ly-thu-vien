@@ -1,5 +1,6 @@
 <div class="container-fluid">
 
+                    <?php $nguoi_dung_list = $nguoi_dung_list ?? array(); ?>
                     <?php if (!empty($message)): ?>
                         <div class="alert alert-info alert-dismissible fade show" role="alert">
                             <?php echo htmlspecialchars($message); ?>
@@ -26,6 +27,7 @@
                                             <th>Ngày hẹn trả</th>
                                             <th>Ngày trả</th>
                                             <th>Tổng sách</th>
+                                            <th>Tổng trễ hạn</th>
                                             <th>Trạng thái</th>
                                             <th>Thao tác</th>
                                         </tr>
@@ -50,6 +52,15 @@
                                                     }
 
                                                     $chi_tiet_list = $chi_tiet_by_phieu[$id_pm] ?? array();
+                                                    
+                                                    // Tính tổng sách trễ hạn
+                                                    $tong_tre_han = 0;
+                                                    foreach ($chi_tiet_list as $ct) {
+                                                        if ($ct['trang_thai'] === 'tra_tre_han' || 
+                                                            ($ct['trang_thai'] === 'dang_muon' && strtotime($phieu['ngay_hen_tra']) < time())) {
+                                                            $tong_tre_han++;
+                                                        }
+                                                    }
                                                 ?>
                                                 <tr>
                                                     <td><?php echo $id_pm; ?></td>
@@ -60,7 +71,8 @@
                                                     <td><?php echo to_datetime_display($phieu['ngay_muon']); ?></td>
                                                     <td><?php echo to_datetime_display($phieu['ngay_hen_tra']); ?></td>
                                                     <td><?php echo to_datetime_display($phieu['ngay_tra']); ?></td>
-                                                    <td><?php echo (int)$phieu['tong_so_sach']; ?></td>
+                                                    <td><?php echo count($chi_tiet_list); ?></td>
+                                                    <td><span class="badge badge-warning"><?php echo $tong_tre_han; ?></span></td>
                                                     <td><span class="badge <?php echo $trang_thai_badge; ?>"><?php echo $trang_thai_text; ?></span></td>
                                                     <td class="text-nowrap">
                                                         <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#detailModal-<?php echo $id_pm; ?>">
@@ -224,9 +236,9 @@
                                                 <?php $loan_modals[] = ob_get_clean(); ?>
                                             <?php endforeach; ?>
                                         <?php else: ?>
-                                            <tr>
-                                                <td colspan="8" class="text-center">Không có phiếu mượn nào.</td>
-                                            </tr>
+                                                            <tr>
+                                                                <td colspan="9" class="text-center">Không có phiếu mượn nào.</td>
+                                                            </tr>
                                         <?php endif; ?>
                                     </tbody>
                                 </table>

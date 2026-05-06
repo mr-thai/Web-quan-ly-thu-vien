@@ -1,3 +1,4 @@
+<?php require_once 'app/config.php'; ini_set('display_errors', 1); error_reporting(E_ALL); ?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -40,7 +41,7 @@
 						<div class="tg-innerbannercontent">
 							<h1>All Products</h1>
 							<ol class="tg-breadcrumb">
-								<li><a href="javascript:void(0);">home</a></li>
+								<li><a href="index.php">home</a></li>
 								<li class="tg-active">Products</li>
 							</ol>
 						</div>

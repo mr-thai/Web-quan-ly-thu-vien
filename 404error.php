@@ -1,3 +1,4 @@
+<?php require_once 'app/config.php'; ?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -40,7 +41,7 @@
 						<div class="tg-innerbannercontent">
 							<h1>404 Error</h1>
 							<ol class="tg-breadcrumb">
-								<li><a href="javascript:void(0);">home</a></li>
+								<li><a href="index.php">home</a></li>
 								<li class="tg-active">404 Error</li>
 							</ol>
 						</div>
@@ -74,7 +75,7 @@
 									</fieldset>
 									<div class="tg-gobackhome">
 										<span>Or Goto</span>
-										<a href="javascript:void(0);">Homepage</a>
+										<a href="index.php">Homepage</a>
 									</div>
 								</form>
 							</div>

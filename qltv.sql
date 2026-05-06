@@ -40,6 +40,7 @@ CREATE TABLE `tac_gia` (
   `ngay_sinh` DATE DEFAULT NULL,
   `ngay_mat` DATE DEFAULT NULL,
   `quoc_tich` VARCHAR(100) DEFAULT NULL,
+  `avatar_url` VARCHAR(255) DEFAULT NULL,
   `tieu_su` TEXT,
   `ghi_chu` TEXT,
   `ngay_tao` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -108,7 +109,9 @@ CREATE TABLE `chi_tiet_phieu_muon` (
   `ma_phieu_muon` INT NOT NULL,
   `ma_sach` INT NOT NULL,
   `so_luong` INT NOT NULL,
-  `trang_thai` ENUM('dang_muon','da_tra') NOT NULL DEFAULT 'dang_muon',
+  `ngay_tra_thuc_te` DATETIME DEFAULT NULL,
+  `trang_thai` ENUM('dang_muon', 'da_tra', 'tra_tre_han', 'hu_hong', 'mat_sach') NOT NULL DEFAULT 'dang_muon',
+  `ghi_chu_tinh_trang` TEXT NULL,
 
   PRIMARY KEY (`ma_chi_tiet_phieu`),
   KEY `idx_ctpm_pm` (`ma_phieu_muon`),
@@ -143,6 +146,30 @@ CREATE TABLE `anh_sach` (
   CONSTRAINT `fk_anh_sach`
     FOREIGN KEY (`ma_sach`)
     REFERENCES `sach`(`ma_sach`)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+-- =============================================
+-- 7. Vi phạm và phạt tiền
+-- =============================================
+CREATE TABLE `vi_pham_phat` (
+  `ma_phat` INT NOT NULL AUTO_INCREMENT,
+  `ma_chi_tiet_phieu` INT NOT NULL,
+  `loai_vi_pham` ENUM('tre_han', 'hu_hong', 'mat_sach') NOT NULL,
+  `gia_goc_sach` DECIMAL(10,2) NOT NULL,
+  `so_tien_phat` DECIMAL(10,2) NOT NULL,
+  `trang_thai_thanh_toan` ENUM('chua_dong', 'da_dong') NOT NULL DEFAULT 'chua_dong',
+  `ngay_thu_tien` DATETIME DEFAULT NULL,
+  `ngay_tao` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+  PRIMARY KEY (`ma_phat`),
+  KEY `idx_vp_ctpm` (`ma_chi_tiet_phieu`),
+  KEY `idx_vp_ngay_thu` (`ngay_thu_tien`),
+
+  CONSTRAINT `fk_vp_ctpm`
+    FOREIGN KEY (`ma_chi_tiet_phieu`)
+    REFERENCES `chi_tiet_phieu_muon`(`ma_chi_tiet_phieu`)
     ON UPDATE CASCADE
     ON DELETE CASCADE
 ) ENGINE=InnoDB;
@@ -218,16 +245,23 @@ INSERT INTO `phieu_muon` (`ma_phieu_muon`, `ma_nguoi_dung`, `ngay_muon`, `ngay_h
 (10, 1, '2024-03-08 14:00:00', '2024-03-23 17:00:00', NULL, 'dang_muon', 'Mượn thêm sách mới');
 
 -- 6. Dữ liệu bảng `chi_tiet_phieu_muon`
-INSERT INTO `chi_tiet_phieu_muon` (`ma_chi_tiet_phieu`, `ma_phieu_muon`, `ma_sach`, `so_luong`, `trang_thai`) VALUES
-(1, 1, 1, 1, 'da_tra'),
-(2, 1, 4, 1, 'da_tra'),
-(3, 2, 3, 1, 'da_tra'),
-(4, 3, 5, 1, 'dang_muon'),
-(5, 3, 6, 1, 'dang_muon'),
-(6, 4, 10, 1, 'dang_muon'),
-(7, 5, 1, 1, 'dang_muon'),
-(8, 6, 2, 1, 'da_tra'),
-(9, 7, 9, 1, 'da_tra'),
-(10, 8, 4, 1, 'da_tra');
+INSERT INTO `chi_tiet_phieu_muon` (`ma_chi_tiet_phieu`, `ma_phieu_muon`, `ma_sach`, `so_luong`, `ngay_tra_thuc_te`, `trang_thai`, `ghi_chu_tinh_trang`) VALUES
+(1, 1, 1, 1, '2023-10-14 09:15:00', 'da_tra', 'Sách nguyên vẹn, trả đúng hạn'),
+(2, 1, 4, 1, '2023-10-14 09:15:00', 'da_tra', 'Sách nguyên vẹn, trả đúng hạn'),
+(3, 2, 3, 1, '2023-10-25 10:00:00', 'tra_tre_han', 'Trả trễ 5 ngày, phạt 5,000 VNĐ'),
+(4, 3, 5, 1, NULL, 'dang_muon', 'Đang mượn, quá hạn 5 ngày'),
+(5, 3, 6, 1, NULL, 'dang_muon', 'Đang mượn, quá hạn 5 ngày'),
+(6, 4, 10, 1, NULL, 'dang_muon', 'Đang mượn, còn 7 ngày'),
+(7, 5, 1, 1, NULL, 'dang_muon', 'Đang mượn, còn 12 ngày'),
+(8, 6, 2, 1, '2023-12-20 14:30:00', 'hu_hong', 'Sách bị rách mép, đã bồi thường 10% = 4,500 VNĐ'),
+(9, 7, 9, 1, '2024-01-29 09:00:00', 'da_tra', 'Sách nguyên vẹn, trả trước hạn 1 ngày'),
+(10, 8, 4, 1, '2024-02-16 16:50:00', 'da_tra', 'Sách nguyên vẹn, trả đúng hạn');
+
+-- 7. Dữ liệu bảng `vi_pham_phat`
+INSERT INTO `vi_pham_phat` (`ma_phat`, `ma_chi_tiet_phieu`, `loai_vi_pham`, `gia_goc_sach`, `so_tien_phat`, `trang_thai_thanh_toan`, `ngay_thu_tien`, `ngay_tao`) VALUES
+(1, 3, 'tre_han', 75000.00, 5000.00, 'da_dong', '2023-10-26 10:30:00', '2023-10-25 10:00:00'),
+(2, 8, 'hu_hong', 45000.00, 4500.00, 'da_dong', '2023-12-21 09:15:00', '2023-12-20 14:30:00'),
+(3, 4, 'tre_han', 180000.00, 15000.00, 'chua_dong', NULL, '2023-11-20 10:00:00'),
+(4, 5, 'tre_han', 150000.00, 15000.00, 'chua_dong', NULL, '2023-11-20 10:00:00');
 
 COMMIT;

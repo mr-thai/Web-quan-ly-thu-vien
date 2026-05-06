@@ -1,3 +1,4 @@
+<?php require_once 'app/config.php'; ini_set('display_errors', 1); error_reporting(E_ALL);?>
 <!doctype html>
 <html class="no-js" lang="vi">
 <head>
@@ -22,7 +23,6 @@
 <body class="tg-home tg-homeone">
 <div id="tg-wrapper" class="tg-wrapper tg-haslayout">
 
-<?php require_once 'app/config.php'; ?>
 <?php include 'app/view/header.php'; ?>
 
 <main id="tg-main" class="tg-main tg-haslayout">
@@ -33,15 +33,9 @@
 
     <?php include 'app/view/index/sachmoiphathanh.php'; ?>
 
- <!-- /   <?php include 'app/view/index/soluongsachtheotheloai.php'; ?> -->
-
     <?php include 'app/view/index/duocchonboitacgia.php'; ?>
     
     <?php include 'app/view/index/loichungnhan.php'; ?>
-
-    <!-- <?php include 'app/view/index/bannerminifooter.php'; ?> -->
-    
-    <!-- <?php include 'app/view/index/tintuc.php'; ?> -->
 </main>
 
 <?php include 'app/view/footer.php'; ?>

@@ -1,3 +1,4 @@
+<?php require_once 'app/config.php'; ?>
 <!doctype html>
 <html class="no-js" lang="zxx"> 
 
@@ -38,10 +39,10 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<div class="tg-innerbannercontent">
-							<h1>About Us</h1>
-							<ol class="tg-breadcrumb">
-								<li><a href="javascript:void(0);">home</a></li>
-								<li class="tg-active">About Us</li>
+						<h1>Về Thư viện</h1>
+						<ol class="tg-breadcrumb">
+							<li><a href="index.php">Trang chủ</a></li>
+							<li class="tg-active">Về Thư viện</li>
 							</ol>
 						</div>
 					</div>
@@ -56,253 +57,118 @@
 		*************************************-->
 		<main id="tg-main" class="tg-main tg-haslayout">
 			<!--************************************
-					About Us Start
-			*************************************-->
-			<section class="tg-sectionspace tg-haslayout">
-				<div class="container">
-					<div class="row">
-						<div class="tg-aboutus">
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-								<div class="tg-aboutusshortcode">
-									<div class="tg-sectionhead">
-										<h2><span>Greetings &amp; Welcome</span>Know More About Us</h2>
-									</div>
-									<div class="tg-description">
-										<p>Consectetur adipisicing elit sed do eiusmod tempor incididunt labore toloregna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcoiars nisiuip commodo consequat aute irure dolor in aprehenderit aveli esseati cillum dolor fugiat nulla pariatur cepteur sint occaecat cupidatat.</p>
-									</div>
-									<div class="tg-btns">
-										<a class="tg-btn tg-active" href="javascript:void(0);">Our History</a>
-										<a class="tg-btn" href="javascript:void(0);">Meet Our Team</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-								<figure>
-									<img src="images/placeholder.jpg" alt="image description">
-									<iframe src="https://www.youtube.com/embed/acwr_Islo9A?rel=0&amp;controls=0&amp;showinfo=0"></iframe>
-								</figure>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--************************************
-					About Us End
-			*************************************-->
-			<!--************************************
-					Call to Action Start
-			*************************************-->
-			<section class="tg-parallax tg-bgcalltoaction tg-haslayout" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bgparallax-06.jpg">
-				<div class="tg-sectionspace tg-haslayout">
-					<div class="container">
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div class="tg-calltoaction">
-									<h2>Fully Loaded Template</h2>
-									<h3>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore.</h3>
-									<a class="tg-btn tg-active" href="javascript:void(0);">Buy Now</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--************************************
-					Call to Action End
-			*************************************-->
-			<!--************************************
-					Success Start
-			*************************************-->
-			<section class="tg-sectionspace tg-haslayout">
-				<div class="container">
-					<div class="row">
-						<div class="tg-successstory">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div class="tg-sectionhead">
-									<h2><span>Our Pride Moments</span>Journey of Success</h2>
-								</div>
-								<div id="tg-successslider" class="tg-successslider tg-success owl-carousel">
-									<div class="item">
-										<figure>
-											<img src="images/img-01.jpg" alt="image description">
-										</figure>
-										<div class="tg-successcontent">
-											<div class="tg-sectionhead">
-												<h2><span>June 27, 2017</span>First Step Toward Success</h2>
-											</div>
-											<div class="tg-description">
-												<p>Consectetur adipisicing elit sed do eiusmod tempor incididunt labore toloregna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcoiars nisiuip commodo consequat aute irure dolor in aprehenderit aveli esseati cillum dolor fugiat nulla pariatur cepteur sint occaecat cupidatat.</p>
-											</div>
-										</div>
-									</div>
-									<div class="item">
-										<figure>
-											<img src="images/img-01.jpg" alt="image description">
-										</figure>
-										<div class="tg-successcontent">
-											<div class="tg-sectionhead">
-												<h2><span>June 27, 2017</span>First Step Toward Success</h2>
-											</div>
-											<div class="tg-description">
-												<p>Consectetur adipisicing elit sed do eiusmod tempor incididunt labore toloregna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcoiars nisiuip commodo consequat aute irure dolor in aprehenderit aveli esseati cillum dolor fugiat nulla pariatur cepteur sint occaecat cupidatat.</p>
-											</div>
-										</div>
-									</div>
-									<div class="item">
-										<figure>
-											<img src="images/img-01.jpg" alt="image description">
-										</figure>
-										<div class="tg-successcontent">
-											<div class="tg-sectionhead">
-												<h2><span>June 27, 2017</span>First Step Toward Success</h2>
-											</div>
-											<div class="tg-description">
-												<p>Consectetur adipisicing elit sed do eiusmod tempor incididunt labore toloregna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcoiars nisiuip commodo consequat aute irure dolor in aprehenderit aveli esseati cillum dolor fugiat nulla pariatur cepteur sint occaecat cupidatat.</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--************************************
-					Success End
-			*************************************-->
-			<!--************************************
-					Testimonials Start
-			*************************************-->
-			<section class="tg-parallax tg-bgtestimonials tg-haslayout" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bgparallax-05.jpg">
-				<div class="tg-sectionspace tg-haslayout">
-					<div class="container">
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-lg-push-2">
-								<div id="tg-testimonialsslider" class="tg-testimonialsslider tg-testimonials owl-carousel">
-									<div class="item tg-testimonial">
-										<figure><img src="images/author/imag-02.jpg" alt="image description"></figure>
-										<blockquote><q>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore tolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamcoiars nisi ut aliquip commodo.</q></blockquote>
-										<div class="tg-testimonialauthor">
-											<h3>Holli Fenstermacher</h3>
-											<span>Manager @ CIFP</span>
-										</div>
-									</div>
-									<div class="item tg-testimonial">
-										<figure><img src="images/author/imag-02.jpg" alt="image description"></figure>
-										<blockquote><q>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore tolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamcoiars nisi ut aliquip commodo.</q></blockquote>
-										<div class="tg-testimonialauthor">
-											<h3>Holli Fenstermacher</h3>
-											<span>Manager @ CIFP</span>
-										</div>
-									</div>
-									<div class="item tg-testimonial">
-										<figure><img src="images/author/imag-02.jpg" alt="image description"></figure>
-										<blockquote><q>Consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore tolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamcoiars nisi ut aliquip commodo.</q></blockquote>
-										<div class="tg-testimonialauthor">
-											<h3>Holli Fenstermacher</h3>
-											<span>Manager @ CIFP</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!--************************************
-					Testimonials End
-			*************************************-->
-			<!--************************************
-					Authors Start
+					About Section Start
 			*************************************-->
 			<section class="tg-sectionspace tg-haslayout">
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<div class="tg-sectionhead">
-								<h2><span>Team Behind Book Library</span>Meet Our Professionals</h2>
+							<div class="tg-sectionhead" style="text-align: center; margin-bottom: 50px; display: flex; flex-direction: column; align-items: center;">
+								<h2 style="font-size: 32px; margin: 0;">Trung tâm Thông tin - Thư viện</h2>
+								<p style="color: #666; font-size: 40px; margin: 12px 0 0 0; padding: 4px;">Nguyễn Thúc Hào</p>
 							</div>
 						</div>
-						<div id="tg-teamsslider" class="tg-authors tg-authorsslider tg-teamsmember owl-carousel">
-							<div class="item tg-author tg-member">
-								<figure><a href="javascript:void(0);"><img src="images/team/img-01.jpg" alt="image description"></a></figure>
-								<div class="tg-authorcontent">
-									<h2><a href="javascript:void(0);">Jude Morphew</a></h2>
-									<span>Online Retail Manager</span>
-									<ul class="tg-socialicons">
-										<li class="tg-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
-										<li class="tg-twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
-										<li class="tg-linkedin"><a href="javascript:void(0);"><i class="fa fa-linkedin"></i></a></li>
-									</ul>
-								</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+							<div class="tg-description" style="line-height: 1.8; color: #555;">
+								<h3 style="font-size: 20px; color: #333; margin-top: 0;">Giới thiệu</h3>
+								<p>Trung tâm Thông tin - Thư viện Nguyễn Thúc Hào là đơn vị trực thuộc Trường Đại học Vinh, đóng vai trò là "giảng đường thứ hai", hỗ trợ đắc lực cho công tác đào tạo, nghiên cứu khoa học và chuyển giao công nghệ của nhà trường.</p>
+								<p>Được đặt theo tên cố Giáo sư, Nhà giáo Nhân dân Nguyễn Thúc Hào (1912 - 2009), Hiệu trưởng đầu tiên của Trường Đại học Sư phạm Vinh. Thư viện chính thức được đổi tên vào ngày 08/10/2009 nhân kỷ niệm 50 năm thành lập trường.</p>
 							</div>
-							<div class="item tg-author tg-member">
-								<figure><a href="javascript:void(0);"><img src="images/team/img-02.jpg" alt="image description"></a></figure>
-								<div class="tg-authorcontent">
-									<h2><a href="javascript:void(0);">Book Burger</a></h2>
-									<span>Bookstore Director</span>
-									<ul class="tg-socialicons">
-										<li class="tg-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
-										<li class="tg-twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
-										<li class="tg-linkedin"><a href="javascript:void(0);"><i class="fa fa-linkedin"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="item tg-author tg-member">
-								<figure><a href="javascript:void(0);"><img src="images/team/img-03.jpg" alt="image description"></a></figure>
-								<div class="tg-authorcontent">
-									<h2><a href="javascript:void(0);">Book Ship &amp; Co.</a></h2>
-									<span>Business Operations</span>
-									<ul class="tg-socialicons">
-										<li class="tg-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
-										<li class="tg-twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
-										<li class="tg-linkedin"><a href="javascript:void(0);"><i class="fa fa-linkedin"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="item tg-author tg-member">
-								<figure><a href="javascript:void(0);"><img src="images/team/img-04.jpg" alt="image description"></a></figure>
-								<div class="tg-authorcontent">
-									<h2><a href="javascript:void(0);">Enoch Gallion</a></h2>
-									<span>Assistant Director</span>
-									<ul class="tg-socialicons">
-										<li class="tg-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
-										<li class="tg-twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
-										<li class="tg-linkedin"><a href="javascript:void(0);"><i class="fa fa-linkedin"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="item tg-author tg-member">
-								<figure><a href="javascript:void(0);"><img src="images/team/img-05.jpg" alt="image description"></a></figure>
-								<div class="tg-authorcontent">
-									<h2><a href="javascript:void(0);">Book House</a></h2>
-									<span>Business Operations</span>
-									<ul class="tg-socialicons">
-										<li class="tg-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
-										<li class="tg-twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
-										<li class="tg-linkedin"><a href="javascript:void(0);"><i class="fa fa-linkedin"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="item tg-author tg-member">
-								<figure><a href="javascript:void(0);"><img src="images/team/img-04.jpg" alt="image description"></a></figure>
-								<div class="tg-authorcontent">
-									<h2><a href="javascript:void(0);">Linnie Klimek</a></h2>
-									<span>Assistant Director</span>
-									<ul class="tg-socialicons">
-										<li class="tg-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
-										<li class="tg-twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
-										<li class="tg-linkedin"><a href="javascript:void(0);"><i class="fa fa-linkedin"></i></a></li>
-									</ul>
-								</div>
+						</div>
+						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+							<div class="tg-description" style="line-height: 1.8; color: #555;">
+								<h3 style="font-size: 20px; color: #333; margin-top: 0;">Quy mô</h3>
+								<ul style="list-style: none; padding: 0;">
+									<li style="padding: 8px 0; border-bottom: 1px solid #e0e0e0;"><strong>Diện tích:</strong> Gần 9.000 m²</li>
+									<li style="padding: 8px 0; border-bottom: 1px solid #e0e0e0;"><strong>Số tầng:</strong> 7 tầng chức năng</li>
+									<li style="padding: 8px 0; border-bottom: 1px solid #e0e0e0;"><strong>Sức chứa:</strong> Gần 1.500 chỗ ngồi</li>
+									<li style="padding: 8px 0; border-bottom: 1px solid #e0e0e0;"><strong>Đầu sách:</strong> Hơn 115.000</li>
+									<li style="padding: 8px 0; border-bottom: 1px solid #e0e0e0;"><strong>Giáo trình số:</strong> Hơn 7.000</li>
+									<li style="padding: 8px 0;"><strong>Luận văn/Luận án:</strong> 6.500+</li>
+								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
 			</section>
+
 			<!--************************************
-					Authors End
+					Services Section Start
 			*************************************-->
+			<section class="tg-sectionspace tg-haslayout" style="background: #f9f9f9;">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="tg-sectionhead" style="text-align: center; margin-bottom: 50px;">
+								<h2 style="font-size: 28px; margin: 0;">Dịch vụ cung cấp</h2>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div style="padding: 25px; background: white; border-radius: 5px; margin-bottom: 20px; border-left: 4px solid #007bff;">
+								<h4 style="margin: 0 0 12px 0; color: #333; font-size: 16px;">Mượn - Trả Sách</h4>
+								<p style="margin: 0; color: #666; font-size: 13px; line-height: 1.6;">Quy trình tự động hóa giúp sinh viên chủ động mượn và trả sách qua máy mà không cần sự can thiệp.</p>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div style="padding: 25px; background: white; border-radius: 5px; margin-bottom: 20px; border-left: 4px solid #28a745;">
+								<h4 style="margin: 0 0 12px 0; color: #333; font-size: 16px;">Tài liệu số</h4>
+								<p style="margin: 0; color: #666; font-size: 13px; line-height: 1.6;">Cung cấp quyền truy cập tài liệu toàn văn qua hệ thống E-Learning và Website thư viện.</p>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div style="padding: 25px; background: white; border-radius: 5px; margin-bottom: 20px; border-left: 4px solid #ffc107;">
+								<h4 style="margin: 0 0 12px 0; color: #333; font-size: 16px;">Hỗ trợ Nghiên cứu</h4>
+								<p style="margin: 0; color: #666; font-size: 13px; line-height: 1.6;">Cung cấp dịch vụ trích dẫn, kiểm tra trùng lặp tài liệu và hướng dẫn tra cứu chuyên sâu.</p>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+							<div style="padding: 25px; background: white; border-radius: 5px; margin-bottom: 20px; border-left: 4px solid #17a2b8;">
+								<h4 style="margin: 0 0 12px 0; color: #333; font-size: 16px;">Không gian Học tập</h4>
+								<p style="margin: 0; color: #666; font-size: 13px; line-height: 1.6;">Cung cấp các phòng họp nhóm, phòng xêmina với trang thiết bị trình chiếu hiện đại.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!--************************************
+					Hours Section Start
+			*************************************-->
+			<section class="tg-sectionspace tg-haslayout">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="tg-sectionhead" style="text-align: center; margin-bottom: 40px;">
+								<h2 style="font-size: 28px; margin: 0;">Giờ làm việc</h2>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+							<div style="padding: 25px; background: #f5f5f5; border-radius: 5px;">
+								<h4 style="margin: 0 0 15px 0; color: #333; font-size: 16px;">Thứ 2 - Thứ 6</h4>
+								<p style="margin: 0; color: #666; font-size: 14px; line-height: 1.8;">
+									<strong>08:00 - 12:00</strong><br>
+									<strong>13:00 - 17:00</strong>
+								</p>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+							<div style="padding: 25px; background: #f5f5f5; border-radius: 5px;">
+								<h4 style="margin: 0 0 15px 0; color: #333; font-size: 16px;">Thứ 7 & Chủ nhật</h4>
+								<p style="margin: 0; color: #666; font-size: 14px; line-height: 1.8;">
+									<strong>Thứ 7:</strong> 08:00 - 12:00<br>
+									<strong>Chủ nhật:</strong> Đóng cửa
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 		</main>
 		<!--************************************
 				Main End
