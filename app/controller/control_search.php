@@ -19,7 +19,7 @@ if ($keyword !== '') {
 
 function h($value)
 {
-	return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
+	return htmlspecialchars((string)$value);
 }
 
 function searchImage($path, $fallback)

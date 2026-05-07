@@ -1,6 +1,4 @@
 <?php
-require_once 'app/config.php'; ini_set('display_errors', 1); error_reporting(E_ALL);
-require_once 'app/model/model_author.php';
 $author = $author ?? [];
 $authorBooks = $authorBooks ?? false;
 ?>
@@ -15,11 +13,11 @@ $authorBooks = $authorBooks ?? false;
 									?>
 									<figure class="tg-authorimg">
 
-									<img src="<?php echo htmlspecialchars($authorImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($author['ho_ten'] ?? 'Author', ENT_QUOTES, 'UTF-8'); ?>">
+									<img src="<?php echo htmlspecialchars($authorImage); ?>" alt="<?php echo htmlspecialchars($author['ho_ten'] ?? 'Author'); ?>">
 									</figure>
 									<div class="tg-authorcontentdetail">
 										<div class="tg-sectionhead">
-											<h2><span><?php echo intval($author['so_sach']); ?> Published Books</span><?php echo htmlspecialchars(!empty($author['but_danh']) ? $author['but_danh'] : $author['ho_ten'], ENT_QUOTES, 'UTF-8'); ?></h2>
+											<h2><span><?php echo intval($author['so_sach']); ?> Published Books</span><?php echo htmlspecialchars(!empty($author['but_danh']) ? $author['but_danh'] : $author['ho_ten']); ?></h2>
 											<ul class="tg-socialicons">
 												<li class="tg-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
 												<li class="tg-twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
@@ -30,9 +28,9 @@ $authorBooks = $authorBooks ?? false;
 										</div>
 										<div class="tg-description">
 											<?php if (!empty($author['tieu_su'])): ?>
-												<p><?php echo nl2br(htmlspecialchars($author['tieu_su'], ENT_QUOTES, 'UTF-8')); ?></p>
+												<p><?php echo nl2br(htmlspecialchars($author['tieu_su'])); ?></p>
 											<?php elseif (!empty($author['ghi_chu'])): ?>
-												<p><?php echo nl2br(htmlspecialchars($author['ghi_chu'], ENT_QUOTES, 'UTF-8')); ?></p>
+												<p><?php echo nl2br(htmlspecialchars($author['ghi_chu'])); ?></p>
 											<?php else: ?>
 												<p>đang cập nhật.</p>
 											<?php endif; ?>
@@ -40,7 +38,7 @@ $authorBooks = $authorBooks ?? false;
 
 										<div class="tg-booksfromauthor">
 											<div class="tg-sectionhead">
-												<h2>Sách của <?php echo htmlspecialchars(!empty($author['but_danh']) ? $author['but_danh'] : $author['ho_ten'], ENT_QUOTES, 'UTF-8'); ?></h2>
+												<h2>Sách của <?php echo htmlspecialchars(!empty($author['but_danh']) ? $author['but_danh'] : $author['ho_ten']); ?></h2>
 											</div>
 											<div class="row">
 												<?php if (is_object($authorBooks) && $authorBooks->num_rows > 0): ?>
@@ -51,16 +49,16 @@ $authorBooks = $authorBooks ?? false;
 														<div class="tg-postbook">
 															<figure class="tg-featureimg">
 																<div class="tg-bookimg">
-																	<div class="tg-frontcover"><img src="<?php echo htmlspecialchars($bookImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($book['ten_sach'], ENT_QUOTES, 'UTF-8'); ?>"></div>
-																	<div class="tg-backcover"><img src="<?php echo htmlspecialchars($bookImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($book['ten_sach'], ENT_QUOTES, 'UTF-8'); ?>"></div>
+																	<div class="tg-frontcover"><img src="<?php echo htmlspecialchars($bookImage); ?>" alt="<?php echo htmlspecialchars($book['ten_sach']); ?>"></div>
+																	<div class="tg-backcover"><img src="<?php echo htmlspecialchars($bookImage); ?>" alt="<?php echo htmlspecialchars($book['ten_sach']); ?>"></div>
 																</div>
 																
 															</figure>
 															<div class="tg-postbookcontent">
 																<div class="tg-booktitle">
-																	<h3><a href="productdetail.php?id=<?php echo intval($book['ma_sach']); ?>"><?php echo htmlspecialchars($book['ten_sach'], ENT_QUOTES, 'UTF-8'); ?></a></h3>
+																	<h3><a href="productdetail.php?id=<?php echo intval($book['ma_sach']); ?>"><?php echo htmlspecialchars($book['ten_sach']); ?></a></h3>
 																</div>
-																<span class="tg-bookwriter">Năm XB: <a href="javascript:void(0);"><?php echo htmlspecialchars($book['nam_xuat_ban'], ENT_QUOTES, 'UTF-8'); ?></a></span>
+																<span class="tg-bookwriter">Năm XB: <a href="javascript:void(0);"><?php echo htmlspecialchars($book['nam_xuat_ban']); ?></a></span>
 																<span class="tg-bookprice"><ins><?php echo number_format((float)$book['gia_sach'], 0, ',', '.'); ?> đ</ins></span>
 																<a class="tg-btn tg-btnstyletwo" href="productdetail.php?id=<?php echo intval($book['ma_sach']); ?>">
 																	<i class="fa fa-book"></i>

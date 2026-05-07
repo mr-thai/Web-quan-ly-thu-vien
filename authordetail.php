@@ -1,30 +1,12 @@
-<?php require_once 'app/config.php'; ?>
-<?php require_once 'app/model/model_author.php';
-$author = false;
-$authorBooks = false;
-if (isset($_GET['id'])) {
-	$id = intval($_GET['id']);
-	if ($id > 0) {
-		$author = getTacGiaChiTiet($conn, $id);
-		if ($author) {
-			$authorBooks = getSachTheoTacGia($conn, $id, 6);
-		}
-	}
-}
-if (!$author) {
-	header('Location: authors.php');
-	exit;
-}
-
-$pageAuthorName = !empty($author['but_danh']) ? $author['but_danh'] : $author['ho_ten'];
-?>
+<?php require_once 'app/controller/control_author.php'; ?>
+<?php $pageAuthorName = !empty($author['but_danh']) ? $author['but_danh'] : $author['ho_ten']; ?>
 <!doctype html>
 <html class="no-js" lang="">
 
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	 <title><?php echo htmlspecialchars($pageAuthorName, ENT_QUOTES, 'UTF-8'); ?> - Book Library</title>
+	 <title><?php echo htmlspecialchars($pageAuthorName); ?> - Book Library</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -62,7 +44,7 @@ $pageAuthorName = !empty($author['but_danh']) ? $author['but_danh'] : $author['h
 							<ol class="tg-breadcrumb">
 								<li><a href="index.php">home</a></li>
 								<li><a href="authors.php">Authors</a></li>
-								<li class="tg-active"><?php echo htmlspecialchars($pageAuthorName, ENT_QUOTES, 'UTF-8'); ?></li>
+								<li class="tg-active"><?php echo htmlspecialchars($pageAuthorName); ?></li>
 							</ol>
 						</div>
 					</div>

@@ -55,7 +55,7 @@
                                                 <tr>
                                                     <td><?php echo (int)$tacgia['ma_tac_gia']; ?></td>
                                                     <td>
-                                                        <img src="<?php echo htmlspecialchars($avatarUrl, ENT_QUOTES, 'UTF-8'); ?>"
+                                                        <img src="<?php echo htmlspecialchars($avatarUrl); ?>"
                                                              alt="Ảnh tác giả"
                                                              style="width: 60px; height: 60px; ">
                                                     </td>

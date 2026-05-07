@@ -108,7 +108,7 @@
 					</div>
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-							<div style="padding: 25px; background: white; border-radius: 5px; margin-bottom: 20px; border-left: 4px solid #007bff;">
+							<div style="padding: 25px; background: white; border-radius: 5px; margin-bottom: 20px; border-left: 4px solid #77b748;">
 								<h4 style="margin: 0 0 12px 0; color: #333; font-size: 16px;">Mượn - Trả Sách</h4>
 								<p style="margin: 0; color: #666; font-size: 13px; line-height: 1.6;">Quy trình tự động hóa giúp sinh viên chủ động mượn và trả sách qua máy mà không cần sự can thiệp.</p>
 							</div>

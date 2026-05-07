@@ -1,7 +1,6 @@
 <?php
-require_once 'app/model/model_index.php';
-$sach_moi_phat_hanh = getSachMoiPhatHanh($conn);
-$row = $sach_moi_phat_hanh->fetch_assoc();
+$sach_moi_phat_hanh = $sach_moi_phat_hanh ?? false;
+$row = $row ?? [];
 $bookImage = !empty($row['url_anh']) ? ltrim($row['url_anh'], '/') : 'images/products/img-01.jpg';
 ?>  
     <section class="tg-sectionspace tg-haslayout">
@@ -27,9 +26,9 @@ $bookImage = !empty($row['url_anh']) ? ltrim($row['url_anh'], '/') : 'images/pro
                                             </div>
                                         </figure>
                                         <div class="tg-postbookcontent">
-                                            <ul class="tg-bookscategories"><li><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_the_loai'], ENT_QUOTES, 'UTF-8') ?></a></li></ul>
-                                            <div class="tg-booktitle"><h3><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_sach'], ENT_QUOTES, 'UTF-8') ?></a></h3></div>
-                                            <span class="tg-bookwriter">Bởi: <a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_tac_gia'], ENT_QUOTES, 'UTF-8') ?></a></span>
+                                            <ul class="tg-bookscategories"><li><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_the_loai']) ?></a></li></ul>
+                                            <div class="tg-booktitle"><h3><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_sach']) ?></a></h3></div>
+                                            <span class="tg-bookwriter">Bởi: <a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_tac_gia']) ?></a></span>
                                             <span class="tg-stars"><span></span></span>
                                         </div>
                                     </div>

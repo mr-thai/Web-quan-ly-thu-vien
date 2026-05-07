@@ -1,14 +1,7 @@
-<?php require_once 'app/config.php'; 
-require_once 'app/model/model_product.php';
-?>
-
 <?php
 $bookImage = 'images/products/img-01.jpg';
-$row = [];
-$featuredBook = getSachBanChay($conn);
-if ($featuredBook && $row = $featuredBook->fetch_assoc()) {
-    $bookImage = !empty($row['url_anh']) ? ltrim($row['url_anh'], '/') : 'images/products/img-01.jpg';
-}
+$row = $row ?? [];
+$featuredBook = $featuredBook ?? false;
 ?>
 <div class="tg-featurebook alert" role="alert">
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -23,9 +16,9 @@ if ($featuredBook && $row = $featuredBook->fetch_assoc()) {
 				<div class="tg-featureditmcontent">
 					<div class="tg-themetagbox"><span class="tg-themetag">featured</span></div>
 					<div class="tg-booktitle">
-						<h3><a href="productdetail.php?id=<?php echo intval($row['ma_sach']); ?>"><?php echo htmlspecialchars($row['ten_sach'], ENT_QUOTES, 'UTF-8'); ?></a></h3>
+						<h3><a href="productdetail.php?id=<?php echo intval($row['ma_sach']); ?>"><?php echo htmlspecialchars($row['ten_sach']); ?></a></h3>
 					</div>
-					<span class="tg-bookwriter">By: <a href="productdetail.php?id=<?php echo intval($row['ma_sach']); ?>"><?php echo htmlspecialchars($row['ten_tac_gia'], ENT_QUOTES, 'UTF-8'); ?></a></span>
+					<span class="tg-bookwriter">By: <a href="productdetail.php?id=<?php echo intval($row['ma_sach']); ?>"><?php echo htmlspecialchars($row['ten_tac_gia']); ?></a></span>
 					<span class="tg-stars"><span></span></span>
 					<div class="tg-priceandbtn">
 						<a class="tg-btn tg-btnstyletwo tg-active" href="app/controller/control_muon_sach.php?action=add&id=<?php echo $row['ma_sach']; ?>">

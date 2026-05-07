@@ -1,7 +1,6 @@
 <?php
-require_once 'app/model/model_index.php';
-$sach_moi_phat_hanh = getSachChonBoiTacGia($conn);
-?>  
+$sach_moi_phat_hanh = $sach_moi_phat_hanh ?? false;
+?>
     <section class="tg-sectionspace tg-haslayout">
         <div class="container">
             <div class="row">
@@ -9,6 +8,7 @@ $sach_moi_phat_hanh = getSachChonBoiTacGia($conn);
                     <div class="tg-sectionhead"><h2><span>Một Số Sách Tuyệt Vời</span>Được Chọn Bởi Tác Giả</h2><a class="tg-btn" href="products.php">Xem Tất Cả</a></div>
                 </div>
                 <div id="tg-pickedbyauthorslider" class="tg-pickedbyauthor tg-pickedbyauthorslider owl-carousel">
+                <?php if($sach_moi_phat_hanh && is_object($sach_moi_phat_hanh)): ?>
                 <?php while($row = $sach_moi_phat_hanh->fetch_assoc()): ?>
                     <?php
                         $bookImage = !empty($row['url_anh']) ? ltrim($row['url_anh'], '/') : 'images/products/img-01.jpg';
@@ -20,18 +20,19 @@ $sach_moi_phat_hanh = getSachChonBoiTacGia($conn);
                                 <div class="tg-hovercontent">
                                     <div class="tg-description"><p>Mô tả sách.</p></div>
                                     <strong class="tg-bookpage">Trang Sách: 206</strong>
-                                    <strong class="tg-bookcategory">Thể Loại: <?= htmlspecialchars($row['ten_the_loai'], ENT_QUOTES, 'UTF-8') ?></strong>
+                                    <strong class="tg-bookcategory">Thể Loại: <?= htmlspecialchars($row['ten_the_loai']) ?></strong>
                                     <div class="tg-ratingbox"><span class="tg-stars"><span></span></span></div>
                                 </div>
                             </figure>
                             <div class="tg-postbookcontent">
-                                <div class="tg-booktitle"><h3><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_sach'], ENT_QUOTES, 'UTF-8') ?></a></h3></div>
-                                <span class="tg-bookwriter">Bởi: <a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_tac_gia'], ENT_QUOTES, 'UTF-8') ?></a></span>
+                                <div class="tg-booktitle"><h3><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_sach']) ?></a></h3></div>
+                                <span class="tg-bookwriter">Bởi: <a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_tac_gia']) ?></a></span>
                                 <a class="tg-btn tg-btnstyletwo" href="app/controller/control_muon_sach.php?action=add&id=<?php echo $row['ma_sach']; ?>"><i class="fa fa-book"></i><em>Mượn sách</em></a>
                             </div>
                         </div>
                     </div>
                 <?php endwhile; ?>
+                <?php endif; ?>
                 </div>
             </div>
         </div>

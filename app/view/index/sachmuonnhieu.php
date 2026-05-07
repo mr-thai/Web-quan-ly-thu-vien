@@ -1,6 +1,5 @@
-<?php 
-require_once 'app/model/model_index.php'; 
-$danh_sach = getDanhSachSach($conn);
+<?php
+$danh_sach = $danh_sach ?? false;
 ?>
 <section class="tg-sectionspace tg-haslayout">
     <div class="container">
@@ -14,7 +13,7 @@ $danh_sach = getDanhSachSach($conn);
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div id="tg-bestsellingbooksslider" class="tg-bestsellingbooksslider tg-bestsellingbooks owl-carousel">
                     
-                    <?php while($row = $danh_sach->fetch_assoc()): ?>
+                    <?php while($danh_sach && $row = $danh_sach->fetch_assoc()): ?>
                     <?php
                         $bookImage = !empty($row['url_anh']) ? ltrim($row['url_anh'], '/') : 'images/products/img-01.jpg';
                     ?>
@@ -27,10 +26,10 @@ $danh_sach = getDanhSachSach($conn);
                                 </div>
                             </figure>
                             <div class="tg-postbookcontent">
-                                <ul class="tg-bookscategories"><li><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_the_loai'], ENT_QUOTES, 'UTF-8') ?></a></li></ul>
+                                <ul class="tg-bookscategories"><li><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_the_loai']) ?></a></li></ul>
                                 <div class="tg-themetagbox"><span class="tg-themetag">mới</span></div>
-                                <div class="tg-booktitle"><h3><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_sach'], ENT_QUOTES, 'UTF-8') ?></a></h3></div>
-                                <span class="tg-bookwriter">Bởi: <a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_tac_gia'], ENT_QUOTES, 'UTF-8') ?></a></span>
+                                <div class="tg-booktitle"><h3><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_sach']) ?></a></h3></div>
+                                <span class="tg-bookwriter">Bởi: <a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>"><?= htmlspecialchars($row['ten_tac_gia']) ?></a></span>
                                 <span class="tg-stars"><span></span></span>
                                 <a class="tg-btn tg-btnstyletwo" href="app/controller/control_muon_sach.php?action=add&id=<?= $row['ma_sach'] ?>">
                                     <i class="fa fa-book"></i><em>Mượn sách</em>

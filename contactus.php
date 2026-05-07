@@ -110,7 +110,7 @@
 						<!-- Contact Info Column -->
 						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
 							<div style="padding: 30px; background: #f5f5f5; border-radius: 8px; margin-bottom: 30px;">
-								<h4 style="margin: 0 0 15px 0; color: #333; font-size: 18px; font-weight: bold;"><i class="icon-apartment" style="margin-right: 12px; color: #007bff;"></i>Địa chỉ</h4>
+								<h4 style="margin: 0 0 15px 0; color: #333; font-size: 18px; font-weight: bold;"><i class="icon-apartment" style="margin-right: 12px; color: #77b748;"></i>Địa chỉ</h4>
 								<p style="margin: 0; color: #666; font-size: 15px; line-height: 1.7;">
 									Phòng Quản lý Thư viện<br>
 									Tầng 2, Tòa nhà A<br>
@@ -125,9 +125,9 @@
 							<div style="padding: 30px; background: #f5f5f5; border-radius: 8px; margin-bottom: 30px;">
 								<h4 style="margin: 0 0 15px 0; color: #333; font-size: 18px; font-weight: bold;"><i class="icon-phone-handset" style="margin-right: 12px; color: #28a745;"></i>Liên lạc</h4>
 								<p style="margin: 0; color: #666; font-size: 15px; line-height: 2;">
-									<strong style="color: #333;">Hotline:</strong> <span style="color: #007bff; font-weight: bold;">(028) 1234 5678</span><br>
-									<strong style="color: #333;">Mobile:</strong> <span style="color: #007bff; font-weight: bold;">0909 123 456</span><br>
-									<strong style="color: #333;">Email:</strong> <a href="mailto:thuvien@domain.local" style="color: #007bff; text-decoration: none; font-weight: bold;">thuvien@domain.local</a>
+									<strong style="color: #333;">Hotline:</strong> <span style="color: #77b748; font-weight: bold;">(028) 1234 5678</span><br>
+									<strong style="color: #333;">Mobile:</strong> <span style="color: #77b748; font-weight: bold;">0909 123 456</span><br>
+									<strong style="color: #333;">Email:</strong> <a href="mailto:thuvien@domain.local" style="color: #77b748; text-decoration: none; font-weight: bold;">thuvien@domain.local</a>
 								</p>
 							</div>
 						</div>

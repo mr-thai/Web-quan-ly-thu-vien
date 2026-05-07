@@ -1,4 +1,4 @@
-<?php require_once 'app/config.php'; ini_set('display_errors', 1); error_reporting(E_ALL); ?>
+<?php require_once 'app/config.php';?>
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -66,13 +66,13 @@
 							<div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 pull-right">
 								<div id="tg-content" class="tg-content">
 									<div class="tg-products">
-										<?php include 'app/view/products/productgrid.php'; ?>
+										<?php require_once 'app/controller/control_product_grid.php'; ?>
 
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pull-left">
-								<?php include 'app/view/products/aside-products.php'; ?>
+								<?php require_once 'app/controller/control_aside_products.php'; ?>
 							</div>
 						</div>
 					</div>

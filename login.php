@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/app/config.php';
 require_once __DIR__ . '/app/controller/control_logic_login.php';
+
+$next = isset($_GET['next']) ? $_GET['next'] : '';
 ?>
 <!DOCTYPE html>
 <html lang="vi">

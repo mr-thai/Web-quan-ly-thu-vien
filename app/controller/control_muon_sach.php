@@ -243,7 +243,7 @@ function hienThiPhieuMuon($conn, $ma_phieu_muon)
         .receipt-total { text-align: right; margin-bottom: 20px; font-size: 16px; font-weight: bold; }
         .receipt-footer { text-align: center; margin-top: 30px; font-size: 12px; color: #999; }
         .btn-group { text-align: center; margin-top: 20px; }
-        .btn { display: inline-block; padding: 10px 20px; margin: 5px; background: #007bff; color: white; text-decoration: none; border: none; cursor: pointer; border-radius: 4px; }
+        .btn { display: inline-block; padding: 10px 20px; margin: 5px; background: #77b748; color: white; text-decoration: none; border: none; cursor: pointer; border-radius: 4px; }
         .btn:hover { background: #0056b3; }
         @media print {
             body { background: white; }

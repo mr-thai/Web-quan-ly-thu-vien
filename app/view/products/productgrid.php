@@ -1,9 +1,8 @@
-<?php require_once 'app/config.php'; 
-require_once 'app/model/model_product.php';
-$products = getDanhSachSach($conn);
+<?php
+$products = $products ?? false;
 ?>
 <div class="tg-productgrid">
-	<?php while($row = $products->fetch_assoc()): 
+	<?php if($products): while($row = $products->fetch_assoc()): 
 		$bookImage = ltrim($row['url_anh'], '/');
 	?>
 	<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
@@ -30,5 +29,5 @@ $products = getDanhSachSach($conn);
 			</div>
 		</div>
 	</div>
-	<?php endwhile; ?>
+	<?php endwhile; endif; ?>
 </div>

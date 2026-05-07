@@ -88,7 +88,7 @@
                     </div>
                 </div>
                     <div class="tg-searchbox">
-                        <form class="tg-formtheme tg-formsearch" method="get" action="<?php echo htmlspecialchars($search_form_action ?? 'app/controller/control_search.php', ENT_QUOTES, 'UTF-8'); ?>">
+                        <form class="tg-formtheme tg-formsearch" method="get" action="<?php echo htmlspecialchars($search_form_action ?? 'app/controller/control_search.php'); ?>">
                             <fieldset>
                                 <input type="text" name="search" class="typeahead form-control" placeholder="Tìm theo tiêu đề, tác giả, từ khóa, ISBN...">
                                 <button type="submit"><i class="icon-magnifier"></i></button>

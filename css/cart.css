@@ -36,7 +36,7 @@
             color: white; 
             border-color: #77b748; 
         }
-        .time-option label:hover { border-color: #007bff; }
+        .time-option label:hover { border-color: #77b748; }
         .time-option .time-value { font-size: 20px; font-weight: 600; display: block; margin-bottom: 5px; }
         .time-option .time-desc { font-size: 12px; color: #666; }
         .time-option input[type="radio"]:checked + label .time-desc { color: rgba(255,255,255,0.9); }

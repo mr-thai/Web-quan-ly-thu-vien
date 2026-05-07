@@ -12,11 +12,11 @@
                             <?php $index = 0; while ($author = $highlightAuthors->fetch_assoc()): if ($index >= 3) break; ?>
                                 <?php $authorImage = !empty($author['avatar_url']) ? ltrim($author['avatar_url'], '/') : 'images/author/imag-' . str_pad(((($index + 1) % 26) + 1), 2, '0', STR_PAD_LEFT) . '.jpg'; ?>
                                 <div class="item tg-testimonial">
-                                    <figure><img src="<?php echo htmlspecialchars($authorImage, ENT_QUOTES, 'UTF-8'); ?>" alt="image description"></figure>
-                                    <blockquote><q><?php echo htmlspecialchars(!empty($author['tieu_su']) ? $author['tieu_su'] : $author['ghi_chu'], ENT_QUOTES, 'UTF-8'); ?></q></blockquote>
+                                    <figure><img src="<?php echo htmlspecialchars($authorImage); ?>" alt="image description"></figure>
+                                    <blockquote><q><?php echo htmlspecialchars(!empty($author['tieu_su']) ? $author['tieu_su'] : $author['ghi_chu']); ?></q></blockquote>
                                     <div class="tg-testimonialauthor">
-                                        <h3><?php echo htmlspecialchars(!empty($author['but_danh']) ? $author['but_danh'] : $author['ho_ten'], ENT_QUOTES, 'UTF-8'); ?></h3>
-                                        <span><?php echo htmlspecialchars(!empty($author['quoc_tich']) ? $author['quoc_tich'] : ('Tổng sách: ' . $author['so_sach']), ENT_QUOTES, 'UTF-8'); ?></span>
+                                        <h3><?php echo htmlspecialchars(!empty($author['but_danh']) ? $author['but_danh'] : $author['ho_ten']); ?></h3>
+                                        <span><?php echo htmlspecialchars(!empty($author['quoc_tich']) ? $author['quoc_tich'] : ('Tổng sách: ' . $author['so_sach'])); ?></span>
                                     </div>
                                 </div>
                             <?php $index++; endwhile; ?>

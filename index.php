@@ -27,13 +27,13 @@
 
 <main id="tg-main" class="tg-main tg-haslayout">
 
-    <?php include 'app/view/index/sachmuonnhieu.php'; ?>
+    <?php require_once 'app/controller/control_index_bestselling.php'; ?>
 
-    <?php include 'app/view/index/sachnoibat.php'; ?>
+    <?php require_once 'app/controller/control_index_featured.php'; ?>
 
-    <?php include 'app/view/index/sachmoiphathanh.php'; ?>
+    <?php require_once 'app/controller/control_index_newrelease.php'; ?>
 
-    <?php include 'app/view/index/duocchonboitacgia.php'; ?>
+    <?php require_once 'app/controller/control_index_picked.php'; ?>
     
     <?php include 'app/view/index/loichungnhan.php'; ?>
 </main>

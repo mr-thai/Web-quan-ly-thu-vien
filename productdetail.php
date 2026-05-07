@@ -1,17 +1,4 @@
-<?php require_once 'app/config.php'; ini_set('display_errors', 1); error_reporting(E_ALL); ?>
-<?php require_once 'app/model/model_product.php';
-$book = false;
-if (isset($_GET['id'])) {
-	$id = intval($_GET['id']);
-	if ($id > 0) {
-		$book = getSachChiTiet($conn, $id);
-	}
-}
-if (!$book) {
-	header('Location: products.php');
-	exit;
-}
-?>
+<?php require_once 'app/controller/control_product_detail.php'; ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
@@ -52,11 +39,11 @@ if (!$book) {
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="tg-innerbannercontent">
-	                            	<h1><?php echo htmlspecialchars($book['ten_sach'], ENT_QUOTES, 'UTF-8'); ?></h1>
+	                            	<h1><?php echo htmlspecialchars($book['ten_sach']); ?></h1>
                             	<ol class="tg-breadcrumb">
                             		<li><a href="index.php">home</a></li>
                             		<li><a href="products.php">Products</a></li>
-	                            		<li class="tg-active"><?php echo htmlspecialchars($book['ten_sach'], ENT_QUOTES, 'UTF-8'); ?></li>
+	                            		<li class="tg-active"><?php echo htmlspecialchars($book['ten_sach']); ?></li>
                             	</ol>
                             </div>
 					</div>
@@ -88,7 +75,7 @@ if (!$book) {
 								</div>
 							</div>
 							<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pull-left">
-								<?php include 'app/view/products/aside-products.php'; ?>
+								<?php require_once 'app/controller/control_aside_products.php'; ?>
 							</div>
 						</div>
 					</div>

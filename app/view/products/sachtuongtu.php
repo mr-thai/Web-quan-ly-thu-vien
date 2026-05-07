@@ -1,11 +1,6 @@
 <?php
-require_once 'app/config.php'; ini_set('display_errors', 1); error_reporting(E_ALL);
-require_once 'app/model/model_product.php';
 $book = $book ?? [];
-$relatedBooks = false;
-if (!empty($book['ma_tacgia'])) {
-    $relatedBooks = getSachLienQuan($conn, $book['ma_tacgia']);
-}
+$relatedBooks = $relatedBooks ?? false;
 ?>
 <div class="tg-relatedproducts">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

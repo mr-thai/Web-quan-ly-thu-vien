@@ -59,7 +59,7 @@
 			<!--************************************
 					Authors Start
 			*************************************-->
-			<?php include 'app/view/author/grid-author.php'; ?>
+			<?php require_once 'app/controller/control_author_grid.php'; ?>
 			<!--************************************
 					Authors End
 			*************************************-->
@@ -73,7 +73,7 @@
 			<!--************************************
 					Picked By Author Start
 			*************************************-->
-			<?php include 'app/view/author/picker-author.php'; ?>
+			<?php require_once 'app/controller/control_author_picker.php'; ?>
 			<!--************************************
 					Picked By Author End
 			*************************************-->

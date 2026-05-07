@@ -1,16 +1,4 @@
-<?php
-require_once 'app/config.php';
-
-if (!isset($_SESSION['nguoi_dung'])) {
-    header('Location: login.php');
-    exit();
-}
-
-require_once 'app/model/model_muon_sach.php';
-
-$ma_nguoi_dung = (int)$_SESSION['nguoi_dung']['ma_nguoi_dung'];
-$phieuMuon = layPhieuMuonTatCa($conn, $ma_nguoi_dung);
-?>
+<?php require_once 'app/controller/control_sachcuatoi.php'; ?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
