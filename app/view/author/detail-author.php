@@ -34,7 +34,7 @@ $authorBooks = $authorBooks ?? false;
 											<?php elseif (!empty($author['ghi_chu'])): ?>
 												<p><?php echo nl2br(htmlspecialchars($author['ghi_chu'], ENT_QUOTES, 'UTF-8')); ?></p>
 											<?php else: ?>
-												<p>Thông tin tác giả đang được cập nhật.</p>
+												<p>đang cập nhật.</p>
 											<?php endif; ?>
 										</div>
 
@@ -54,10 +54,7 @@ $authorBooks = $authorBooks ?? false;
 																	<div class="tg-frontcover"><img src="<?php echo htmlspecialchars($bookImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($book['ten_sach'], ENT_QUOTES, 'UTF-8'); ?>"></div>
 																	<div class="tg-backcover"><img src="<?php echo htmlspecialchars($bookImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($book['ten_sach'], ENT_QUOTES, 'UTF-8'); ?>"></div>
 																</div>
-																<a class="tg-btnaddtowishlist" href="javascript:void(0);">
-																	<i class="icon-heart"></i>
-																	<span>add to wishlist</span>
-																</a>
+																
 															</figure>
 															<div class="tg-postbookcontent">
 																<div class="tg-booktitle">

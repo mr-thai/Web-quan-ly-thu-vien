@@ -4,7 +4,7 @@ $products = getDanhSachSach($conn);
 ?>
 <div class="tg-productgrid">
 	<?php while($row = $products->fetch_assoc()): 
-		$bookImage = !empty($row['url_anh']) ? ltrim($row['url_anh'], '/') : 'images/products/img-01.jpg';
+		$bookImage = ltrim($row['url_anh'], '/');
 	?>
 	<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
 		<div class="tg-postbook">
@@ -16,12 +16,12 @@ $products = getDanhSachSach($conn);
 			</figure>
 			<div class="tg-postbookcontent">
 				<ul class="tg-bookscategories">
-					<li><a href="javascript:void(0);"><?php echo htmlspecialchars($row['ten_the_loai'], ENT_QUOTES, 'UTF-8'); ?></a></li>
+					<li><a href="javascript:void(0);"><?php echo htmlspecialchars($row['ten_the_loai']); ?></a></li>
 				</ul>
 				<div class="tg-booktitle">
-			<h3><a href="productdetail.php?id=<?php echo $row['ma_sach']; ?>"><?php echo htmlspecialchars($row['ten_sach'], ENT_QUOTES, 'UTF-8'); ?></a></h3>
+			<h3><a href="productdetail.php?id=<?php echo $row['ma_sach']; ?>"><?php echo htmlspecialchars($row['ten_sach']); ?></a></h3>
 			</div>
-			<span class="tg-bookwriter">By: <a href="javascript:void(0);"><?php echo htmlspecialchars($row['ten_tac_gia'], ENT_QUOTES, 'UTF-8'); ?></a></span>
+			<span class="tg-bookwriter">By: <a href="javascript:void(0);"><?php echo htmlspecialchars($row['ten_tac_gia']); ?></a></span>
 				<span class="tg-stars"><span></span></span>
 			<a class="tg-btn tg-btnstyletwo" href="productdetail.php?id=<?php echo $row['ma_sach']; ?>">
 					<i class="fa fa-book"></i>

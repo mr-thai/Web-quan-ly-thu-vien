@@ -30,9 +30,7 @@ if (isset($_GET['action'])) {
     }
 }
 
-/**
- * Thêm sách vào giỏ mượn
- */
+
 function actionThemSachVaoGio($conn)
 {
     if (!isset($_GET['id'])) {
@@ -48,7 +46,6 @@ function actionThemSachVaoGio($conn)
         exit();
     }
 
-    // Lấy số lượng còn từ DB
     $stmtCheck = $conn->prepare('SELECT so_luong_con FROM sach WHERE ma_sach = ?');
     $stmtCheck->bind_param('i', $id);
     $stmtCheck->execute();
@@ -69,7 +66,6 @@ function actionThemSachVaoGio($conn)
     }
 
     if (isset($_SESSION['cart'][$id])) {
-        // Kiểm tra không vượt quá số lượng có sẵn
         if ($_SESSION['cart'][$id]['qty'] < $soLuongCon) {
             $_SESSION['cart'][$id]['qty']++;
         }
@@ -85,9 +81,7 @@ function actionThemSachVaoGio($conn)
     exit();
 }
 
-/**
- * Xóa sách khỏi giỏ mượn
- */
+
 function actionXoaSachKhoiGio()
 {
     if (!isset($_GET['id'])) {
@@ -104,9 +98,7 @@ function actionXoaSachKhoiGio()
     exit();
 }
 
-/**
- * Xóa toàn bộ giỏ mượn
- */
+
 function actionXoaToanboBGio()
 {
     $_SESSION['cart'] = [];
@@ -115,9 +107,7 @@ function actionXoaToanboBGio()
     exit();
 }
 
-/**
- * In phiếu mượn
- */
+
 function actionInPhieu($conn)
 {
     if (!isset($_SESSION['nguoi_dung'])) {
@@ -147,23 +137,20 @@ function actionInPhieu($conn)
     exit();
 }
 
-/**
- * Checkout (tạo phiếu mượn)
- */
+
 function actionCheckout($conn)
 {
     if (!isset($_SESSION['nguoi_dung'])) {
-        header('Location: ../../login.php?next=cart-muon.php');
+        header('Location: ../../login.php?next=cartmuon.php');
         exit();
     }
 
     if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
         $_SESSION['error'] = 'Giỏ mượn trống.';
-        header('Location: ../../cart-muon.php');
+        header('Location: ../../cartmuon.php');
         exit();
     }
 
-    // Lấy thời gian mượn từ POST (3 ngày, 1 tuần, 3 tuần), mặc định 14 ngày
     $thoigian_muon = isset($_POST['thoigian_muon']) ? (int)$_POST['thoigian_muon'] : 14;
     if (!in_array($thoigian_muon, [3, 7, 21, 14])) {
         $thoigian_muon = 14;
@@ -176,7 +163,7 @@ function actionCheckout($conn)
 
     if (!$ma_phieu_muon) {
         $_SESSION['error'] = 'Không thể tạo phiếu mượn. Vui lòng thử lại.';
-        header('Location: ../../cart-muon.php');
+        header('Location: ../../cartmuon.php');
         exit();
     }
 
@@ -184,13 +171,11 @@ function actionCheckout($conn)
     foreach ($_SESSION['cart'] as $ma_sach => $item) {
         $so_luong = (int)$item['qty'];
         
-        // Kiểm tra và giảm số lượng sách
         if (!giamSoLuongSach($conn, $ma_sach, $so_luong)) {
             $successAll = false;
             break;
         }
 
-        // Thêm chi tiết phiếu mượn
         if (!themChiTietPhieuMuon($conn, $ma_phieu_muon, $ma_sach, $so_luong)) {
             $successAll = false;
             break;
@@ -201,20 +186,16 @@ function actionCheckout($conn)
         $_SESSION['cart'] = [];
         $_SESSION['success'] = 'Mượn sách thành công. Vui lòng trả sách trước ngày ' . date('d/m/Y', strtotime($ngay_hen_tra));
         
-        // Hiển thị phiếu in
         hienThiPhieuMuon($conn, $ma_phieu_muon);
         exit();
     } else {
         capNhatTrangThaiPhieuMuon($conn, $ma_phieu_muon, 'huy');
         $_SESSION['error'] = 'Lỗi khi xử lý mượn sách. Vui lòng thử lại.';
-        header('Location: ../../cart-muon.php');
+        header('Location: ../../cartmuon.php');
         exit();
     }
 }
 
-/**
- * Hiển thị phiếu mượn để in
- */
 function hienThiPhieuMuon($conn, $ma_phieu_muon)
 {
     $phieu = $conn->query("SELECT pm.*, nd.ho_ten, nd.email, nd.so_dien_thoai FROM phieu_muon pm JOIN nguoi_dung nd ON pm.ma_nguoi_dung = nd.ma_nguoi_dung WHERE pm.ma_phieu_muon = $ma_phieu_muon")->fetch_assoc();

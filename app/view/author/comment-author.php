@@ -23,7 +23,7 @@
                         <?php else: ?>
                             <div class="item tg-testimonial">
                                 <figure><img src="images/author/imag-02.jpg" alt="image description"></figure>
-                                <blockquote><q>Hiện chưa có dữ liệu tác giả để hiển thị phần giới thiệu này.</q></blockquote>
+                                <blockquote><q>chưa có dữ liệu</q></blockquote>
                                 <div class="tg-testimonialauthor">
                                     <h3>QLTV</h3>
                                     <span>Hệ thống thư viện</span>

@@ -3,13 +3,13 @@ require_once 'app/config.php';
 require_once 'app/model/model_muon_sach.php';
 
 if (!isset($_GET['id']) || !isset($_SESSION['nguoi_dung'])) {
-    header('Location: sach-cua-toi.php');
+    header('Location: sachcuatoi.php');
     exit();
 }
 
+
 $ma_phieu_muon = (int)$_GET['id'];
 
-// Lấy thông tin phiếu
 $phieu = $conn->query("
     SELECT pm.*, nd.ho_ten, nd.email, nd.so_dien_thoai 
     FROM phieu_muon pm 
@@ -19,7 +19,7 @@ $phieu = $conn->query("
 )->fetch_assoc();
 
 if (!$phieu) {
-    header('Location: sach-cua-toi.php');
+    header('Location: sachcuatoi.php');
     exit();
 }
 
@@ -31,7 +31,7 @@ $chiTiet = layChiTietPhieuMuon($conn, $ma_phieu_muon);
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Chi tiết phiếu mượn - <?php echo $ma_phieu_muon; ?></title>
+    <title>Chi tiết phiếu mượn</title>
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/normalize.css">
@@ -136,7 +136,7 @@ $chiTiet = layChiTietPhieuMuon($conn, $ma_phieu_muon);
                 </div>
 
                 <div style="margin-top: 20px;">
-                    <a href="sach-cua-toi.php" class="btn btn-secondary">← Quay lại danh sách</a>
+                    <a href="sachcuatoi.php" class="btn btn-secondary">← Quay lại danh sách</a>
                     <a href="app/controller/control_muon_sach.php?action=print&id=<?php echo $ma_phieu_muon; ?>" class="btn btn-primary" target="_blank">🖨️ In phiếu</a>
                 </div>
             </div>

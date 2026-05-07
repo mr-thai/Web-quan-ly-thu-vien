@@ -49,7 +49,7 @@ $pickedBooks = getSachDuocChonBoiTacGia($conn, 5);
 						<div class="tg-postbook">
 							<div class="tg-postbookcontent">
 								<div class="tg-booktitle">
-									<h3>Hiện chưa có dữ liệu sách để hiển thị.</h3>
+									<h3>chưa có dữ liệu</h3>
 								</div>
 							</div>
 						</div>

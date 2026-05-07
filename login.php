@@ -38,8 +38,8 @@ require_once __DIR__ . '/app/controller/control_logic_login.php';
                         <form method="post" action="login.php<?php echo $next !== '' ? '?next=' . urlencode($next) : ''; ?>">
                             <input type="hidden" name="next" value="<?php echo htmlspecialchars($next); ?>">
                             <div class="form-group">
-                                <label for="identifier">Tên đăng nhập hoặc email</label>
-                                <input type="text" class="form-control" id="identifier" name="identifier" placeholder="Nhập tên đăng nhập hoặc email" value="<?php echo htmlspecialchars($_POST['identifier'] ?? ''); ?>" required>
+                                <label for="email">Tên đăng nhập hoặc email</label>
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Nhập tên đăng nhập hoặc email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" required>
                             </div>
                             <div class="form-group">
                                 <label for="password">Mật khẩu</label>

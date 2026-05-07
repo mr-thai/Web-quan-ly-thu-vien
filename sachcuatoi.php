@@ -91,7 +91,7 @@ $phieuMuon = layPhieuMuonTatCa($conn, $ma_nguoi_dung);
                                         </span>
                                     </td>
                                     <td>
-                                        <a href="chi-tiet-muon.php?id=<?php echo $phieu['ma_phieu_muon']; ?>" class="btn btn-sm btn-primary">Xem chi tiết</a>
+                                        <a href="chitietmuon.php?id=<?php echo $phieu['ma_phieu_muon']; ?>" class="btn btn-sm btn-primary">Xem chi tiết</a>
                                     </td>
                                 </tr>
                                 <?php endwhile; ?>

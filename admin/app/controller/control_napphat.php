@@ -15,7 +15,7 @@ if (!empty($phone)) {
         $ma_nguoi_dung = $nguoi_dung['ma_nguoi_dung'];
         $danh_sach_phat = pm_get_phat_by_user($conn, $ma_nguoi_dung);
     } else {
-        $message = 'Không tìm thấy người dùng với số điện thoại này';
+        $message = 'Không tìm thấy ';
     }
 }
 
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 }
             
-                $message = $updated_count > 0 ? 'Cập nhật thanh toán phạt thành công (' . $updated_count . ' dòng)' : 'Không có dữ liệu thanh toán nào được xử lý';
+                $message = $updated_count > 0 ? 'thanh toán phạt thành công (' . $updated_count . ' dòng)' : 'Không có dữ liệu thanh toán';
             // Refresh data
             $danh_sach_phat = pm_get_phat_by_user($conn, $nguoi_dung['ma_nguoi_dung']);
         }

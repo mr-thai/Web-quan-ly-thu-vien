@@ -15,9 +15,9 @@
                                     <span>Xin chào, <?php echo htmlspecialchars($_SESSION['nguoi_dung']['ho_ten'] ?? $_SESSION['nguoi_dung']['ten_dang_nhap']); ?></span>
                                 </a>
                                 <ul class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-userlogin">
-                                    <li><a href="sach-cua-toi.php">Sách đã mượn</a></li>
-                                    <li><a href="cart-muon.php">Giỏ mượn</a></li>
-                                    <li><a href="../logout.php">Đăng xuất</a></li>
+                                    <li><a href="sachcuatoi.php">Sách đã mượn</a></li>
+                                    <li><a href="cartmuon.php">Giỏ mượn</a></li>
+                                    <li><a href="logout.php">Đăng xuất</a></li>
                                 </ul>
                             </div>
                         <?php else: ?>
@@ -76,11 +76,11 @@
                     <div class="tg-minicartfoot">
                                 <a class="tg-btnemptycart" href="app/controller/control_muon_sach.php?action=clear" onclick="return confirm('Xác nhận xóa toàn bộ giỏ mượn?');"><i class="fa fa-trash-o"></i><span>Xóa Giỏ</span></a>
                                 <div class="tg-btns">
-                                    <a class="tg-btn tg-active" href="cart-muon.php">Xem Giỏ</a>
+                                    <a class="tg-btn tg-active" href="cartmuon.php">Xem Giỏ</a>
                                     <?php if (isset($_SESSION['nguoi_dung'])): ?>
-                                        <a class="tg-btn" href="cart-muon.php">Mượn</a>
+                                        <a class="tg-btn" href="cartmuon.php">Mượn</a>
                                     <?php else: ?>
-                                        <a class="tg-btn" href="login.php?next=cart-muon.php">Đăng nhập</a>
+                                        <a class="tg-btn" href="login.php?next=cartmuon.php">Đăng nhập</a>
                                     <?php endif; ?>
                                 </div>
                             </div>

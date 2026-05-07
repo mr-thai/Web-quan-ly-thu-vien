@@ -27,7 +27,7 @@ if (!empty($book['so_luong_con']) || isset($book['so_luong_con'])) $infoItems[] 
 		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 			<div class="tg-postbook">
 				<figure class="tg-featureimg">
-					<img src="<?php echo htmlspecialchars($bookImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($book['ten_sach'] ?? 'Sách', ENT_QUOTES, 'UTF-8'); ?>" style="width:100%;max-width:320px;height:420px;object-fit:cover;display:block;margin:0 auto;">
+					<img src="<?php echo htmlspecialchars($bookImage); ?>" alt="<?php echo htmlspecialchars($book['ten_sach'] ?? 'Sách'); ?>" style="width:100%;max-width:320px;height:420px;object-fit:cover;display:block;margin:0 auto;">
 				</figure>
 				<div class="tg-postbookcontent">
 					<form method="GET" action="app/controller/control_muon_sach.php" style="display:inline;">
@@ -43,16 +43,16 @@ if (!empty($book['so_luong_con']) || isset($book['so_luong_con'])) $infoItems[] 
 		<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 			<div class="tg-productcontent">
 				<ul class="tg-bookscategories">
-					<li><a href="javascript:void(0);"><?php echo htmlspecialchars($book['ten_the_loai'] ?? '', ENT_QUOTES, 'UTF-8'); ?></a></li>
+					<li><a href="javascript:void(0);"><?php echo htmlspecialchars($book['ten_the_loai'] ?? ''); ?></a></li>
 				</ul>
 				<div class="tg-booktitle">
-					<h3><?php echo htmlspecialchars($book['ten_sach'] ?? '', ENT_QUOTES, 'UTF-8'); ?></h3>
+					<h3><?php echo htmlspecialchars($book['ten_sach'] ?? ''); ?></h3>
 				</div>
-				<span class="tg-bookwriter">By: <a href="javascript:void(0);"><?php echo htmlspecialchars($book['ten_tac_gia'] ?? '', ENT_QUOTES, 'UTF-8'); ?></a></span>
+				<span class="tg-bookwriter">By: <a href="javascript:void(0);"><?php echo htmlspecialchars($book['ten_tac_gia'] ?? ''); ?></a></span>
 				<span class="tg-stars"><span></span></span>
 				<?php if (!empty($book['mo_ta'])): ?>
 					<div class="tg-description">
-						<p><?php echo nl2br(htmlspecialchars($book['mo_ta'], ENT_QUOTES, 'UTF-8')); ?></p>
+						<p><?php echo nl2br(htmlspecialchars($book['mo_ta'])); ?></p>
 					</div>
 				<?php endif; ?>
 				<div class="tg-sectionhead">
@@ -60,7 +60,7 @@ if (!empty($book['so_luong_con']) || isset($book['so_luong_con'])) $infoItems[] 
 				</div>
 				<ul class="tg-productinfo">
 					<?php foreach ($infoItems as [$label, $value]): ?>
-						<li><span><?php echo htmlspecialchars($label, ENT_QUOTES, 'UTF-8'); ?>:</span><span><?php echo htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8'); ?></span></li>
+						<li><span><?php echo htmlspecialchars($label); ?>:</span><span><?php echo htmlspecialchars((string)$value); ?></span></li>
 					<?php endforeach; ?>
 					<li><span>Trạng thái:</span><span><?php echo ((int)($book['so_luong_con'] ?? 0) > 0) ? 'Còn sách' : 'Hết sách'; ?></span></li>
 				</ul>
@@ -73,13 +73,13 @@ if (!empty($book['so_luong_con']) || isset($book['so_luong_con'])) $infoItems[] 
 				</div>
 				<div class="tg-authorbox">
 					<figure class="tg-authorimg">
-						<img src="<?php echo htmlspecialchars($authorImage, ENT_QUOTES, 'UTF-8'); ?>" alt="<?php echo htmlspecialchars($book['ten_tac_gia'] ?? 'Tác giả', ENT_QUOTES, 'UTF-8'); ?>" style="width:100px;height:100px;object-fit:cover;display:block;border-radius:50%;">
+						<img src="<?php echo htmlspecialchars($authorImage); ?>" alt="<?php echo htmlspecialchars($book['ten_tac_gia'] ?? 'Tác giả'); ?>" style="width:100px;height:100px;object-fit:cover;display:block;border-radius:50%;">
 					</figure>
 					<div class="tg-authorinfo">
 						<div class="tg-authorhead">
 							<div class="tg-leftarea">
 								<div class="tg-authorname">
-									<h2><?php echo htmlspecialchars($book['ten_tac_gia'] ?? '', ENT_QUOTES, 'UTF-8'); ?></h2>
+									<h2><?php echo htmlspecialchars($book['ten_tac_gia'] ?? ''); ?></h2>
 								</div>
 							</div>
 						</div>
