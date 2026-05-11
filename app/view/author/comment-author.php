@@ -12,7 +12,7 @@
                             <?php $index = 0; while ($author = $highlightAuthors->fetch_assoc()): if ($index >= 3) break; ?>
                                 <?php $authorImage = !empty($author['avatar_url']) ? ltrim($author['avatar_url'], '/') : 'images/author/imag-' . str_pad(((($index + 1) % 26) + 1), 2, '0', STR_PAD_LEFT) . '.jpg'; ?>
                                 <div class="item tg-testimonial">
-                                    <figure><img src="<?php echo htmlspecialchars($authorImage); ?>" alt="image description"></figure>
+                                    <figure class="mb-5"><img src="<?php echo htmlspecialchars($authorImage); ?>" alt="image description" ></figure>
                                     <blockquote><q><?php echo htmlspecialchars(!empty($author['tieu_su']) ? $author['tieu_su'] : $author['ghi_chu']); ?></q></blockquote>
                                     <div class="tg-testimonialauthor">
                                         <h3><?php echo htmlspecialchars(!empty($author['but_danh']) ? $author['but_danh'] : $author['ho_ten']); ?></h3>

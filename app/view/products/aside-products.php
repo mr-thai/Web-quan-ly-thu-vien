@@ -2,14 +2,7 @@
 $danh_sach = $danh_sach ?? false;
 ?>
 <aside id="tg-sidebar" class="tg-sidebar">
-	<div class="tg-widget tg-widgetsearch">
-		<form class="tg-formtheme tg-formsearch">
-			<div class="form-group">
-				<button type="submit"><i class="icon-magnifier"></i></button>
-				<input type="search" name="search" class="form-group" placeholder="Search by title, author, key...">
-			</div>
-		</form>
-	</div>
+	
 	<div class="tg-widget tg-widgettrending">
 		<div class="tg-widgettitle">
 			<h3>Sách Nổi Bật</h3>

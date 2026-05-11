@@ -42,7 +42,7 @@
 	                            	<h1><?php echo htmlspecialchars($book['ten_sach']); ?></h1>
                             	<ol class="tg-breadcrumb">
                             		<li><a href="index.php">home</a></li>
-                            		<li><a href="products.php">Products</a></li>
+                            		<li><a href="products.php">Sách</a></li>
 	                            		<li class="tg-active"><?php echo htmlspecialchars($book['ten_sach']); ?></li>
                             	</ol>
                             </div>

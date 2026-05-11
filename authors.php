@@ -39,10 +39,10 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<div class="tg-innerbannercontent">
-							<h1>Authors</h1>
+							<h1>Tác giả</h1>
 							<ol class="tg-breadcrumb">
 								<li><a href="index.php">home</a></li>
-								<li class="tg-active">Authors</li>
+								<li class="tg-active">Tác giả</li>
 							</ol>
 						</div>
 					</div>

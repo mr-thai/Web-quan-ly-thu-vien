@@ -7,10 +7,6 @@ $authors = $authors ?? false;
         <div class="row">
             <div class="tg-authors">    
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="tg-sectionhead">
-                        <h2><span>Tác giả được yêu thích</span></h2>
-                    </div>
-                </div>
                 <?php if (is_object($authors)): while($row = $authors->fetch_assoc()): 
                     $anh_tac_gia = !empty($row['avatar_url']) ? ltrim($row['avatar_url'], '/') : 'images/author/imag-24.jpg';
                     $authorLink = 'authordetail.php?id=' . intval($row['ma_tac_gia']);
@@ -19,7 +15,7 @@ $authors = $authors ?? false;
 
                 <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="tg-author">
-                        <figure><a href="<?php echo $authorLink; ?>"><img src="<?php echo htmlspecialchars($anh_tac_gia); ?>" alt="image description"></a></figure>
+                        <figure><a href="<?php echo $authorLink; ?>"><img src="<?php echo htmlspecialchars($anh_tac_gia); ?>" alt="image description" ></a></figure>
                         <div class="tg-authorcontent">
                             <h2><a href="<?php echo $authorLink; ?>"><?php echo htmlspecialchars($tenTacGia); ?></a></h2>
                             <span><?php echo intval($row['so_sach']); ?> Tổng sách</span>

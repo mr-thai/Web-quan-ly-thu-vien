@@ -49,6 +49,19 @@ CREATE TABLE `tac_gia` (
   PRIMARY KEY (`ma_tac_gia`)
 ) ENGINE=InnoDB;
 
+-- Thêm 10 tác giả mới
+INSERT INTO `tac_gia` (`ma_tac_gia`, `ho_ten`, `but_danh`, `ngay_sinh`, `ngay_mat`, `quoc_tich`, `avatar_url`, `tieu_su`, `ghi_chu`) VALUES
+(11, 'Nguyễn Huy Thiệp', 'Nguyễn Huy Thiệp', '1950-04-29', NULL, 'Việt Nam', '/uploads/author/nguyen-huy-thiep.jpg', 'Nhà văn nổi tiếng với các truyện ngắn.', 'Tác phẩm mang tính hiện thực cao'),
+(12, 'Nguyễn Minh Châu', 'Nguyễn Minh Châu', '1930-10-20', '1989-01-23', 'Việt Nam', '/uploads/author/nguyen-minh-chau.jpg', 'Nhà văn tiên phong trong văn học đổi mới.', 'Tác giả của "Dấu chân người lính"'),
+(13, 'Nguyễn Công Hoan', 'Nguyễn Công Hoan', '1903-03-06', '1977-06-06', 'Việt Nam', '/uploads/author/nguyen-cong-hoan.jpg', 'Nhà văn hiện thực phê phán.', 'Tác giả của "Bước đường cùng"'),
+(14, 'Nguyễn Khải', 'Nguyễn Khải', '1930-12-03', '2008-01-15', 'Việt Nam', '/uploads/author/nguyen-khai.jpg', 'Nhà văn nổi tiếng với các tác phẩm chính luận.', 'Tác giả của "Mùa lạc"'),
+(15, 'Nguyễn Đình Thi', 'Nguyễn Đình Thi', '1924-12-20', '2003-04-18', 'Việt Nam', '/uploads/author/nguyen-dinh-thi.jpg', 'Nhà văn, nhà thơ, nhạc sĩ.', 'Tác giả của "Đất nước"'),
+(16, 'Nguyễn Nhật Chiêu', 'Nguyễn Nhật Chiêu', '1940-07-15', NULL, 'Việt Nam', '/uploads/author/nguyen-nhat-chieu.jpg', 'Nhà thơ nổi tiếng với các tác phẩm về quê hương.', 'Tác giả của "Quê hương"'),
+(17, 'Nguyễn Văn Thọ', 'Nguyễn Văn Thọ', '1950-09-10', NULL, 'Việt Nam', '/uploads/author/nguyen-van-tho.jpg', 'Nhà văn nổi tiếng với các tác phẩm về chiến tranh.', 'Tác giả của "Rừng xà nu"'),
+(18, 'Nguyễn Xuân Khánh', 'Nguyễn Xuân Khánh', '1933-10-15', NULL, 'Việt Nam', '/uploads/author/nguyen-xuan-khanh.jpg', 'Nhà văn nổi tiếng với các tiểu thuyết lịch sử.', 'Tác giả của "Hồ Quý Ly"'),
+(19, 'Nguyễn Quang Sáng', 'Nguyễn Quang Sáng', '1932-01-12', '2014-02-13', 'Việt Nam', '/uploads/author/nguyen-quang-sang.jpg', 'Nhà văn nổi tiếng với các tác phẩm về miền Nam.', 'Tác giả của "Chiếc lược ngà"'),
+(20, 'Nguyễn Nhật Chiêu', 'Nguyễn Nhật Chiêu', '1940-07-15', NULL, 'Việt Nam', '/uploads/author/nguyen-nhat-chieu.jpg', 'Nhà thơ nổi tiếng với các tác phẩm về quê hương.', 'Tác giả của "Quê hương"');
+
 -- =============================================
 -- 3. Bảng sách
 -- =============================================
@@ -78,6 +91,19 @@ CREATE TABLE `sach` (
     ON UPDATE CASCADE
     ON DELETE RESTRICT
 ) ENGINE=InnoDB;
+
+-- Thêm 10 sách mới
+INSERT INTO `sach` (`ma_sach`, `ma_tacgia`, `isbn`, `ten_sach`, `nha_xuat_ban`, `ten_the_loai`, `nam_xuat_ban`, `so_trang`, `gia_sach`, `so_luong`, `so_luong_con`, `vi_tri_ke`, `mo_ta`, `trang_thai`) VALUES
+(11, 11, '9786041093174', 'Tướng Về Hưu', 'NXB Trẻ', 'Văn học', 1982, 200, 55000.00, 20, 18, 'Kệ G1-Tầng 2', 'Truyện ngắn nổi tiếng của Nguyễn Huy Thiệp.', 'con'),
+(12, 12, '9786042084638', 'Dấu Chân Người Lính', 'NXB Văn Học', 'Văn học', 1972, 300, 75000.00, 25, 20, 'Kệ G2-Tầng 2', 'Tiểu thuyết về chiến tranh Việt Nam.', 'con'),
+(13, 13, '9786046985468', 'Bước Đường Cùng', 'NXB Hội Nhà Văn', 'Văn học', 1938, 250, 65000.00, 15, 10, 'Kệ G3-Tầng 2', 'Tiểu thuyết hiện thực phê phán.', 'con'),
+(14, 14, '9786042129056', 'Mùa Lạc', 'NXB Kim Đồng', 'Văn học', 1960, 220, 60000.00, 30, 25, 'Kệ G4-Tầng 2', 'Truyện ngắn nổi tiếng của Nguyễn Khải.', 'con'),
+(15, 15, '9786041159948', 'Đất Nước', 'NXB Trẻ', 'Thơ', 1948, 100, 45000.00, 50, 45, 'Kệ H1-Tầng 3', 'Tuyển tập thơ của Nguyễn Đình Thi.', 'con'),
+(16, 16, '9786046985475', 'Quê Hương', 'NXB Hội Nhà Văn', 'Thơ', 1980, 120, 50000.00, 20, 18, 'Kệ H2-Tầng 3', 'Tuyển tập thơ về quê hương.', 'con'),
+(17, 17, '9786042084645', 'Rừng Xà Nu', 'NXB Văn Học', 'Văn học', 1965, 180, 55000.00, 25, 20, 'Kệ H3-Tầng 3', 'Truyện ngắn nổi tiếng của Nguyễn Văn Thọ.', 'con'),
+(18, 18, '9786041093181', 'Hồ Quý Ly', 'NXB Trẻ', 'Lịch sử', 2000, 400, 95000.00, 10, 8, 'Kệ H4-Tầng 3', 'Tiểu thuyết lịch sử của Nguyễn Xuân Khánh.', 'con'),
+(19, 19, '9786042129063', 'Chiếc Lược Ngà', 'NXB Giáo Dục', 'Văn học', 1966, 150, 55000.00, 40, 35, 'Kệ I1-Tầng 4', 'Truyện ngắn nổi tiếng của Nguyễn Quang Sáng.', 'con'),
+(20, 20, '9786046860018', 'Quê Hương', 'NXB Tổng Hợp TP.HCM', 'Thơ', 1980, 120, 50000.00, 20, 18, 'Kệ I2-Tầng 4', 'Tuyển tập thơ về quê hương.', 'con');
 
 -- =============================================
 -- 4. Bảng phiếu mượn
@@ -150,6 +176,19 @@ CREATE TABLE `anh_sach` (
     ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
+-- Thêm 10 ảnh sách mới
+INSERT INTO `anh_sach` (`ma_anh`, `ma_sach`, `url_anh`, `anh_chinh`, `ghi_chu`) VALUES
+(11, 11, '/uploads/sach/tuong_ve_huu_bia.jpg', 1, 'Ảnh bìa chính sách Tướng Về Hưu'),
+(12, 12, '/uploads/sach/dau_chan_nguoi_linh_bia.jpg', 1, 'Ảnh bìa chính sách Dấu Chân Người Lính'),
+(13, 13, '/uploads/sach/buoc_duong_cung_bia.jpg', 1, 'Ảnh bìa chính sách Bước Đường Cùng'),
+(14, 14, '/uploads/sach/mua_lac_bia.jpg', 1, 'Ảnh bìa chính sách Mùa Lạc'),
+(15, 15, '/uploads/sach/dat_nuoc_bia.jpg', 1, 'Ảnh bìa chính sách Đất Nước'),
+(16, 16, '/uploads/sach/que_huong_bia.jpg', 1, 'Ảnh bìa chính sách Quê Hương'),
+(17, 17, '/uploads/sach/rung_xa_nu_bia.jpg', 1, 'Ảnh bìa chính sách Rừng Xà Nu'),
+(18, 18, '/uploads/sach/ho_quy_ly_bia.jpg', 1, 'Ảnh bìa chính sách Hồ Quý Ly'),
+(19, 19, '/uploads/sach/chiec_luoc_nga_bia.jpg', 1, 'Ảnh bìa chính sách Chiếc Lược Ngà'),
+(20, 20, '/uploads/sach/que_huong_bia_2.jpg', 1, 'Ảnh bìa chính sách Quê Hương tập 2');
+
 -- =============================================
 -- 7. Vi phạm và phạt tiền
 -- =============================================
@@ -203,7 +242,18 @@ INSERT INTO `tac_gia` (`ma_tac_gia`, `ho_ten`, `but_danh`, `ngay_sinh`, `ngay_ma
 (7, 'Arthur Conan Doyle', 'Conan Doyle', '1859-05-22', '1930-07-07', 'Anh', '/uploads/author/arthur-conan-doyles.jpg', 'Nhà văn người Scotland nổi tiếng với tiểu thuyết trinh thám.', 'Cha đẻ tiểu thuyết trinh thám hiện đại'),
 (8, 'Nguyễn Tường Lân', 'Thạch Lam', '1910-07-07', '1942-06-27', 'Việt Nam', '/uploads/author/thach-lam.jpg', 'Nhà văn thuộc nhóm Tự Lực văn đoàn.', 'Văn phong nhẹ nhàng, tinh tế'),
 (9, 'Nguyễn Du', 'Tố Như', '1765-01-01', '1820-09-16', 'Việt Nam', '/uploads/author/nguyen-du.jpg', 'Đại thi hào dân tộc, danh nhân văn hóa thế giới.', 'Sử dụng chữ Nôm điêu luyện'),
-(10, 'Dale Carnegie', 'Dale Carnegie', '1888-11-24', '1955-11-01', 'Mỹ', '/uploads/author/dale-carnegie.jpg', 'Nhà văn và nhà phát triển nghệ thuật diễn thuyết.', 'Tiên phong mảng self-help');
+(10, 'Dale Carnegie', 'Dale Carnegie', '1888-11-24', '1955-11-01', 'Mỹ', '/uploads/author/dale-carnegie.jpg', 'Nhà văn và nhà phát triển nghệ thuật diễn thuyết.', 'Tiên phong mảng self-help'),
+(11, 'Nguyễn Huy Thiệp', 'Nguyễn Huy Thiệp', '1950-04-29', NULL, 'Việt Nam', '/uploads/author/nguyen-huy-thiep.jpg', 'Nhà văn nổi tiếng với các truyện ngắn.', 'Tác phẩm mang tính hiện thực cao'),
+(12, 'Nguyễn Minh Châu', 'Nguyễn Minh Châu', '1930-10-20', '1989-01-23', 'Việt Nam', '/uploads/author/nguyen-minh-chau.jpg', 'Nhà văn tiên phong trong văn học đổi mới.', 'Tác giả của "Dấu chân người lính"'),
+(13, 'Nguyễn Công Hoan', 'Nguyễn Công Hoan', '1903-03-06', '1977-06-06', 'Việt Nam', '/uploads/author/nguyen-cong-hoan.jpg', 'Nhà văn hiện thực phê phán.', 'Tác giả của "Bước đường cùng"'),
+(14, 'Nguyễn Khải', 'Nguyễn Khải', '1930-12-03', '2008-01-15', 'Việt Nam', '/uploads/author/nguyen-khai.jpg', 'Nhà văn nổi tiếng với các tác phẩm chính luận.', 'Tác giả của "Mùa lạc"'),
+(15, 'Nguyễn Đình Thi', 'Nguyễn Đình Thi', '1924-12-20', '2003-04-18', 'Việt Nam', '/uploads/author/nguyen-dinh-thi.jpg', 'Nhà văn, nhà thơ, nhạc sĩ.', 'Tác giả của "Đất nước"'),
+(16, 'Nguyễn Nhật Chiêu', 'Nguyễn Nhật Chiêu', '1940-07-15', NULL, 'Việt Nam', '/uploads/author/nguyen-nhat-chieu.jpg', 'Nhà thơ nổi tiếng với các tác phẩm về quê hương.', 'Tác giả của "Quê hương"'),
+(17, 'Nguyễn Văn Thọ', 'Nguyễn Văn Thọ', '1950-09-10', NULL, 'Việt Nam', '/uploads/author/nguyen-van-tho.jpg', 'Nhà văn nổi tiếng với các tác phẩm về chiến tranh.', 'Tác giả của "Rừng xà nu"'),
+(18, 'Nguyễn Xuân Khánh', 'Nguyễn Xuân Khánh', '1933-10-15', NULL, 'Việt Nam', '/uploads/author/nguyen-xuan-khanh.jpg', 'Nhà văn nổi tiếng với các tiểu thuyết lịch sử.', 'Tác giả của "Hồ Quý Ly"'),
+(19, 'Nguyễn Quang Sáng', 'Nguyễn Quang Sáng', '1932-01-12', '2014-02-13', 'Việt Nam', '/uploads/author/nguyen-quang-sang.jpg', 'Nhà văn nổi tiếng với các tác phẩm về miền Nam.', 'Tác giả của "Chiếc lược ngà"'),
+(20, 'Nguyễn Nhật Chiêu', 'Nguyễn Nhật Chiêu', '1940-07-15', NULL, 'Việt Nam', '/uploads/author/nguyen-nhat-chieu.jpg', 'Nhà thơ nổi tiếng với các tác phẩm về quê hương.', 'Tác giả của "Quê hương"');
+
 -- 3. Dữ liệu bảng `sach`
 INSERT INTO `sach` (`ma_sach`, `ma_tacgia`, `isbn`, `ten_sach`, `nha_xuat_ban`, `ten_the_loai`, `nam_xuat_ban`, `so_trang`, `gia_sach`, `so_luong`, `so_luong_con`, `vi_tri_ke`, `mo_ta`, `trang_thai`) VALUES
 (1, 1, '9786041093150', 'Mắt Biếc', 'NXB Trẻ', 'Văn học', 1990, 300, 110000.00, 20, 15, 'Kệ A1-Tầng 1', 'Truyện dài về tình yêu tuổi học trò.', 'con'),
@@ -215,7 +265,17 @@ INSERT INTO `sach` (`ma_sach`, `ma_tacgia`, `isbn`, `ten_sach`, `nha_xuat_ban`, 
 (7, 7, '9786042084621', 'Sherlock Holmes - Toàn tập', 'NXB Văn Học', 'Tiểu thuyết trinh thám', 1892, 1200, 350000.00, 5, 2, 'Kệ D1-Tầng 4', 'Tuyển tập các vụ án của thám tử Sherlock Holmes.', 'con'),
 (8, 8, '9786041093167', 'Gió Lạnh Đầu Mùa', 'NXB Trẻ', 'Văn học', 1937, 210, 65000.00, 15, 12, 'Kệ A4-Tầng 1', 'Tập truyện ngắn nhẹ nhàng, sâu lắng.', 'con'),
 (9, 9, '9786042129049', 'Truyện Kiều', 'NXB Giáo Dục', 'Thơ', 1820, 320, 85000.00, 40, 35, 'Kệ E1-Tầng 2', 'Tuyệt tác thơ Nôm của văn học Việt Nam.', 'con'),
-(10, 10, '9786046860001', 'Đắc Nhân Tâm', 'NXB Tổng Hợp TP.HCM', 'Self-help', 1936, 320, 95000.00, 100, 80, 'Kệ F1-Tầng 1', 'Nghệ thuật thu phục lòng người.', 'con');
+(10, 10, '9786046860001', 'Đắc Nhân Tâm', 'NXB Tổng Hợp TP.HCM', 'Self-help', 1936, 320, 95000.00, 100, 80, 'Kệ F1-Tầng 1', 'Nghệ thuật thu phục lòng người.', 'con'),
+(11, 11, '9786041093174', 'Tướng Về Hưu', 'NXB Trẻ', 'Văn học', 1982, 200, 55000.00, 20, 18, 'Kệ G1-Tầng 2', 'Truyện ngắn nổi tiếng của Nguyễn Huy Thiệp.', 'con'),
+(12, 12, '9786042084638', 'Dấu Chân Người Lính', 'NXB Văn Học', 'Văn học', 1972, 300, 75000.00, 25, 20, 'Kệ G2-Tầng 2', 'Tiểu thuyết về chiến tranh Việt Nam.', 'con'),
+(13, 13, '9786046985468', 'Bước Đường Cùng', 'NXB Hội Nhà Văn', 'Văn học', 1938, 250, 65000.00, 15, 10, 'Kệ G3-Tầng 2', 'Tiểu thuyết hiện thực phê phán.', 'con'),
+(14, 14, '9786042129056', 'Mùa Lạc', 'NXB Kim Đồng', 'Văn học', 1960, 220, 60000.00, 30, 25, 'Kệ G4-Tầng 2', 'Truyện ngắn nổi tiếng của Nguyễn Khải.', 'con'),
+(15, 15, '9786041159948', 'Đất Nước', 'NXB Trẻ', 'Thơ', 1948, 100, 45000.00, 50, 45, 'Kệ H1-Tầng 3', 'Tuyển tập thơ của Nguyễn Đình Thi.', 'con'),
+(16, 16, '9786046985475', 'Quê Hương', 'NXB Hội Nhà Văn', 'Thơ', 1980, 120, 50000.00, 20, 18, 'Kệ H2-Tầng 3', 'Tuyển tập thơ về quê hương.', 'con'),
+(17, 17, '9786042084645', 'Rừng Xà Nu', 'NXB Văn Học', 'Văn học', 1965, 180, 55000.00, 25, 20, 'Kệ H3-Tầng 3', 'Truyện ngắn nổi tiếng của Nguyễn Văn Thọ.', 'con'),
+(18, 18, '9786041093181', 'Hồ Quý Ly', 'NXB Trẻ', 'Lịch sử', 2000, 400, 95000.00, 10, 8, 'Kệ H4-Tầng 3', 'Tiểu thuyết lịch sử của Nguyễn Xuân Khánh.', 'con'),
+(19, 19, '9786042129063', 'Chiếc Lược Ngà', 'NXB Giáo Dục', 'Văn học', 1966, 150, 55000.00, 40, 35, 'Kệ I1-Tầng 4', 'Truyện ngắn nổi tiếng của Nguyễn Quang Sáng.', 'con'),
+(20, 20, '9786046860018', 'Quê Hương', 'NXB Tổng Hợp TP.HCM', 'Thơ', 1980, 120, 50000.00, 20, 18, 'Kệ I2-Tầng 4', 'Tuyển tập thơ về quê hương.', 'con');
 
 -- 4. Dữ liệu bảng `anh_sach`
 INSERT INTO `anh_sach` (`ma_anh`, `ma_sach`, `url_anh`, `anh_chinh`, `ghi_chu`) VALUES
@@ -228,7 +288,17 @@ INSERT INTO `anh_sach` (`ma_anh`, `ma_sach`, `url_anh`, `anh_chinh`, `ghi_chu`) 
 (7, 7, '/uploads/sach/sherlock_toan_tap.jpg', 1, 'Ảnh bìa chính Sherlock Holmes toàn tập'),
 (8, 8, '/uploads/sach/gio_lanh_bia.jpg', 1, 'Ảnh bìa chính Gió Lạnh Đầu Mùa'),
 (9, 9, '/uploads/sach/truyen_kieu_bia.jpg', 1, 'Ảnh bìa chính Truyện Kiều'),
-(10, 10, '/uploads/sach/dac_nhan_tam_bia.jpg', 1, 'Ảnh bìa chính Đắc Nhân Tâm');
+(10, 10, '/uploads/sach/dac_nhan_tam_bia.jpg', 1, 'Ảnh bìa chính Đắc Nhân Tâm'),
+(11, 11, '/uploads/sach/tuong_ve_huu_bia.jpg', 1, 'Ảnh bìa chính sách Tướng Về Hưu'),
+(12, 12, '/uploads/sach/dau_chan_nguoi_linh_bia.jpg', 1, 'Ảnh bìa chính sách Dấu Chân Người Lính'),
+(13, 13, '/uploads/sach/buoc_duong_cung_bia.jpg', 1, 'Ảnh bìa chính sách Bước Đường Cùng'),
+(14, 14, '/uploads/sach/mua_lac_bia.jpg', 1, 'Ảnh bìa chính sách Mùa Lạc'),
+(15, 15, '/uploads/sach/dat_nuoc_bia.jpg', 1, 'Ảnh bìa chính sách Đất Nước'),
+(16, 16, '/uploads/sach/que_huong_bia.jpg', 1, 'Ảnh bìa chính sách Quê Hương'),
+(17, 17, '/uploads/sach/rung_xa_nu_bia.jpg', 1, 'Ảnh bìa chính sách Rừng Xà Nu'),
+(18, 18, '/uploads/sach/ho_quy_ly_bia.jpg', 1, 'Ảnh bìa chính sách Hồ Quý Ly'),
+(19, 19, '/uploads/sach/chiec_luoc_nga_bia.jpg', 1, 'Ảnh bìa chính sách Chiếc Lược Ngà'),
+(20, 20, '/uploads/sach/que_huong_bia_2.jpg', 1, 'Ảnh bìa chính sách Quê Hương tập 2');
 
 -- 5. Dữ liệu bảng `phieu_muon`
 INSERT INTO `phieu_muon` (`ma_phieu_muon`, `ma_nguoi_dung`, `ngay_muon`, `ngay_hen_tra`, `ngay_tra`, `trang_thai`, `ghi_chu`) VALUES
@@ -239,7 +309,7 @@ INSERT INTO `phieu_muon` (`ma_phieu_muon`, `ma_nguoi_dung`, `ngay_muon`, `ngay_h
 (5, 5, '2024-03-05 13:45:00', '2024-03-20 17:00:00', NULL, 'dang_muon', NULL),
 (6, 6, '2023-12-10 08:00:00', '2023-12-25 17:00:00', '2023-12-20 14:30:00', 'da_tra', 'Sách bị rách mép, đã bồi thường 10%'),
 (7, 8, '2024-01-15 15:30:00', '2024-01-30 17:00:00', '2024-01-29 09:00:00', 'da_tra', 'Trả trước hạn'),
-(8, 9, '2024-02-01 09:45:00', '2024-02-16 17:00:00', '2024-02-16 16:50:00', 'da_tra', 'Trả đúng ngày hẹn'),
+(8, 9, '2024-02-01 09:45:00', '2024-02-16 17:00:00', '2024-02-16 16:50:00', 'da_tra', 'Sách nguyên vẹn, trả đúng hạn'),
 (9, 10, '2024-02-20 11:20:00', '2024-03-06 17:00:00', NULL, 'tre_han', 'Không liên lạc được qua số điện thoại'),
 (10, 1, '2024-03-08 14:00:00', '2024-03-23 17:00:00', NULL, 'dang_muon', 'Mượn thêm sách mới');
 
