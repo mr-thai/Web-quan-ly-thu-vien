@@ -29,12 +29,34 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
-var myLineChart = new Chart(ctx, {
+if (ctx) {
+  var areaChartData = window.dashboardAreaChartData || {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    borrowed: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    returned: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    fines: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  };
+
+  var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    labels: areaChartData.labels,
     datasets: [{
-      label: "Earnings",
+      label: "Tiền phạt đã tạo",
+      lineTension: 0.3,
+      backgroundColor: "rgba(54, 185, 204, 0.05)",
+      borderColor: "rgba(54, 185, 204, 1)",
+      pointRadius: 3,
+      pointBackgroundColor: "rgba(54, 185, 204, 1)",
+      pointBorderColor: "rgba(54, 185, 204, 1)",
+      pointHoverRadius: 3,
+      pointHoverBackgroundColor: "rgba(54, 185, 204, 1)",
+      pointHoverBorderColor: "rgba(54, 185, 204, 1)",
+      pointHitRadius: 10,
+      pointBorderWidth: 2,
+      data: areaChartData.fines,
+    }, {
+      label: "Sách đã mượn",
       lineTension: 0.3,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "rgba(78, 115, 223, 1)",
@@ -46,7 +68,21 @@ var myLineChart = new Chart(ctx, {
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
+      data: areaChartData.borrowed,
+    }, {
+      label: "Sách đã trả",
+      lineTension: 0.3,
+      backgroundColor: "rgba(28, 200, 138, 0.05)",
+      borderColor: "rgba(28, 200, 138, 1)",
+      pointRadius: 3,
+      pointBackgroundColor: "rgba(28, 200, 138, 1)",
+      pointBorderColor: "rgba(28, 200, 138, 1)",
+      pointHoverRadius: 3,
+      pointHoverBackgroundColor: "rgba(28, 200, 138, 1)",
+      pointHoverBorderColor: "rgba(28, 200, 138, 1)",
+      pointHitRadius: 10,
+      pointBorderWidth: 2,
+      data: areaChartData.returned,
     }],
   },
   options: {
@@ -76,10 +112,9 @@ var myLineChart = new Chart(ctx, {
         ticks: {
           maxTicksLimit: 5,
           padding: 10,
-          // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return '$' + number_format(value);
-          }
+              return number_format(value) + ' đ';
+            }
         },
         gridLines: {
           color: "rgb(234, 236, 244)",
@@ -110,9 +145,22 @@ var myLineChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return datasetLabel + ': ' + number_format(tooltipItem.yLabel) + ' đ';
         }
       }
     }
   }
-});
+  });
+
+  // make chart points clickable: go to napphat.php for the clicked month (year = current year)
+  myLineChart.canvas.onclick = function(evt) {
+    var activePoints = myLineChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
+    if (activePoints.length) {
+      var firstPoint = activePoints[0];
+      var labelIndex = firstPoint.index; // 0-based month index
+      var month = labelIndex + 1;
+      var year = new Date().getFullYear();
+      window.location.href = 'napphat.php?month=' + month + '&year=' + year;
+    }
+  };
+}

@@ -3,6 +3,8 @@
     require_once __DIR__ . "/app/model/model_thongke.php";
 
     $dashboardStats = thongke_get_dashboard_stats($conn);
+    $dashboardAreaChart = thongke_get_monthly_dashboard_data($conn);
+    $dashboardPieChart = thongke_get_fine_breakdown($conn);
     $borrowedThisMonth = $dashboardStats['borrowedThisMonth'];
     $returnedThisMonth = $dashboardStats['returnedThisMonth'];
     $paidFinesThisMonth = $dashboardStats['paidFinesThisMonth'];
@@ -12,7 +14,7 @@
 <html lang="vi">
 
 <head>
-    <meta charset="utf-7">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -59,163 +61,20 @@
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Tạo báo cáo</a>
                     </div>
-
+                    
                     <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Sách đã mượn trong tháng</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo number_format($borrowedThisMonth, 0, ',', '.'); ?></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-book fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Sách đã trả trong tháng</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo number_format($returnedThisMonth, 0, ',', '.'); ?></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-undo fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tiền phạt đã nộp trong tháng
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo number_format($paidFinesThisMonth, 0, ',', '.'); ?> đ</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-coins fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Số phạt chưa nộp</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo number_format($unpaidFinesCount, 0, ',', '.'); ?></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php include "app/view/index/earnings.php"?>
 
                     <!-- Content Row -->
 
                     <div class="row">
 
                         <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Tổng quan thu nhập</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Tiêu đề dropdown:</div>
-                                            <a class="dropdown-item" href="#">Hành động</a>
-                                            <a class="dropdown-item" href="#">Hành động khác</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Có gì đó ở đây</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php include "app/view/index/area-chart.php"?>
 
                         <!-- Pie Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Nguồn doanh thu</h6>
-                                    <div class="dropdown no-arrow">
-                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
-                                            <div class="dropdown-header">Tiêu đề dropdown:</div>
-                                            <a class="dropdown-item" href="#">Hành động</a>
-                                            <a class="dropdown-item" href="#">Hành động khác</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Có gì đó ở đây</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                    <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Trực tiếp
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Xã hội
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Giới thiệu
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php include "app/view/index/pie-chart.php"?>
+
                     </div>
 
                     <!-- Content Row -->
@@ -255,11 +114,16 @@
                 <div class="modal-body">Chọn "Đăng xuất" bên dưới nếu bạn đã sẵn sàng kết thúc phiên hiện tại của mình.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
-                    <a class="btn btn-primary" href="login.html">Đăng xuất</a>
+                    <a class="btn btn-primary" href="../login.php">Đăng xuất</a>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        window.dashboardAreaChartData = <?php echo json_encode($dashboardAreaChart, JSON_UNESCAPED_UNICODE); ?>;
+        window.dashboardPieChartData = <?php echo json_encode($dashboardPieChart, JSON_UNESCAPED_UNICODE); ?>;
+    </script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

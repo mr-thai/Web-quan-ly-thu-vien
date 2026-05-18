@@ -27,13 +27,13 @@
 
 <main id="tg-main" class="tg-main tg-haslayout">
 
-    <?php require_once 'app/controller/control_index_bestselling.php'; ?>
+    <?php include 'app/controller/control_index_bestselling.php'; ?>
 
-    <?php require_once 'app/controller/control_index_featured.php'; ?>
+    <?php include 'app/controller/control_index_featured.php'; ?>
 
-    <?php require_once 'app/controller/control_index_newrelease.php'; ?>
+    <?php include 'app/controller/control_index_newrelease.php'; ?>
 
-    <?php require_once 'app/controller/control_index_picked.php'; ?>
+    <?php include 'app/controller/control_index_picked.php'; ?>
     
     <?php include 'app/view/index/loichungnhan.php'; ?>
 </main>

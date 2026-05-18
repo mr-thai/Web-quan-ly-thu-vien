@@ -1,4 +1,5 @@
 <?php
+$keyword = $_GET['keyword'] ?? '';
 $sql = "SELECT pm.ma_phieu_muon,
                nd.ho_ten,
                nd.ten_dang_nhap,
@@ -13,7 +14,7 @@ $sql = "SELECT pm.ma_phieu_muon,
         LEFT JOIN nguoi_dung nd ON pm.ma_nguoi_dung = nd.ma_nguoi_dung";
 
 if ($keyword !== '') {
-    $search = '%' . $keyword . '%';
+    $search = "%{$keyword}%";
     $stmt = mysqli_prepare(
         $conn,
         $sql . " WHERE CAST(pm.ma_phieu_muon AS CHAR) LIKE ?

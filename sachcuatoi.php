@@ -31,7 +31,6 @@
         <div class="row">
             <div class="col-md-12">
                 <h2>Lịch sử mượn sách</h2>
-                <p class="text-muted">Người mượn: <strong><?php echo htmlspecialchars($_SESSION['nguoi_dung']['ho_ten']); ?></strong></p>
 
                 <?php if ($phieuMuon->num_rows > 0): ?>
                     <div class="table-responsive">
@@ -113,9 +112,6 @@
     <script src="js/countTo.js"></script>
     <script src="js/appear.js"></script>
     <script src="js/gmap3.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/vendor/jquery-library.js"></script>
-    <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

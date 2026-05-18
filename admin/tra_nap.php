@@ -1,8 +1,10 @@
 <?php 
     require_once __DIR__ . "/app/config.php";
-    require_once __DIR__ . "/app/controller/control_napphat.php";
+    if (!defined('TRA_NAP_MERGED_PAGE')) {
+        define('TRA_NAP_MERGED_PAGE', true);
+    }
+    require_once __DIR__ . "/app/controller/control_tra_nap.php"; // controller to create
 ?>
-
 
 
 
@@ -17,7 +19,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bảng điều khiển SB Admin 2</title>
+    <title>Quản lý Trả sách & Nạp phạt</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -48,17 +50,20 @@
                 <!-- Topbar -->
                 <?php include "app/view/include/topbar.php"; ?>
                 <!-- End of Topbar -->
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Nạp phạt</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Trả sách & Nạp phạt</h1>
                     </div>
 
                     <?php include "app/view/muon-phat/search.php"; ?>
 
                     <?php include "app/view/muon-phat/info-user.php"; ?>
 
-                    <?php /* Merged into Tra Nạp page; vipham view deprecated */ ?>
+                    <?php include "app/view/muon-phat/dangmuon.php"; ?>
+
+
                 </div>
                 <!-- /.container-fluid -->
                 
@@ -66,8 +71,9 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            
+            <!-- <?php include "app/view/include/footer.php"; ?> -->
             <!-- End of Footer -->
+
         </div>
         <!-- End of Content Wrapper -->
 
@@ -113,10 +119,9 @@
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>                       
-    <script src="js/napphat.js"></script>
-        
-
+    <script src="js/demo/datatables-demo.js"></script>
+    <script src="js/tra_nap.js"></script>
+    
 </body>
 
 </html>

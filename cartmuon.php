@@ -68,48 +68,12 @@
                 </table>
 
                 <div class="cart-total">
-                    <div class="total-item">Tổng cộng: <strong><?php echo $totalBooks; ?> cuốn sách</strong></div>
+                    <div class="total-item">Tổng cộng: <strong><?php echo $totalBooks; ?> cuốn sách</strong><br>Hạn trả: <strong>2 tuần từ ngày mượn</strong></div>
                 </div>
 
-                <!-- Form chọn thời gian mượn -->
+                <!-- Form mượn sách -->
                 <form method="POST" action="app/controller/control_muon_sach.php?action=checkout">
-                    <div class="time-selector">
-                        <label>Chọn thời gian mượn:</label>
-                        <div class="time-options">
-                            <div class="time-option">
-                                <input type="radio" name="thoigian_muon" value="3" id="time-3days">
-                                <label for="time-3days">
-                                    <span class="time-value">3</span>
-                                    <span class="time-desc">Ngày</span>
-                                </label>
-                            </div>
-                            <div class="time-option">
-                                <input type="radio" name="thoigian_muon" value="7" id="time-1week">
-                                <label for="time-1week">
-                                    <span class="time-value">1</span>
-                                    <span class="time-desc">Tuần</span>
-                                </label>
-                            </div>
-                            <div class="time-option">
-                                <input type="radio" name="thoigian_muon" value="21" id="time-3weeks">
-                                <label for="time-3weeks">
-                                    <span class="time-value">3</span>
-                                    <span class="time-desc">Tuần</span>
-                                </label>
-                            </div>
-                            <div class="time-option">
-                                <input type="radio" name="thoigian_muon" value="14" id="time-2weeks" checked>
-                                <label for="time-2weeks">
-                                    <span class="time-value">2</span>
-                                    <span class="time-desc">Tuần (Mặc định)</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div style="margin-top: 12px; padding: 12px; background: #f0f0f0; border-radius: 6px; font-size: 13px; color: #666;">
-                            <strong>Hạn trả:</strong> <span id="return-date">-</span>
-                        </div>
-                    </div>
-
+                    <input type="hidden" name="thoigian_muon" value="14">
                     <div class="cart-actions">
                         <button type="submit" class="btn btn-primary" <?php echo $isLoggedIn ? '' : 'disabled'; ?>>
                             Xác nhận mượn sách

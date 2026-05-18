@@ -23,14 +23,9 @@
         Mượn-trả
     </div>
     <li class="nav-item active">
-        <a class="nav-link" href="trasach.php">
+        <a class="nav-link" href="tra_nap.php">
             <i class="fas fa-fw fa-table"></i>
             <span>Trả sách</span></a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="napphat.php">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Nạp phạt</span></a>
     </li>
     <!-- Divider -->
     <hr class="sidebar-divider">
