@@ -1,4 +1,10 @@
 <?php
+require_once __DIR__ . '/helper_image.php';
+
+// Xử lý ảnh base64 nếu có
+$url_anh = trim($_POST['url_anh'] ?? '');
+$processed_url = process_base64_image($url_anh, '/uploads/sach');
+
 $data = array(
     'ma_tacgia' => (int)$_POST['ma_tacgia'],
     'isbn' => trim($_POST['isbn']),
@@ -12,7 +18,7 @@ $data = array(
     'so_luong_con' => (int)$_POST['so_luong_con'],
     'vi_tri_ke' => trim($_POST['vi_tri_ke']),
     'mo_ta' => trim($_POST['mo_ta']),
-    'url_anh' => trim($_POST['url_anh']),
+    'url_anh' => $processed_url,
     'trang_thai' => ((int)$_POST['so_luong_con'] > 0) ? 'con' : 'het'
 );
 

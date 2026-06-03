@@ -18,7 +18,7 @@ $conn->set_charset("utf8mb4");
  */
 function getImageUrl($imageUrl = '') {
     if (empty($imageUrl)) {
-        return '/Quan_ly_thu_vien/images/books/default.jpg';
+        return '/Quan_ly_thu_vien_phuc/images/books/default.jpg';
     }
     
     // Nếu đã là URL đầy đủ (http/https), trả về ngay
@@ -28,10 +28,10 @@ function getImageUrl($imageUrl = '') {
     
     // Nếu bắt đầu bằng /, thêm domain prefix
     if (strpos($imageUrl, '/') === 0) {
-        return '/Quan_ly_thu_vien' . $imageUrl;
+        return '/Quan_ly_thu_vien_phuc' . $imageUrl;
     }
     
-    // Nếu là đường dẫn tương đối, thêm /Quan_ly_thu_vien/
-    return '/Quan_ly_thu_vien/' . ltrim($imageUrl, '/');
+    // Nếu là đường dẫn tương đối, thêm /Quan_ly_thu_vien_phuc/
+    return '/Quan_ly_thu_vien_phuc/' . ltrim($imageUrl, '/');
 }
 ?>

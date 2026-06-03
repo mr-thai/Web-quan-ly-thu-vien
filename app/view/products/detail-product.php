@@ -39,7 +39,7 @@
 					<?php $infoItems = $infoItems ?? []; foreach ($infoItems as [$label, $value]): ?>
 						<li><span><?php echo htmlspecialchars($label); ?>:</span><span><?php echo htmlspecialchars((string)$value); ?></span></li>
 					<?php endforeach; ?>
-					<li><span>Trạng thái:</span><span><?php echo ((int)($book['so_luong_con'] ?? 0) > 0) ? 'Còn sách' : 'Hết sách'; ?></span></li>
+					
 				</ul>
 			</div>
 		</div>

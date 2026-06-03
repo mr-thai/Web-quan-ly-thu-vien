@@ -5,7 +5,7 @@ function sach_get_all($conn, $keyword = '')
                    COALESCE(a_main.url_anh, a_any.url_anh) AS url_anh,
                    CASE
                        WHEN COALESCE(a_main.url_anh, a_any.url_anh) LIKE '/uploads/%'
-                           THEN CONCAT('/Quan_ly_thu_vien', COALESCE(a_main.url_anh, a_any.url_anh))
+                           THEN CONCAT('/Quan_ly_thu_vien_phuc', COALESCE(a_main.url_anh, a_any.url_anh))
                        ELSE COALESCE(a_main.url_anh, a_any.url_anh)
                    END AS url_anh_hien_thi
             FROM sach s

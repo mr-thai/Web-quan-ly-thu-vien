@@ -44,12 +44,12 @@
                                     if (!empty($tacgia['avatar_url'])) {
                                         $avatarUrl = $tacgia['avatar_url'];
                                         if ($avatarUrl[0] === '/') {
-                                            $avatarUrl = '/Quan_ly_thu_vien' . $avatarUrl;
+                                            $avatarUrl = '/Quan_ly_thu_vien_phuc' . $avatarUrl;
                                         } else {
                                             $avatarUrl = '../' . ltrim($avatarUrl, '/');
                                         }
                                     } else {
-                                        $avatarUrl = '/Quan_ly_thu_vien/images/author/imag-24.jpg';
+                                        $avatarUrl = '/Quan_ly_thu_vien_phuc/images/author/imag-24.jpg';
                                     }
                                 ?>
                                 <tr>
@@ -68,7 +68,7 @@
                                         <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editAuthorModal-<?php echo (int)$tacgia['ma_tac_gia']; ?>">
                                             <i class="fas fa-edit"></i>
                                         </button>
-                                        <a href="tacgia.php?delete_id=<?php echo (int)$tacgia['ma_tac_gia']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xóa tác giả này?');">
+                                        <a href="tacgia.php?delete_id=<?php echo (int)$tacgia['ma_tac_gia']; ?>" class="btn btn-danger btn-sm btn-delete-record">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     </td>
@@ -115,8 +115,11 @@
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label>Đường dẫn ảnh tác giả</label>
-                                                        <input type="text" name="avatar_url" class="form-control" value="<?php echo htmlspecialchars($tacgia['avatar_url'] ?? ''); ?>" placeholder="Ví dụ: images/author/abc.jpg">
+                                                        <label>Ảnh tác giả (Tải lên từ máy hoặc link)</label>
+                                                        <!-- Input phụ giữ lại URL cũ nếu không đổi -->
+                                                        <input type="hidden" name="old_avatar_url" value="<?php echo htmlspecialchars($tacgia['avatar_url'] ?? ''); ?>">
+                                                        <input type="file" class="filepond" name="avatar_url" accept="image/png, image/jpeg, image/gif, image/webp" />
+                                                        <small class="text-muted">Đang dùng: <?php echo htmlspecialchars($tacgia['avatar_url'] ?? 'Chưa có ảnh'); ?></small>
                                                     </div>
 
                                                     <div class="form-group">
@@ -188,8 +191,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Đường dẫn ảnh tác giả</label>
-                            <input type="text" name="avatar_url" class="form-control" placeholder="Ví dụ: images/author/abc.jpg">
+                            <label>Ảnh tác giả (Tải lên từ máy hoặc link)</label>
+                            <input type="file" class="filepond" name="avatar_url" accept="image/png, image/jpeg, image/gif, image/webp" />
                         </div>
 
                         <div class="form-group">
@@ -211,3 +214,56 @@
     </div>
 
 </div>
+
+<!-- FilePond CSS -->
+<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
+<!-- FilePond JS -->
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    FilePond.registerPlugin(FilePondPluginFileEncode, FilePondPluginImagePreview);
+    
+    // Khởi tạo FilePond cho tất cả input có class filepond
+    const inputElements = document.querySelectorAll('input.filepond');
+    Array.from(inputElements).forEach(inputElement => {
+        FilePond.create(inputElement, {
+            storeAsFile: false, // Sử dụng FileEncode
+            labelIdle: 'Kéo thả ảnh vào đây hoặc <span class="filepond--label-action">Chọn từ máy</span>',
+            imagePreviewHeight: 170,
+            imageCropAspectRatio: '1:1',
+            stylePanelLayout: 'compact',
+            styleLoadIndicatorPosition: 'center bottom',
+            styleProgressIndicatorPosition: 'right bottom',
+            styleButtonRemoveItemPosition: 'left bottom',
+            styleButtonProcessItemPosition: 'right bottom',
+        });
+    });
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.addEventListener('click', function(e) {
+    let target = e.target.closest('a.btn-delete-record');
+    if (target) {
+        e.preventDefault();
+        const href = target.getAttribute('href');
+        Swal.fire({
+            title: 'Bạn có chắc chắn muốn xóa?',
+            text: "Dữ liệu không thể khôi phục sau khi xóa!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#e74a3b',
+            cancelButtonColor: '#858796',
+            confirmButtonText: 'Có, Xóa!',
+            cancelButtonText: 'Hủy'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = href;
+            }
+        });
+    }
+});
+</script>

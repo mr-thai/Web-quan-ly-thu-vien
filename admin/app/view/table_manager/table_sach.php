@@ -56,17 +56,12 @@
                                 <td><?php echo (int)$sach['so_luong']; ?></td>
                                 <td><?php echo (int)$sach['so_luong_con']; ?></td>
                                 <td>
-                                    <?php if ((int)$sach['so_luong_con'] > 0): ?>
-                                        <span class="badge badge-success">Còn</span>
-                                    <?php else: ?>
-                                        <span class="badge badge-secondary">Hết</span>
-                                    <?php endif; ?>
                                 </td>
                                 <td class="text-nowrap">
                                     <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editBookModal-<?php echo (int)$sach['ma_sach']; ?>">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <a href="sach.php?delete_id=<?php echo (int)$sach['ma_sach']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có chắc muốn xóa sách này?');">
+                                    <a href="sach.php?delete_id=<?php echo (int)$sach['ma_sach']; ?>" class="btn btn-danger btn-sm btn-delete-record">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
@@ -158,8 +153,11 @@
                                                 </div>
 
                                                 <div class="form-group mt-3 mb-0">
-                                                    <label>URL ảnh sách</label>
-                                                    <input type="text" name="url_anh" class="form-control" value="<?php echo htmlspecialchars($sach['url_anh'] ?? ''); ?>">
+                                                    <label>Ảnh sách (Tải lên từ máy hoặc link)</label>
+                                                    <!-- Input phụ để giữ URL cũ nếu không đổi ảnh -->
+                                                    <input type="hidden" name="old_url_anh" value="<?php echo htmlspecialchars($sach['url_anh'] ?? ''); ?>">
+                                                    <input type="file" class="filepond" name="url_anh" accept="image/png, image/jpeg, image/gif, image/webp" />
+                                                    <small class="text-muted">Đang dùng: <?php echo htmlspecialchars($sach['url_anh'] ?? 'Chưa có ảnh'); ?></small>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -265,8 +263,8 @@
                     </div>
 
                     <div class="form-group mt-3 mb-0">
-                        <label>URL ảnh sách</label>
-                        <input type="text" name="url_anh" class="form-control">
+                        <label>Ảnh bìa sách</label>
+                        <input type="file" class="filepond" name="url_anh" accept="image/png, image/jpeg, image/gif, image/webp" />
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -278,4 +276,59 @@
     </div>
 </div>
 
+<!-- FilePond CSS -->
+<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet" />
+<link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet" />
+<!-- FilePond JS -->
+<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+<script src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    FilePond.registerPlugin(FilePondPluginFileEncode, FilePondPluginImagePreview);
+    
+    // Khởi tạo FilePond cho tất cả các input class filepond
+    const inputElements = document.querySelectorAll('input.filepond');
+    Array.from(inputElements).forEach(inputElement => {
+        FilePond.create(inputElement, {
+            storeAsFile: false, // FileEncode plugin sẽ chuyển file thành base64 hidden input
+            labelIdle: 'Kéo thả ảnh vào đây hoặc <span class="filepond--label-action">Chọn từ máy</span>',
+            imagePreviewHeight: 170,
+            imageCropAspectRatio: '1:1.4',
+            imageResizeTargetWidth: 400,
+            imageResizeTargetHeight: 560,
+            stylePanelLayout: 'compact',
+            styleLoadIndicatorPosition: 'center bottom',
+            styleProgressIndicatorPosition: 'right bottom',
+            styleButtonRemoveItemPosition: 'left bottom',
+            styleButtonProcessItemPosition: 'right bottom',
+        });
+    });
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.addEventListener('click', function(e) {
+    let target = e.target.closest('a.btn-delete-record');
+    if (target) {
+        e.preventDefault();
+        const href = target.getAttribute('href');
+        Swal.fire({
+            title: 'Bạn có chắc chắn muốn xóa?',
+            text: "Dữ liệu không thể khôi phục sau khi xóa!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#e74a3b',
+            cancelButtonColor: '#858796',
+            confirmButtonText: 'Có, Xóa!',
+            cancelButtonText: 'Hủy'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = href;
+            }
+        });
+    }
+});
+</script>
 </div>
