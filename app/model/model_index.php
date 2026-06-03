@@ -46,7 +46,7 @@ function getSachChonBoiTacGia($conn) {
                 GROUP BY ma_sach
             ) a ON s.ma_sach = a.ma_sach
             ORDER BY RAND() 
-            LIMIT 3";
+            LIMIT 6";
     return $conn->query($sql);      
 }
 ?>

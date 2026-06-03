@@ -15,9 +15,9 @@ $authors = $authors ?? false;
 
                 <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="tg-author">
-                        <figure><a href="<?php echo $authorLink; ?>"><img src="<?php echo htmlspecialchars($anh_tac_gia); ?>" alt="image description" ></a></figure>
+                        <figure><a href="<?php echo $authorLink; ?>"><img src="<?php echo htmlspecialchars($anh_tac_gia); ?>" alt="image description" class="img-responsive"></a></figure>
                         <div class="tg-authorcontent">
-                            <h2><a href="<?php echo $authorLink; ?>"><?php echo htmlspecialchars($tenTacGia); ?></a></h2>
+                            <h3><a href="<?php echo $authorLink; ?>"><?php echo htmlspecialchars($tenTacGia); ?></a></h3>
                             <span><?php echo intval($row['so_sach']); ?> Tổng sách</span>
                             <ul class="tg-socialicons">
                                 <li class="tg-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>

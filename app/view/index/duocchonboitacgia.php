@@ -16,7 +16,7 @@ $sach_moi_phat_hanh = $sach_moi_phat_hanh ?? false;
                 <div class="item">
                         <div class="tg-postbook">
                             <figure class="tg-featureimg">
-                                <div class="tg-bookimg"><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>" class="tg-frontcover"><img src="<?= htmlspecialchars($bookImage) ?>" alt="hình ảnh" style="width:200px;height:300px;object-fit:cover;display:block;"></a></div>
+                                <div class="tg-bookimg"><a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>" class="tg-frontcover"><img src="<?= htmlspecialchars($bookImage) ?>" alt="hình ảnh"></a></div>
                                 <div class="tg-hovercontent">
                                     <div class="tg-description"><p>Mô tả sách.</p></div>
                                     <strong class="tg-bookpage">Trang Sách: 206</strong>

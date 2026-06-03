@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/transitions.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/color.css">
+    <link rel="stylesheet" href="css/color.css?v=2">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/cart.css">
 </head>

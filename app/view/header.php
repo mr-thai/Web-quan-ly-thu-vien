@@ -41,7 +41,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <strong class="tg-logo"><a href="index.php"><img src="images/logo.png" alt="logo công ty"></a></strong>
+                    <strong class="tg-logo" style="margin-top: 10px;"><a href="index.php" style="color: var(--primary); font-weight: 800; font-size: 28px; line-height: 1;"><i class="fa fa-book" style="margin-right: 8px;"></i>Manlib</a></strong>
                     <div class="tg-wishlistandcart">
                     <?php
                     $cart_count = 0;

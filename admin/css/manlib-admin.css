@@ -1,0 +1,116 @@
+/* manlib-admin.css */
+
+:root {
+  --primary: #0d9488;       /* Teal 600 */
+  --primary-hover: #0f766e; /* Teal 700 */
+  --surface: #ffffff;
+  --bg: #f8fafc;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --sidebar-bg: #111827;    /* Gray 900 for solid dark sidebar */
+  --sidebar-hover: #1f2937; /* Gray 800 */
+}
+
+/* Sidebar Override (Professional Dark SaaS look) */
+.bg-gradient-primary {
+  background-color: var(--sidebar-bg) !important;
+  background-image: none !important;
+}
+
+.sidebar .nav-item .nav-link {
+  color: #cbd5e1 !important;
+  opacity: 0.85;
+  transition: all 0.2s;
+}
+
+.sidebar .nav-item .nav-link:hover {
+  color: #ffffff !important;
+  background-color: var(--sidebar-hover);
+  opacity: 1;
+}
+
+.sidebar .sidebar-brand {
+  color: #ffffff !important;
+  letter-spacing: 1px;
+}
+
+.sidebar hr.sidebar-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Typography & General */
+body {
+  color: var(--text-main);
+  background-color: var(--bg);
+}
+
+#wrapper #content-wrapper {
+  background-color: var(--bg);
+}
+
+/* Cards */
+.card {
+  border: none !important;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-header {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--border) !important;
+  border-radius: 12px 12px 0 0 !important;
+  padding: 1rem 1.25rem;
+}
+
+.card-header h6 {
+  font-weight: 700 !important;
+  color: var(--primary) !important;
+}
+
+/* Topbar */
+.navbar {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+  background-color: var(--surface) !important;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+}
+
+/* DataTables / Tables */
+.table {
+  color: var(--text-main);
+}
+.table thead th {
+  border-bottom: 2px solid var(--border) !important;
+  color: var(--text-main);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+.table td, .table th {
+  border-top: 1px solid var(--border) !important;
+  vertical-align: middle;
+}
+
+/* Inputs */
+.form-control {
+  border-radius: 8px !important;
+  border-color: var(--border) !important;
+}
+.form-control:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.25) !important;
+}

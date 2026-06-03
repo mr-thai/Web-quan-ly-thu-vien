@@ -21,8 +21,8 @@ $danh_sach = $danh_sach ?? false;
                         <div class="tg-postbook">
                             <figure class="tg-featureimg">
                                 <div class="tg-bookimg">
-                                    <a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>" class="tg-frontcover"><img src="<?= htmlspecialchars($bookImage) ?>" alt="bia sach" style="width:200px;height:300px;object-fit:cover;display:block;"></a>
-                                    <a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>" class="tg-backcover"><img src="<?= htmlspecialchars($bookImage) ?>" alt="bia sach" style="width:200px;height:300px;object-fit:cover;display:block; "></a>
+                                    <a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>" class="tg-frontcover"><img src="<?= htmlspecialchars($bookImage) ?>" alt="bia sach"></a>
+                                    <a href="productdetail.php?id=<?= intval($row['ma_sach']) ?>" class="tg-backcover"><img src="<?= htmlspecialchars($bookImage) ?>" alt="bia sach"></a>
                                 </div>
                             </figure>
                             <div class="tg-postbookcontent">

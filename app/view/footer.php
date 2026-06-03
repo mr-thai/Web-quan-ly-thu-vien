@@ -6,7 +6,7 @@
                 <div class="tg-threecolumns">
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                         <div class="tg-footercol">
-                            <strong class="tg-logo"><a href="javascript:void(0);"><img src="images/flogo.png" alt="hình ảnh"></a></strong>
+                            <strong class="tg-logo"><a href="javascript:void(0);" style="color: white; font-weight: 800; font-size: 32px;"><i class="fa fa-book" style="margin-right: 8px;"></i>Manlib</a></strong>
                             <ul class="tg-contactinfo">
                                 <li><i class="icon-apartment"></i><address>Địa chỉ công ty.</address></li>
                                 <li><i class="icon-phone-handset"></i><span><em>0800 12345</em></span></li>

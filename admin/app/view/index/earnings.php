@@ -1,76 +1,64 @@
 <div class="row">
-    <!-- Earnings (Monthly) Card Example -->
+    <!-- Books Borrowed Card -->
     <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Sách đã mượn trong tháng</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo number_format(isset($borrowedThisMonth) ? $borrowedThisMonth : 0, 0, ',', '.'); ?></div>
+        <div class="card shadow-sm h-100" style="border-radius: 12px; border: none;">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(13, 148, 136, 0.1); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-book fa-lg" style="color: var(--primary);"></i>
                     </div>
-                    <div class="col-auto">
-                        <i class="fas fa-book fa-2x text-gray-300"></i>
-                    </div>
+                    <span class="badge" style="background: rgba(13, 148, 136, 0.1); color: var(--primary);">Tháng này</span>
                 </div>
+                <h6 class="text-muted font-weight-bold text-uppercase mb-1" style="font-size: 11px; letter-spacing: 1px;">Sách đã mượn</h6>
+                <h2 class="font-weight-bold text-gray-900 mb-0"><?php echo number_format(isset($borrowedThisMonth) ? $borrowedThisMonth : 0, 0, ',', '.'); ?></h2>
             </div>
         </div>
     </div>
 
-    <!-- Earnings (Monthly) Card Example -->
+    <!-- Books Returned Card -->
     <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Sách đã trả trong tháng</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo number_format(isset($returnedThisMonth) ? $returnedThisMonth : 0, 0, ',', '.'); ?></div>
+        <div class="card shadow-sm h-100" style="border-radius: 12px; border: none;">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-undo fa-lg" style="color: #10b981;"></i>
                     </div>
-                    <div class="col-auto">
-                        <i class="fas fa-undo fa-2x text-gray-300"></i>
-                    </div>
+                    <span class="badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Tháng này</span>
                 </div>
+                <h6 class="text-muted font-weight-bold text-uppercase mb-1" style="font-size: 11px; letter-spacing: 1px;">Sách đã trả</h6>
+                <h2 class="font-weight-bold text-gray-900 mb-0"><?php echo number_format(isset($returnedThisMonth) ? $returnedThisMonth : 0, 0, ',', '.'); ?></h2>
             </div>
         </div>
     </div>
 
-    <!-- Earnings (Monthly) Card Example -->
+    <!-- Paid Fines Card -->
     <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-info shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tiền phạt đã nộp trong tháng
-                        </div>
-                        <div class="row no-gutters align-items-center">
-                            <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo number_format(isset($paidFinesThisMonth) ? $paidFinesThisMonth: 0, 0, ',', '.'); ?> đ</div>
-                            </div>
-                        </div>
+        <div class="card shadow-sm h-100" style="border-radius: 12px; border: none;">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(59, 130, 246, 0.1); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-coins fa-lg" style="color: #3b82f6;"></i>
                     </div>
-                    <div class="col-auto">
-                        <i class="fas fa-coins fa-2x text-gray-300"></i>
-                    </div>
+                    <span class="badge" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">Tháng này</span>
                 </div>
+                <h6 class="text-muted font-weight-bold text-uppercase mb-1" style="font-size: 11px; letter-spacing: 1px;">Tiền phạt đã nộp</h6>
+                <h2 class="font-weight-bold text-gray-900 mb-0"><?php echo number_format(isset($paidFinesThisMonth) ? $paidFinesThisMonth: 0, 0, ',', '.'); ?> <span style="font-size: 16px; font-weight: normal; color: #94a3b8;">đ</span></h2>
             </div>
         </div>
     </div>
 
-    <!-- Pending Requests Card Example -->
+    <!-- Pending Fines Card -->
     <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-warning shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Số phạt chưa nộp</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo number_format(isset($unpaidFinesCount) ? $unpaidFinesCount : 0, 0, ',', '.'); ?></div>
+        <div class="card shadow-sm h-100" style="border-radius: 12px; border: none;">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(239, 68, 68, 0.1); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-exclamation-triangle fa-lg" style="color: #ef4444;"></i>
                     </div>
-                    <div class="col-auto">
-                        <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
-                    </div>
+                    <span class="badge" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">Tồn đọng</span>
                 </div>
+                <h6 class="text-muted font-weight-bold text-uppercase mb-1" style="font-size: 11px; letter-spacing: 1px;">Phiếu phạt chưa nộp</h6>
+                <h2 class="font-weight-bold text-gray-900 mb-0"><?php echo number_format(isset($unpaidFinesCount) ? $unpaidFinesCount : 0, 0, ',', '.'); ?></h2>
             </div>
         </div>
     </div>

@@ -2,7 +2,10 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-        <div class="sidebar-brand-text mx-3">Quản lý library</div>
+        <div class="sidebar-brand-icon">
+            <i class="fas fa-book"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Manlib Admin</div>
     </a>
 
     <!-- Divider -->

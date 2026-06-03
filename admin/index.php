@@ -9,6 +9,12 @@
     $returnedThisMonth = $dashboardStats['returnedThisMonth'];
     $paidFinesThisMonth = $dashboardStats['paidFinesThisMonth'];
     $unpaidFinesCount = $dashboardStats['unpaidFinesCount'];
+    
+    // New Feature: Recent Activity
+    $recentActivity = thongke_get_recent_activity($conn);
+    
+    // New Feature: Top Readers
+    $topReaders = thongke_get_top_readers($conn);
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -30,6 +36,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/manlib-admin.css?v=2" rel="stylesheet">
 
 </head>
 
@@ -72,12 +79,13 @@
                         <!-- Area Chart -->
                         <?php include "app/view/index/area-chart.php"?>
 
-                        <!-- Pie Chart -->
-                        <?php include "app/view/index/pie-chart.php"?>
+                        <!-- Top Readers -->
+                        <?php include "app/view/index/top-readers.php"?>
 
                     </div>
 
-                    <!-- Content Row -->
+                    <!-- Content Row: New Feature (Recent Activity) -->
+                    <?php include "app/view/index/recent-activity.php"?>
                
                 </div>
                 <!-- /.container-fluid -->
@@ -122,7 +130,6 @@
 
     <script>
         window.dashboardAreaChartData = <?php echo json_encode($dashboardAreaChart, JSON_UNESCAPED_UNICODE); ?>;
-        window.dashboardPieChartData = <?php echo json_encode($dashboardPieChart, JSON_UNESCAPED_UNICODE); ?>;
     </script>
 
     <!-- Bootstrap core JavaScript-->
@@ -140,7 +147,6 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 

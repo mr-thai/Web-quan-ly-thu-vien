@@ -1,114 +1,584 @@
-/*=============================================
-			Theme Text Color
-=============================================*/
-a,
-p a,
-p a:hover,
-a:hover,
-a:focus,
-a:active,
-.tg-stars span:after,
-.tg-textbox h3 span,
-.tg-bookprice ins,
-.tg-newsletter h4,
-.tg-404errorcontent span,
-.tg-widget ul li:hover a,
-.tg-widget ul li a:hover,
-.tg-widget ul li:hover a span,
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #4f46e5;       /* Indigo 600 */
+  --primary-hover: #4338ca; /* Indigo 700 */
+  --secondary: #0ea5e9;     /* Sky 500 */
+  --accent: #f43f5e;        /* Rose 500 */
+  --background: #f8fafc;    /* Slate 50 */
+  --surface: #ffffff;
+  --text-main: #1e293b;     /* Slate 800 */
+  --text-muted: #64748b;    /* Slate 500 */
+  --border-color: #e2e8f0;  /* Slate 200 */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base resets for a modern look */
+body, h1, h2, h3, h4, h5, h6, p, a, span, button, input, div {
+  font-family: 'Inter', sans-serif !important;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-main);
+}
+
+/* Theme Text Color */
+a, p a, p a:hover, a:hover, a:focus, a:active,
+.tg-stars span:after, .tg-textbox h3 span,
+.tg-bookprice ins, .tg-newsletter h4,
+.tg-404errorcontent span, .tg-widget ul li:hover a,
+.tg-widget ul li a:hover, .tg-widget ul li:hover a span,
 .tg-widget ul li:hover a em,
-.tg-relatedbooks .tg-postbook .tg-bookprice ins{ color: #b22565; }
-/*=============================================
-			Theme Background Color
-=============================================*/
-.tg-btn:hover,
-.tg-btn.tg-active,
-.tg-navigationarea,
-.owl-prev:hover,
-.owl-next:hover,
-.tg-testimonial figure:before,
-.tg-headervtwo .tg-formsearch fieldset button,
+.tg-relatedbooks .tg-postbook .tg-bookprice ins {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* Typography updates */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+p { color: var(--text-muted); line-height: 1.6; }
+
+/* Theme Background Color */
+.tg-btn:hover, .tg-btn.tg-active, .owl-prev:hover, .owl-next:hover,
+.tg-testimonial figure:before, .tg-headervtwo .tg-formsearch fieldset button,
 .tg-homeslidervtwo .tg-slidercontent .tg-btns .tg-btn:hover,
 .tg-homeslidervtwo .tg-slidercontent .tg-btns .tg-btn.tg-active,
-.tg-breadcrumb,
-#seconds,
-.tg-quantityholder .minus:hover,
-.tg-quantityholder .plus:hover,
-.tg-themetabs li a:before,
-.tg-tag:hover,
-.tg-btnreply:hover{background:#b22565;}
-/*=============================================
-			Theme Border Color
-=============================================*/
-textarea:focus,
-.tg-btn:hover,
-.tg-btn.tg-active,
-input:focus,
-.select select:focus,
-.form-control:focus,
-.tg-themedropdownmenu,
-.owl-prev:hover,
-.owl-next:hover,
-.tg-pickedbyauthor .tg-postbook:hover,
-.tg-testimonial figure img,
-.tg-footer,
-.tg-quantityholder .minus:hover,
-.tg-quantityholder .plus:hover,
-.tg-tag:hover,
-.tg-comments li .tg-authorbox:hover,
-.tg-comments li .tg-authorbox:hover .tg-bottomarrow,
-.tg-btnreply:hover{ border-color: #b22565;}
-/*=============================================
-			Theme Shadow Color
-=============================================*/
-.tg-btn:hover,
-.tg-btn.tg-active {
-	box-shadow:inset 0 -2px 0 0 #8e1e51;
-	box-shadow:inset 0 -2px 0 0 rgba(0, 0, 0, 0.20);
+.tg-breadcrumb, #seconds, .tg-quantityholder .minus:hover,
+.tg-quantityholder .plus:hover, .tg-themetabs li a:before,
+.tg-tag:hover, .tg-btnreply:hover {
+  background: var(--primary);
 }
-/*=============================================
-			Theme Secondary Color
-=============================================*/
+
+.tg-userlogin .tg-themedropdownmenu {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* Tables Styling (For Cart and Profile) */
+.table {
+  width: 100%;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 30px;
+}
+.table thead th {
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 15px;
+  border: none !important;
+}
+.table tbody td {
+  padding: 15px;
+  vertical-align: middle !important;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+.table tbody tr:hover td {
+  background: rgba(79, 70, 229, 0.02);
+}
+
+/* Pagination */
+.tg-pagination ul {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+  padding: 0;
+  list-style: none;
+}
+.tg-pagination ul li {
+  list-style: none;
+}
+.tg-pagination ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  color: var(--text-main);
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  text-decoration: none;
+}
+.tg-pagination ul li.tg-active a,
+.tg-pagination ul li a:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  .tg-sectionhead {
+    margin-bottom: 25px;
+  }
+  .tg-sectionhead h2 {
+    font-size: 24px !important;
+  }
+  .tg-btn, .btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  .tg-postbookcontent {
+    padding-top: 10px;
+  }
+  .tg-booktitle h3 {
+    height: 42px;
+  }
+  .tg-booktitle h3 a {
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .table thead th, .table tbody td {
+    padding: 10px;
+    font-size: 12px;
+  }
+}
+
+/* Header & Navigation Re-design */
+.tg-header {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.tg-topbar {
+  background: var(--text-main);
+  color: white;
+  padding: 8px 0;
+  font-size: 13px;
+}
+.tg-topbar a { color: #cbd5e1; }
+.tg-topbar a:hover { color: white; }
+
+.tg-middlecontainer {
+  padding: 20px 0;
+}
+
+.tg-navigationarea {
+  background: transparent !important;
+  border-top: 1px solid var(--border-color);
+  padding: 0;
+}
+
+.tg-nav ul li a {
+  color: var(--text-main) !important;
+  font-weight: 600;
+  font-size: 15px;
+  text-transform: capitalize;
+  padding: 20px 15px;
+  display: inline-block;
+  transition: var(--transition);
+}
+
+.tg-nav ul li a:hover {
+  color: var(--primary) !important;
+  background: rgba(79, 70, 229, 0.05);
+}
+
+/* Cards (Books) */
+.tg-postbook {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 15px;
+  margin-bottom: 30px;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  overflow: hidden;
+  text-align: center;
+}
+
+.tg-postbook:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-hover);
+}
+
+.tg-bookimg img {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  margin: 0 auto;
+  transition: var(--transition);
+}
+
+.tg-postbook:hover .tg-bookimg img {
+  transform: scale(1.05);
+}
+
+.tg-postbookcontent {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tg-bookscategories {
+  min-height: 22px;
+  margin-bottom: 5px;
+}
+
+.tg-booktitle h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 48px;
+  margin-bottom: 8px !important;
+}
+
+.tg-booktitle h3 a {
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+.tg-booktitle h3 a:hover { color: var(--primary); }
+
+.tg-bookwriter {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 24px;
+  margin-bottom: 10px;
+}
+
+.tg-bookwriter a {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Buttons */
+.tg-btn, .btn {
+  background: var(--primary);
+  color: white !important;
+  border-radius: var(--radius-full);
+  padding: 10px 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: none;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.tg-btn i, .tg-btn em {
+  float: none !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+}
+
+.tg-btn:hover, .btn:hover {
+  background: var(--primary-hover) !important;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  color: white !important;
+}
+
+.tg-btn.tg-active {
+  background: var(--secondary);
+}
+
+/* Forms & Inputs */
+.form-control, input[type="text"], input[type="password"], input[type="email"], textarea {
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--border-color) !important;
+  padding: 12px 20px !important;
+  font-size: 15px !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: var(--transition) !important;
+  background: var(--surface) !important;
+}
+
+.form-control:focus, input:focus, textarea:focus {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1) !important;
+  outline: none !important;
+}
+
+/* Search Box */
+.tg-formsearch fieldset {
+  position: relative;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+.tg-formsearch fieldset:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+.tg-formsearch fieldset input {
+  border: none !important;
+  box-shadow: none !important;
+  padding-right: 60px !important;
+}
+.tg-formsearch fieldset button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0 var(--radius-full) var(--radius-full) 0;
+  transition: var(--transition);
+}
+.tg-formsearch fieldset button:hover {
+  background: var(--primary-hover);
+}
+
+/* Theme Secondary Color */
 .tg-bookscategories li a:hover,
-.tg-bookwriter:hover a,
 .tg-contactdetail .tg-contactinfo li span em a,
 .tg-newslist .tg-post .tg-postcontent .tg-description p a,
 .tg-addreviews a,
 .tg-productcontent .tg-description p a,
 .tg-alsoavailable figure figcaption ul li:hover span,
-.tg-widget ul li a.tg-btnviewall{ color: #55acee; }
+.tg-widget ul li a.tg-btnviewall {
+  color: var(--secondary);
+}
 
+/* Mini Cart */
+.tg-minicartdropdown .tg-btnthemedropdown {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-sm);
+}
+.tg-minicartdropdown .tg-themebadge {
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+.tg-minicartdropdown:hover .tg-btnthemedropdown {
+  border-color: var(--primary);
+  color: var(--primary);
+}
 
+/* Dropdown Menu */
+.tg-themedropdownmenu {
+  border-radius: var(--radius-md);
+  border: none;
+  box-shadow: var(--shadow-lg);
+  padding: 15px;
+  min-width: 250px;
+}
+.tg-themedropdownmenu li a {
+  padding: 10px 15px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+.tg-themedropdownmenu li a:hover {
+  background: var(--background);
+  color: var(--primary) !important;
+}
 
+/* Inner Banner */
+.tg-innerbanner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important;
+  padding: 60px 0;
+  text-align: center;
+}
+.tg-innerbanner h1 {
+  color: white;
+  font-size: 42px !important;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.tg-breadcrumb {
+  background: rgba(255,255,255,0.2) !important;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+}
+.tg-breadcrumb li, .tg-breadcrumb li a {
+  color: white !important;
+  font-weight: 500;
+}
+.tg-breadcrumb li.tg-active {
+  color: rgba(255,255,255,0.8) !important;
+}
 
+/* Footer */
+.tg-footer {
+  background: var(--text-main);
+  color: var(--border-color);
+  padding-top: 60px;
+  border-top: 5px solid var(--primary);
+  margin-top: 60px;
+}
+.tg-footer h3 {
+  color: white;
+}
+.tg-footer a {
+  color: var(--text-muted);
+}
+.tg-footer a:hover {
+  color: white;
+}
 
-/*=============================================
-			Theme Tags Color
-=============================================*/
-.tg-themetag { background: #f16945; }
+/* Miscellaneous Tags & Badges */
+.tg-themetag { background: var(--accent); color: white; padding: 4px 12px; border-radius: var(--radius-full); font-size: 12px; font-weight: 600; }
 
-.tg-themetag:before { border-color: #f16945; }
+/* Counter Colors */
+.tg-drama .tg-collectioncountericon { background: var(--primary); }
+.tg-drama h2 { color: var(--primary); }
+.tg-horror .tg-collectioncountericon { background: var(--secondary); }
+.tg-horror h2 { color: var(--secondary); }
+.tg-romance .tg-collectioncountericon { background: var(--accent); }
+.tg-romance h2 { color: var(--accent); }
+.tg-fashion .tg-collectioncountericon { background: #10b981; } /* Emerald */
+.tg-fashion h2 { color: #10b981; }
 
+/* Enhanced Section Headings */
+.tg-sectionhead {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 15px;
+  padding-right: 0 !important;
+  border-bottom: none !important;
+}
+.tg-sectionhead h2 {
+  font-size: 32px !important;
+  font-weight: 800;
+  color: var(--text-main);
+  text-transform: capitalize;
+  margin: 0 !important;
+  line-height: 1.2;
+  float: none !important;
+}
+.tg-sectionhead h2 span {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.tg-sectionhead:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: var(--radius-full);
+}
+.tg-sectionhead .tg-btn {
+  float: none !important;
+  margin-top: 25px !important;
+}
 
+/* Home Slider Overlay */
+.tg-homeslidervtwo .item figure:before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 100%);
+  z-index: 1;
+}
+.tg-slidercontent {
+  z-index: 2;
+  position: relative;
+}
 
+/* Fix product image sizing */
+.tg-bookimg img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
 
+/* Fix author images */
+.tg-author figure img, .tg-author img, .tg-widgetblogpost figure img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
 
+/* Author Text Fix */
+.tg-authorcontent h3, .tg-author h3 {
+  font-size: 18px !important;
+  margin-top: 10px;
+}
 
+/* Page Spacing */
+.tg-sectionspace {
+  padding: 80px 0;
+}
+.tg-main {
+  background: var(--background);
+}
 
-
-/*=============================================
-			Theme Counter Color
-=============================================*/
-.tg-drama .tg-collectioncountericon{background: #93648d;}
-.tg-drama h2,
-.tg-devlivery .tg-clientserviceicon i{color: #93648d;}
-.tg-horror .tg-collectioncountericon,
-.tg-widget ul li:hover:before{background: #4cc3d9;}
-.tg-horror h2,
-.tg-discount .tg-clientserviceicon i{color: #4cc3d9;}
-.tg-romance .tg-collectioncountericon{background: #7bc8a4;}
-.tg-romance h2,
-.tg-quality .tg-clientserviceicon i{color: #7bc8a4;}
-.tg-fashion .tg-collectioncountericon{background: #f16745;}
-.tg-fashion h2,
-.tg-delevrystock li span em,
-.tg-support .tg-clientserviceicon i{color: #f16745;}
+/* Glassmorphism User Login Dropdown */
+.tg-userlogin .tg-themedropdownmenu {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}

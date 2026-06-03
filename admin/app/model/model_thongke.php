@@ -167,3 +167,40 @@ function thongke_get_fine_breakdown($conn) {
 
     return $data;
 }
+
+function thongke_get_recent_activity($conn) {
+    $sql = "SELECT pm.ma_phieu_muon, nd.ho_ten, s.ten_sach, pm.ngay_muon, ctpm.trang_thai, ctpm.ngay_tra_thuc_te
+            FROM chi_tiet_phieu_muon ctpm
+            JOIN phieu_muon pm ON ctpm.ma_phieu_muon = pm.ma_phieu_muon
+            JOIN nguoi_dung nd ON pm.ma_nguoi_dung = nd.ma_nguoi_dung
+            JOIN sach s ON ctpm.ma_sach = s.ma_sach
+            ORDER BY COALESCE(ctpm.ngay_tra_thuc_te, pm.ngay_muon) DESC
+            LIMIT 6";
+    $result = $conn->query($sql);
+    $data = [];
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+    }
+    return $data;
+}
+
+function thongke_get_top_readers($conn) {
+    $sql = "SELECT nd.ho_ten, nd.so_dien_thoai, COUNT(ctpm.ma_chi_tiet_phieu) as total_borrows
+            FROM chi_tiet_phieu_muon ctpm
+            JOIN phieu_muon pm ON ctpm.ma_phieu_muon = pm.ma_phieu_muon
+            JOIN nguoi_dung nd ON pm.ma_nguoi_dung = nd.ma_nguoi_dung
+            GROUP BY nd.ma_nguoi_dung
+            ORDER BY total_borrows DESC
+            LIMIT 5";
+    $result = $conn->query($sql);
+    $data = [];
+    if ($result) {
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+    }
+    return $data;
+}
+?>

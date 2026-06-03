@@ -4,6 +4,7 @@
                 FROM sach s 
                 JOIN tac_gia tg ON s.ma_tacgia = tg.ma_tac_gia 
                 LEFT JOIN anh_sach a ON s.ma_sach = a.ma_sach AND a.anh_chinh = 1 
+                ORDER BY s.ma_sach DESC 
                 LIMIT 5";
         return $conn->query($sql);
     }
@@ -25,11 +26,12 @@
         return $conn->query($sql);
     }   
     function getSachBanChay($conn) {
-        $sql = "SELECT s.ma_sach, s.ten_sach, tg.ho_ten as ten_tac_gia, a.url_anh 
+        $sql = "SELECT s.ma_sach, s.ten_sach, s.ten_the_loai, tg.ho_ten as ten_tac_gia, a.url_anh 
                 FROM sach s 
                 JOIN tac_gia tg ON s.ma_tacgia = tg.ma_tac_gia 
                 LEFT JOIN anh_sach a ON s.ma_sach = a.ma_sach AND a.anh_chinh = 1 
-                LIMIT 1";
+                ORDER BY s.ma_sach ASC
+                LIMIT 8";
         return $conn->query($sql);
     }
     function getSachChiTiet($conn, $ma_sach) {

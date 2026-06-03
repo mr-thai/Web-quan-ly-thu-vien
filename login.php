@@ -15,7 +15,7 @@ $next = isset($_GET['next']) ? $_GET['next'] : '';
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/color.css">
+    <link rel="stylesheet" href="css/color.css?v=2">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
@@ -24,7 +24,7 @@ $next = isset($_GET['next']) ? $_GET['next'] : '';
             <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
                 <div class="panel panel-default">
                     <div class="panel-heading text-center">
-                        <img src="images/logo.png" alt="logo" class="img-responsive center-block">
+                        <h2 class="text-center" style="color: var(--primary); font-weight: 800; font-size: 36px; margin-bottom: 30px;"><i class="fa fa-book"></i> Manlib</h2>
                         <h3 class="panel-title">Đăng nhập hệ thống</h3>
                         <p class="text-muted">Sử dụng tài khoản thư viện của bạn để tiếp tục.</p>
                     </div>

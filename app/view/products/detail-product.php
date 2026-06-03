@@ -3,14 +3,14 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 			<div class="tg-postbook">
-				<figure class="tg-featureimg">
-					<img src="<?php echo htmlspecialchars($bookImage ?? 'default-book-image.jpg'); ?>" alt="<?php echo htmlspecialchars($book['ten_sach'] ?? 'Sách'); ?>" style="width:100%;max-width:320px;height:420px;object-fit:cover;display:block;margin:0 auto;">
+				<figure class="tg-featureimg" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); overflow: hidden; max-width: 350px; margin: 0 auto;">
+					<img src="<?php echo htmlspecialchars($bookImage ?? 'default-book-image.jpg'); ?>" alt="<?php echo htmlspecialchars($book['ten_sach'] ?? 'Sách'); ?>" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block;">
 				</figure>
 				<div class="tg-postbookcontent">
 					<form method="GET" action="app/controller/control_muon_sach.php" style="display:inline;">
 						<input type="hidden" name="action" value="add">
 						<input type="hidden" name="id" value="<?php echo (int)($book['ma_sach'] ?? 0); ?>">
-						<button type="submit" class="tg-btn tg-active tg-btn-lg" onclick="return confirm('Thêm vào giỏ mượn?')">
+						<button type="submit" class="tg-btn tg-active tg-btn-lg" onclick="return confirm('Thêm vào giỏ mượn?')" style="width: 100%; margin-top: 20px; height: 50px; font-size: 16px;">
 							<i class="fa fa-book"></i> Mượn sách
 						</button>
 					</form>

@@ -9,8 +9,8 @@ $products = $products ?? false;
 		<div class="tg-postbook">
 			<figure class="tg-featureimg">
 				<div class="tg-bookimg">
-					<a href="productdetail.php?id=<?php echo $row['ma_sach']; ?>" class="tg-frontcover"><img src="<?php echo $bookImage; ?>" alt="image description" style="width:200px;height:300px;object-fit:cover;display:block;"></a>
-					<div class="tg-backcover"><img src="<?php echo $bookImage; ?>" alt="image description" style="width:200px;height:300px;object-fit:cover;display:block;"></div>
+					<a href="productdetail.php?id=<?php echo $row['ma_sach']; ?>" class="tg-frontcover"><img src="<?php echo $bookImage; ?>" alt="image description"></a>
+					<div class="tg-backcover"><img src="<?php echo $bookImage; ?>" alt="image description"></div>
 				</div>
 			</figure>
 			<div class="tg-postbookcontent">
