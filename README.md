@@ -1,84 +1,84 @@
-# GIDOC - Hệ Thống Quản Lý Thư Viện Trực Tuyến
+# Hệ Thống Quản Lý Thư Viện (Web-quan-ly-thu-vien)
 
-> GIDOC (trước đây được biết đến với tên gọi Manlib) là một hệ thống ứng dụng web quản lý thư viện sách trực tuyến. Dự án cung cấp một nền tảng hiện đại giúp độc giả dễ dàng tìm kiếm, xem chi tiết và thực hiện các thao tác mượn/trả sách tự động. Đồng thời, hỗ trợ ban quản trị thư viện theo dõi và vận hành tài liệu một cách hiệu quả.
+Đây là một ứng dụng web Quản lý Thư viện được xây dựng bằng **PHP** và cơ sở dữ liệu **MySQL**. Hệ thống cung cấp giao diện cho cả Người đọc (User) và Quản trị viên (Admin) với đầy đủ các tính năng mượn/trả sách, quản lý người dùng, tác giả, và xử lý vi phạm.
 
-## 🚀 Tính năng chính
+## Tính năng nổi bật
 
-### Dành cho Độc giả (Người dùng)
-- **Đăng ký & Đăng nhập**: Quản lý tài khoản cá nhân, bảo mật thông tin.
-- **Khám phá Sách**: Xem danh sách các đầu sách nổi bật, sách bán chạy, sách mới phát hành.
-- **Tìm kiếm & Lọc**: Dễ dàng tìm kiếm sách theo tên, danh mục hoặc tác giả.
-- **Giỏ mượn sách**: Thêm sách vào "giỏ mượn" và tiến hành thủ tục mượn sách trực tuyến nhanh chóng.
-- **Quản lý "Sách của tôi"**: Theo dõi danh sách các cuốn sách đang mượn, lịch sử mượn trả.
-- **Thông tin Tác giả**: Tra cứu thông tin chi tiết về các tác giả và các tác phẩm của họ.
+### Dành cho Người đọc (User)
+- Đăng ký / Đăng nhập tài khoản.
+- Xem danh sách sách và thông tin chi tiết từng cuốn sách.
+- Xem thông tin tác giả.
+- Giỏ mượn sách (Thêm sách vào giỏ để mượn).
+- Theo dõi các sách đã mượn ("Sách của tôi").
+- Xem lịch sử mượn và chi tiết phiếu mượn.
+- Giao diện thân thiện, dễ sử dụng.
 
 ### Dành cho Quản trị viên (Admin)
-- Bảng điều khiển (Dashboard) thống kê tổng quan.
-- Quản lý danh mục sách, thêm/sửa/xóa sách.
-- Quản lý người dùng.
-- Theo dõi, xét duyệt và quản lý các đơn mượn/trả sách.
+- **Quản lý Thống kê (Dashboard)**: Xem tổng quan về sách, lượt mượn, người dùng.
+- **Quản lý Sách**: Thêm, sửa, xóa thông tin sách, cập nhật hình ảnh.
+- **Quản lý Tác giả**: Quản lý thông tin các tác giả.
+- **Quản lý Người dùng**: Xem và quản lý danh sách độc giả.
+- **Quản lý Phiếu mượn**: Phê duyệt các yêu cầu mượn sách từ người dùng.
+- **Xử lý Trả sách**: Ghi nhận trả sách và cập nhật trạng thái kho.
+- **Quản lý Lịch sử mượn**: Xem lại lịch sử các giao dịch.
+- **Xử lý Vi phạm / Nộp phạt**: Quản lý độc giả trả sách muộn, làm mất sách và ghi nhận nộp phạt.
 
-## 🛠 Công nghệ sử dụng
+## Yêu cầu hệ thống
 
-- **Frontend**: HTML5, CSS3, JavaScript, jQuery, Bootstrap, Owl Carousel.
-- **Backend**: PHP thuần.
-- **Database**: MySQL.
+Để chạy được dự án này, máy tính của bạn cần cài đặt một môi trường máy chủ ảo cục bộ như:
+- **XAMPP** (Khuyên dùng) / WAMP / MAMP / Laragon.
+- **PHP** phiên bản >= 7.x
+- **MySQL** / MariaDB.
 
-## 📋 Yêu cầu hệ thống
+## Hướng dẫn cài đặt
 
-Để chạy dự án trên máy cá nhân (Localhost), bạn cần cài đặt một trong các phần mềm tạo máy chủ ảo như:
-- [XAMPP](https://www.apachefriends.org/index.html) (Khuyên dùng)
-- [WAMP](https://www.wampserver.com/en/)
-- Hoặc bất kỳ môi trường nào hỗ trợ **PHP 7.x/8.x** và **MySQL**.
-
-## ⚙️ Hướng dẫn cài đặt
-
-Thực hiện các bước sau để chạy dự án trên máy của bạn:
-
-1. **Clone repository về máy:**
+1. **Clone hoặc tải mã nguồn:**
+   Tải hoặc git clone repository này về máy tính của bạn.
    ```bash
-   git clone <đường_dẫn_repo_của_bạn>
+   git clone https://github.com/username/Web-quan-ly-thu-vien.git
    ```
 
-2. **Di chuyển dự án vào thư mục máy chủ ảo:**
-   - Nếu dùng XAMPP: Copy toàn bộ thư mục dự án vào thư mục `C:\xampp\htdocs\`.
-   - Nếu dùng WAMP: Copy vào `C:\wamp\www\`.
-   - *Đổi tên thư mục dự án thành `gidoc` cho tiện sử dụng nếu muốn.*
+2. **Cấu hình thư mục chứa code (Quan trọng):**
+   - Copy toàn bộ thư mục dự án và đổi tên thành `Quan_ly_thu_vien_phuc` (Điều này bắt buộc vì hệ thống cấu hình đường dẫn tuyệt đối với tên thư mục này trong `app/config.php`).
+   - Đặt thư mục `Quan_ly_thu_vien_phuc` vào thư mục gốc của web server (Ví dụ: đối với XAMPP là thư mục `htdocs`).
+   - Đường dẫn đúng trên XAMPP sẽ là: `C:\xampp\htdocs\Quan_ly_thu_vien_phuc`
 
-3. **Cài đặt Cơ sở dữ liệu (Database):**
-   - Mở ứng dụng XAMPP/WAMP và khởi động **Apache** và **MySQL**.
-   - Truy cập vào phpMyAdmin qua trình duyệt: `http://localhost/phpmyadmin/`
-   - Tạo một database mới với tên: `qltv` (Bảng mã: `utf8_general_ci` hoặc `utf8mb4_unicode_ci`).
-   - Chọn database vừa tạo, chuyển sang tab **Import** (Nhập).
-   - Chọn file `qltv.sql` nằm ở thư mục gốc của dự án và nhấn **Go** (Thực hiện) để import dữ liệu.
+3. **Cấu hình Cơ sở dữ liệu (Database):**
+   - Mở trình duyệt và truy cập vào công cụ quản lý MySQL: `http://localhost/phpmyadmin/`
+   - Tạo một cơ sở dữ liệu mới với tên là: `qltv`
+   - Chọn mục **Import** (Nhập), tải lên file `qltv.sql` nằm trong thư mục gốc của dự án và nhấn **Go** (Thực hiện) để tạo các bảng dữ liệu.
 
-4. **Cấu hình kết nối Database:**
-   - Mở file `app/config.php` (nếu có) hoặc các file kết nối database tương ứng.
-   - Kiểm tra và đảm bảo thông tin kết nối đúng với môi trường của bạn (thường username là `root` và password để trống).
+4. **Kiểm tra thông tin kết nối Database:**
+   Mở file `app/config.php` và đảm bảo thông tin kết nối đúng với cấu hình máy chủ của bạn (mặc định của XAMPP thường là user: `root`, mật khẩu để trống):
+   ```php
+   $host = "localhost";
+   $user = "root";
+   $pass = "";
+   $db   = "qltv";
+   ```
 
-5. **Chạy dự án:**
-   - Mở trình duyệt và truy cập: `http://localhost/Web-quan-ly-thu-vien/` (hoặc `http://localhost/gidoc/` tùy theo tên thư mục bạn đã đặt ở bước 2).
+5. **Chạy ứng dụng:**
+   - Đảm bảo đã bật **Apache** và **MySQL** trên bảng điều khiển XAMPP/WAMP.
+   - Mở trình duyệt web và truy cập vào địa chỉ:
+     - Dành cho Người đọc: `http://localhost/Quan_ly_thu_vien_phuc/`
+     - Dành cho Admin: `http://localhost/Quan_ly_thu_vien_phuc/admin/`
 
-## 📁 Cấu trúc thư mục chính
+## Cấu trúc thư mục chính
 
 ```text
-├── admin/          # Khu vực dành riêng cho Quản trị viên
-├── app/            # Chứa các file xử lý logic (Controller), giao diện (View) và cấu hình (Config)
-├── css/            # Các file stylesheet
-├── fonts/          # Font chữ sử dụng trong dự án
-├── images/         # Hình ảnh giao diện và banner
-├── js/             # Các file JavaScript và thư viện (jQuery, Bootstrap js, Owl Carousel)
-├── uploads/        # Thư mục lưu trữ hình ảnh tải lên (ảnh bìa sách, avatar...)
-├── qltv.sql        # File backup cơ sở dữ liệu MySQL
-├── index.php       # Trang chủ
-├── login.php       # Trang đăng nhập
-├── register.php    # Trang đăng ký
-├── cartmuon.php    # Trang giỏ mượn sách
-└── ...             # Các trang tính năng khác
+Web-quan-ly-thu-vien/
+│
+├── admin/                  # Giao diện và logic chức năng dành cho Quản trị viên
+├── app/                    # Chứa mã nguồn chính (Mô hình MVC: controller, model, view)
+│   └── config.php          # File cấu hình kết nối CSDL và các hàm tiện ích
+├── css/                    # Các file stylesheet CSS
+├── fonts/                  # Chứa font chữ tùy chỉnh
+├── images/                 # Hình ảnh sách, banner và giao diện tĩnh
+├── js/                     # Các file script JavaScript
+├── uploads/                # Hình ảnh được người dùng/admin upload lên (vd: ảnh sách)
+├── qltv.sql                # File dump CSDL MySQL để import
+└── ...                     # Các file PHP giao diện chính (index.php, login.php, register.php, ...)
 ```
 
-## 🤝 Đóng góp
-Mọi ý kiến đóng góp xin vui lòng tạo Issue hoặc gửi Pull Request. Chúng tôi luôn hoan nghênh những ý tưởng mới để hoàn thiện GIDOC!
-
-## 📄 Giấy phép
-Dự án được phát triển cho mục đích học tập và tham khảo.
+## Đóng góp
+Nếu bạn muốn cải thiện dự án, vui lòng fork repository này và tạo pull request hoặc mở các issues để báo lỗi / đề xuất tính năng mới.
